@@ -12,8 +12,8 @@ int main(int argc, char** argv){
     std::ifstream i("../config1.json");
     nlohmann::json j;
     i >> j;
-    //  std::cout<<j;
-    std::cout<<j["tv_series"];
+    // std::cout<<j;
+    std::cout<<j["movies"];
     //std::cout <<std::setw(4) << j << std::endl;
 
 
