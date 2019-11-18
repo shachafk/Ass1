@@ -1,4 +1,4 @@
-/users/studs/bsc/2020/shachafk/Clion/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /users/studs/bsc/2020/shachafk/CLionProjects/Ass1
+/users/studs/bsc/2020/amitmich/Clion/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1
 -- The C compiler identification is GNU 7.4.0
 -- The CXX compiler identification is GNU 7.4.0
 -- Check for working C compiler: /usr/bin/cc
@@ -15,4 +15,4 @@
 -- Detecting CXX compile features - done
 -- Configuring done
 -- Generating done
--- Build files have been written to: /users/studs/bsc/2020/shachafk/CLionProjects/Ass1/cmake-build-debug
+-- Build files have been written to: /users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/cmake-build-debug
