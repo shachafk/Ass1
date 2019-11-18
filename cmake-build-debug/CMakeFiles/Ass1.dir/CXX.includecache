@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/users/studs/bsc/2020/shachafk/CLionProjects/Ass1/include/Action.h
+string
+-
+iostream
+-
+
+/users/studs/bsc/2020/shachafk/CLionProjects/Ass1/include/Session.h
+vector
+-
+unordered_map
+-
+string
+-
+Action.h
+/users/studs/bsc/2020/shachafk/CLionProjects/Ass1/include/Action.h
+
+/users/studs/bsc/2020/shachafk/CLionProjects/Ass1/src/main.cpp
+iostream
+-
+../include/Session.h
+/users/studs/bsc/2020/shachafk/CLionProjects/Ass1/include/Session.h
+
