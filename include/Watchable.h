@@ -14,22 +14,36 @@ class Session;
 class Watchable{
 public:
     Watchable(long id, int length, const std::vector<std::string>& tags);
+    Watchable(const Watchable &Watchable);
     virtual ~Watchable();
     virtual std::string toString() const = 0;
     virtual Watchable* getNextWatchable(Session&) const = 0;
+    virtual long getId() const =0;
+    virtual int getLength() const =0;
+    virtual std::vector<std::string>& getTag() const =0;
 private:
     const long id;
     int length;
     std::vector<std::string> tags;
+
+    long getId();
+
+    int getLength();
+
+    std::vector<std::string> &getTag();
 };
 
 class Movie : public Watchable{
 public:
-    Movie(long id, const std::string& name, int length, const std::vector<std::string>& tags);
+    Movie(long id, const std::string *name, int length, const std::vector<std::string>& tags);
+    Movie(const Movie &Movie);
     virtual std::string toString(bool print_full=false) const;
     virtual Watchable* getNextWatchable(Session&) const;
+    virtual std::string getName();
 private:
     std::string name;
+
+    std::string toString() const;
 };
 
 
@@ -43,6 +57,14 @@ private:
     int season;
     int episode;
     long nextEpisodeId;
+
+    const std::string &getseriesName();
+
+    std::string toString() const;
+
+    int getSeason();
+
+    int getEpisode();
 };
 
 #endif
