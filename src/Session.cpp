@@ -8,7 +8,7 @@ using namespace std;
 #include "../include/json.hpp"
 #include "../include/Watchable.h"
 
-Session::Session(const std::string &configFilePath):content(),actionsLog(),userMap(),activeUser(){this->loadContents(configFilePath);}//
+Session::Session(const std::string &configFilePath):content(),actionsLog(),userMap({{ "default", activeUser }}){this->loadContents(configFilePath);}//
 Session::~Session(){};
 void Session::start(){
     cout<<"SPLFLIX is now on!"<<endl;
