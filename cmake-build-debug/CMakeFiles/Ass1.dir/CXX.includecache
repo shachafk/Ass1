@@ -6,13 +6,13 @@
 
 #IncludeRegexTransform: 
 
-/users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/include/Action.h
+/users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/include/Action.h
 string
 -
 iostream
 -
 
-/users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/include/Session.h
+/users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/include/Session.h
 vector
 -
 unordered_map
@@ -20,9 +20,25 @@ unordered_map
 string
 -
 Action.h
-/users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/include/Action.h
+/users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/include/Action.h
 
-/users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/include/json.hpp
+/users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/include/User.h
+vector
+-
+string
+-
+unordered_set
+-
+unordered_map
+-
+
+/users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/include/Watchable.h
+string
+-
+vector
+-
+
+/users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/include/json.hpp
 algorithm
 -
 cassert
@@ -356,7 +372,19 @@ limits
 type_traits
 -
 
-/users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/src/main.cpp
+/users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/src/Action.cpp
+../include/Action.h
+/users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/include/Action.h
+
+/users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/src/Session.cpp
+../include/Session.h
+/users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/include/Session.h
+
+/users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/src/User.cpp
+../include/User.h
+/users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/include/User.h
+
+/users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/src/main.cpp
 iostream
 -
 fstream
@@ -364,7 +392,7 @@ fstream
 iomanip
 -
 ../include/json.hpp
-/users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/include/json.hpp
-../include/Session.h
-/users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/include/Session.h
+/users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/include/json.hpp
+../include/Watchable.h
+/users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/include/Watchable.h
 
