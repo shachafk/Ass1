@@ -9,15 +9,11 @@ using namespace std;
 
 int main(int argc, char** argv){
    //std::cout << "Hello, World!" << std::endl;
-
-
-  /*  std::ifstream i(argv[1]);
-    nlohmann::json j;
-    i >> j;
-    // std::cout<<j;
-    std::cout<<j["movies"][0];
+/*
     Movie("movie")*/
     Episode e(2, "Brooklyn",24, 02, 03 , nullptr);
+    Movie m(1,"test",3, nullptr);
+*/
 
     if(argc!=2)
     {
