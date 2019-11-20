@@ -8,7 +8,7 @@ Watchable* User::getRecommendation(Session& s) {};
 std::string User::getName() const{
     return name;
 }
-std::vector<Watchable*> User::get_history() const{return history}
+std::vector<Watchable*> User::get_history() const{return history;}
 
 
 
