@@ -11,9 +11,9 @@ int main(int argc, char** argv){
    //std::cout << "Hello, World!" << std::endl;
 /*
     Movie("movie")*/
-    Episode e(2, "Brooklyn",24, 02, 03 , nullptr);
-    Movie m(1,"test",3, nullptr);
-*/
+//    Episode e(2, "Brooklyn",24, 02, 03 , nullptr);
+//    Movie m(1,"test",3, nullptr);
+
 
     if(argc!=2)
     {
@@ -23,5 +23,6 @@ int main(int argc, char** argv){
     Session s(argv[1]);
     //s.start();
     return 0;
+
 
 }

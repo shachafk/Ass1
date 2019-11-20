@@ -9,6 +9,8 @@ CMakeFiles/Ass1.dir/src/Movie.cpp.o: ../src/Movie.cpp
 
 CMakeFiles/Ass1.dir/src/Session.cpp.o: ../include/Action.h
 CMakeFiles/Ass1.dir/src/Session.cpp.o: ../include/Session.h
+CMakeFiles/Ass1.dir/src/Session.cpp.o: ../include/Watchable.h
+CMakeFiles/Ass1.dir/src/Session.cpp.o: ../include/json.hpp
 CMakeFiles/Ass1.dir/src/Session.cpp.o: ../src/Session.cpp
 
 CMakeFiles/Ass1.dir/src/User.cpp.o: ../include/User.h
@@ -17,6 +19,8 @@ CMakeFiles/Ass1.dir/src/User.cpp.o: ../src/User.cpp
 CMakeFiles/Ass1.dir/src/Watchable.cpp.o: ../include/Watchable.h
 CMakeFiles/Ass1.dir/src/Watchable.cpp.o: ../src/Watchable.cpp
 
+CMakeFiles/Ass1.dir/src/main.cpp.o: ../include/Action.h
+CMakeFiles/Ass1.dir/src/main.cpp.o: ../include/Session.h
 CMakeFiles/Ass1.dir/src/main.cpp.o: ../include/Watchable.h
 CMakeFiles/Ass1.dir/src/main.cpp.o: ../include/json.hpp
 CMakeFiles/Ass1.dir/src/main.cpp.o: ../src/main.cpp
