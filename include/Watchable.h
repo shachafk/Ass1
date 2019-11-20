@@ -41,7 +41,6 @@ private:
 
     std::string toString() const;
 
-    long getId();
 };
 
 
@@ -55,6 +54,14 @@ private:
     int season;
     int episode;
     long nextEpisodeId;
+
+    const std::string &getseriesName();
+
+    std::string toString() const;
+
+    int getSeason();
+
+    int getEpisode();
 };
 
 #endif
