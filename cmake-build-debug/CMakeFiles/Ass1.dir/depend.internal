@@ -10,6 +10,8 @@ CMakeFiles/Ass1.dir/src/Movie.cpp.o
 CMakeFiles/Ass1.dir/src/Session.cpp.o
  /users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/include/Action.h
  /users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/include/Session.h
+ /users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/include/Watchable.h
+ /users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/include/json.hpp
  /users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/src/Session.cpp
 CMakeFiles/Ass1.dir/src/User.cpp.o
  /users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/include/User.h
@@ -18,6 +20,8 @@ CMakeFiles/Ass1.dir/src/Watchable.cpp.o
  /users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/include/Watchable.h
  /users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/src/Watchable.cpp
 CMakeFiles/Ass1.dir/src/main.cpp.o
+ /users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/include/Action.h
+ /users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/include/Session.h
  /users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/include/Watchable.h
  /users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/include/json.hpp
  /users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/src/main.cpp

@@ -84,6 +84,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/include/Session.h">
+			<Option target="Ass1"/>
+		</Unit>
 		<Unit filename="/users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/src/Action.cpp">
 			<Option target="Ass1"/>
 		</Unit>

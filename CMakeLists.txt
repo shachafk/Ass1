@@ -3,4 +3,4 @@ project(Ass1)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(Ass1 src/main.cpp src/Movie.cpp src/Watchable.cpp src/Action.cpp src/Session.cpp src/User.cpp)
+add_executable(Ass1 src/main.cpp src/Movie.cpp src/Watchable.cpp src/Action.cpp src/Session.cpp src/User.cpp include/Session.h)

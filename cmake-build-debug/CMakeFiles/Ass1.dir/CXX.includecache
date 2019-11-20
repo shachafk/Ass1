@@ -22,16 +22,6 @@ string
 Action.h
 /users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/include/Action.h
 
-/users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/include/User.h
-vector
--
-string
--
-unordered_set
--
-unordered_map
--
-
 /users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/include/Watchable.h
 string
 -
@@ -372,25 +362,11 @@ limits
 type_traits
 -
 
-/users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/src/Action.cpp
-../include/Action.h
-/users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/include/Action.h
-
 /users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/src/Session.cpp
-../include/Session.h
-/users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/include/Session.h
-
-/users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/src/User.cpp
-../include/User.h
-/users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/include/User.h
-
-/users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/src/main.cpp
-iostream
--
 fstream
 -
-iomanip
--
+../include/Session.h
+/users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/include/Session.h
 ../include/json.hpp
 /users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/include/json.hpp
 ../include/Watchable.h

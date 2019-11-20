@@ -11,6 +11,10 @@ Watchable::Watchable(const Watchable &Watchable) : id(Watchable.getId()), length
 Watchable::~Watchable(){}
 std::string Watchable::toString() const {return "";}
 Watchable* Watchable::getNextWatchable(Session&) const {return nullptr;}
+void copy (const Watchable &Watchable){
+    id(Watchable.getId())
+}
+void clean();
 
 //getters
 
