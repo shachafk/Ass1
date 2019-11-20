@@ -21,16 +21,12 @@ public:
     virtual long getId() const =0;
     virtual int getLength() const =0;
     virtual std::vector<std::string>& getTag() const =0;
+
 private:
     const long id;
     int length;
     std::vector<std::string> tags;
 
-    long getId();
-
-    int getLength();
-
-    std::vector<std::string> &getTag();
 };
 
 class Movie : public Watchable{
@@ -44,6 +40,7 @@ private:
     std::string name;
 
     std::string toString() const;
+
 };
 
 
