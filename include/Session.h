@@ -18,6 +18,7 @@ public:
     Session(const std::string &configFilePath);
     ~Session();
     void start();
+    void loadContents (const std::string &configFilePath);
 private:
     std::vector<Watchable*> content;
     std::vector<BaseAction*> actionsLog;
