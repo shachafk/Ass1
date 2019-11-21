@@ -16,7 +16,7 @@ Session::Session(const std::string &configFilePath):content(),actionsLog(),userM
 Session::~Session(){
     for (int i=0; i< content.size(); i++) {
         if (content[i] != nullptr)
-            delete (content[i]);
+           // delete (content[i]);
     }
 };
 void Session::start(){ //this method should initialize default user with alg len recommendation then wait for the user to enter an action to execute
