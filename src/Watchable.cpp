@@ -5,6 +5,7 @@
 
 #include "../include/Watchable.h"
 
+//Rule of 3/5 TBD
 
 Watchable::Watchable(long id, int length, const std::vector<std::string>& tags):id(id),length(length),tags(tags){} //id should be the location in the content vector
 Watchable::Watchable(Watchable& Watchable) {copy(Watchable);}
@@ -22,6 +23,8 @@ void clean(){};
 
 //getters
 
- long Watchable::getId() const {return this->id;}
+long Watchable::getId() const {return this->id;}
 int Watchable::getLength() const { return this->length;}
 const std::vector<std::string> & Watchable::getTag(){return this->tags;}
+
+

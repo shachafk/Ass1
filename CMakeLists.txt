@@ -3,4 +3,4 @@ project(Ass1)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(Ass1 src/main.cpp src/Movie.cpp src/Episode.cpp src/Watchable.cpp src/Action.cpp src/Session.cpp src/User.cpp include/Session.h include/Watchable.h include/Action.h include/User.h)
+add_executable(Ass1 src/main.cpp src/Movie.cpp src/Episode.cpp src/Watchable.cpp src/Session.cpp src/User.cpp include/Session.h include/Watchable.h include/Action.h include/User.h src/BaseAction.cpp src/CreateUser.cpp src/ChangeActiveUser.cpp src/DeleteUser.cpp src/DuplicateUser.cpp src/PrintContentList.cpp src/PrintWatchHistory.cpp src/Watch.cpp src/PrintActionsLog.cpp src/Exit.cpp)

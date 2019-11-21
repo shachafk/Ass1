@@ -29,6 +29,7 @@ std::vector<Watchable*> *Session::getContent(){
     return &content;
 }
 
+//Rule of 3/5 TBD
 
 
 void Session::loadContents (const std::string &configFilePath) {
