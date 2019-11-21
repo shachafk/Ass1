@@ -81,7 +81,7 @@ public:
     virtual std::string toString() const;
 };
 
-class Exit : public BaseAction {
+class Exit : public BaseAction { //exit command should only exit the main loop, all session data structure should remain
 public:
     virtual void act(Session& sess);
     virtual std::string toString() const;

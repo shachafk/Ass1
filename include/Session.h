@@ -19,6 +19,10 @@ public:
     ~Session();
     void start();
     void loadContents (const std::string &configFilePath);
+    //getters
+    std::vector<Watchable*> *getContent();
+
+
 private:
     std::vector<Watchable*> content;
     std::vector<BaseAction*> actionsLog;
