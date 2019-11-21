@@ -2,14 +2,13 @@
 // Created by shachafk@wincs.cs.bgu.ac.il on 19/11/2019.
 //
 using namespace std;
-
-
+#include <curses.h>
 #include <fstream>
 #include "../include/Session.h"
 #include "../include/json.hpp"
 #include "../include/Watchable.h"
 #include "../include/User.h"
-
+//Rule of 3/5 TBD
 //Session constructor
 Session::Session(const std::string &configFilePath):content(),actionsLog(),userMap(),activeUser(){
     const std::string &name = "default";
@@ -33,10 +32,50 @@ void Session::start(){ //this method should initialize default user with alg len
 std::vector<Watchable*> *Session::getContent(){
     return &content;
 }
+std::unordered_map<std::string,User*> Session::getUsersMap(){
+    return userMap;
+}
+std::vector<BaseAction*> Session::getActionsLog(){
+    return actionsLog;
+}
+User* Session::getActiveUser(){
+    return activeUser;
+}
 
-//Rule of 3/5 TBD
+int Session::spaceLocator(char ch) // returns true if char is a space
+{
+    if(ch==' ')
+        return 1;
+    else return 0;
+}
 
-
+std::string Session::newActionScanner(std::istream &in){ // converts input stream to a string.
+    printf("ENTER new action: ");
+    clrscr();//waits for the user to form new action
+    scanf("%[^\n]");
+    std::string s(std::istreambuf_iterator<char>(cin), {});
+    return s;
+}
+void Session::userCreate(std::string s) { //checks if action is "createuser" create new user and insert to user map
+    std::string name = "";
+    std::string type = "";
+    name = s.substr(11, s.length() - 3);//TBD make sure it is the right use of substring
+    type = s.substr(s.length() - 3);
+    const std::string &name_=name;
+    if (type=="len"){ // TBD to add other users types
+        LengthRecommenderUser *u=new LengthRecommenderUser(name_);
+        userMap.insert(std::make_pair(name,u));
+    }
+    else if (type=="rer"){
+        RerunRecommenderUser *r=new RerunRecommenderUser(name_);
+        userMap.insert(std::make_pair(name,r));
+    }
+    else if (type=="gen"){
+        GenreRecommenderUser *g=new GenreRecommenderUser(name_);
+        userMap.insert(std::make_pair(name,g));
+    }
+    else cout<<"invalid recommendtiontype"<<endl;
+}
 void Session::loadContents (const std::string &configFilePath) {
     std::ifstream i(configFilePath);
     nlohmann::json j;
@@ -69,6 +108,8 @@ void Session::loadContents (const std::string &configFilePath) {
                   }
               }
             }
+
+
 }
 
 

@@ -21,12 +21,18 @@ public:
     void loadContents (const std::string &configFilePath);
     //getters
     std::vector<Watchable*> *getContent();
-
-
+    std::unordered_map<std::string,User*> getUsersMap();
+    std::vector<BaseAction*> getActionsLog();
+    User* getActiveUser();
+    int spaceLocator(char ch);
+    string newActionScanner(istream &in);
 private:
     std::vector<Watchable*> content;
     std::vector<BaseAction*> actionsLog;
     std::unordered_map<std::string,User*> userMap;
     User* activeUser;
+
+
+
 };
 #endif
