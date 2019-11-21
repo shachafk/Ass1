@@ -8,9 +8,13 @@ using namespace std;
 #include "../include/Session.h"
 #include "../include/json.hpp"
 #include "../include/Watchable.h"
+#include "../include/User.h"
 
 //Session constructor
-Session::Session(const std::string &configFilePath):content(),actionsLog(),userMap({{ "default", activeUser }}),activeUser(){
+Session::Session(const std::string &configFilePath):content(),actionsLog(),userMap(),activeUser(){
+    const std::string &name = "default";
+    LengthRecommenderUser *l = new LengthRecommenderUser(name);
+    userMap.insert(std::make_pair(name,l));
     this->loadContents(configFilePath); //load all available contents from the json file to content vector
 }
 Session::~Session(){
@@ -21,6 +25,7 @@ Session::~Session(){
 };
 void Session::start(){ //this method should initialize default user with alg len recommendation then wait for the user to enter an action to execute
     cout<<"SPLFLIX is now on!"<<endl;
+
 }
 
 
