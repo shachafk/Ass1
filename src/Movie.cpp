@@ -5,7 +5,7 @@
 #include "../include/Watchable.h"
 
 
-Movie::Movie(long id, const std::string *name, int length, const std::vector<std::string>& tags): name(*name), Watchable(id, length, tags){}
+Movie::Movie(long id, const std::string *name, int length, const std::vector<std::string>& tags): Watchable(id, length, tags),name(*name){}
 
 Movie::Movie(const Movie &Movie): Watchable((Watchable &) Movie), name(Movie::getName()) {}
 std::string Movie::toString(bool print_full) const {return "";} //return the string name

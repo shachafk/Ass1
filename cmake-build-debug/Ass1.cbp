@@ -84,10 +84,22 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/include/Action.h">
+			<Option target="Ass1"/>
+		</Unit>
 		<Unit filename="/users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/include/Session.h">
 			<Option target="Ass1"/>
 		</Unit>
+		<Unit filename="/users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/include/User.h">
+			<Option target="Ass1"/>
+		</Unit>
+		<Unit filename="/users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/include/Watchable.h">
+			<Option target="Ass1"/>
+		</Unit>
 		<Unit filename="/users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/src/Action.cpp">
+			<Option target="Ass1"/>
+		</Unit>
+		<Unit filename="/users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/src/Episode.cpp">
 			<Option target="Ass1"/>
 		</Unit>
 		<Unit filename="/users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/src/Movie.cpp">

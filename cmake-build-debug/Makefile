@@ -150,6 +150,33 @@ src/Action.cpp.s:
 	$(MAKE) -f CMakeFiles/Ass1.dir/build.make CMakeFiles/Ass1.dir/src/Action.cpp.s
 .PHONY : src/Action.cpp.s
 
+src/Episode.o: src/Episode.cpp.o
+
+.PHONY : src/Episode.o
+
+# target to build an object file
+src/Episode.cpp.o:
+	$(MAKE) -f CMakeFiles/Ass1.dir/build.make CMakeFiles/Ass1.dir/src/Episode.cpp.o
+.PHONY : src/Episode.cpp.o
+
+src/Episode.i: src/Episode.cpp.i
+
+.PHONY : src/Episode.i
+
+# target to preprocess a source file
+src/Episode.cpp.i:
+	$(MAKE) -f CMakeFiles/Ass1.dir/build.make CMakeFiles/Ass1.dir/src/Episode.cpp.i
+.PHONY : src/Episode.cpp.i
+
+src/Episode.s: src/Episode.cpp.s
+
+.PHONY : src/Episode.s
+
+# target to generate assembly for a file
+src/Episode.cpp.s:
+	$(MAKE) -f CMakeFiles/Ass1.dir/build.make CMakeFiles/Ass1.dir/src/Episode.cpp.s
+.PHONY : src/Episode.cpp.s
+
 src/Movie.o: src/Movie.cpp.o
 
 .PHONY : src/Movie.o
@@ -297,6 +324,9 @@ help:
 	@echo "... src/Action.o"
 	@echo "... src/Action.i"
 	@echo "... src/Action.s"
+	@echo "... src/Episode.o"
+	@echo "... src/Episode.i"
+	@echo "... src/Episode.s"
 	@echo "... src/Movie.o"
 	@echo "... src/Movie.i"
 	@echo "... src/Movie.s"

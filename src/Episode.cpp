@@ -3,7 +3,10 @@
 using namespace std;
 
 
-    Episode::Episode(long id, const string& seriesName,int length, int season, int episode ,const vector<std::string>& tags,long nextEpisodeId):Watchable(id,length,tags),seriesName(seriesName),season(season),episode(episode),nextEpisodeId(0){}
+    Episode::Episode(long id, const std::string *seriesName, int length, int season, int episode , const std::vector<std::string>& tags) :Watchable(id,length,tags),seriesName(*seriesName),season(season),episode(episode){
+        // next episode id - to implement
+
+    }
     std::string Episode::toString(bool print_full) const{ return this->seriesName;}//returns Series name
     Watchable* Episode::getNextWatchable(Session&) const{
         //if(nextEpisodeId!= nullptr)

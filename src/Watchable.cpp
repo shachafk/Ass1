@@ -6,9 +6,11 @@
 #include "../include/Watchable.h"
 
 
-Watchable::Watchable(long id, int length, const std::vector<std::string>& tags):id(id),length(length),tags(tags){}
+Watchable::Watchable(long id, int length, const std::vector<std::string>& tags):id(id),length(length),tags(tags){} //id should be the location in the content vector
 Watchable::Watchable(Watchable& Watchable) {copy(Watchable);}
-Watchable::~Watchable(){}
+Watchable::~Watchable(){ // destructor
+
+}
 std::string Watchable::toString() const {return "";}
 Watchable* Watchable::getNextWatchable(Session&) const {return nullptr;}
 void Watchable::copy (Watchable& Watchable){
