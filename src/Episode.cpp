@@ -7,12 +7,12 @@ using namespace std;
         // next episode id - to implement
 
     }
-    std::string Episode::toString(bool print_full) const{ return this->seriesName;}//returns Series name
+    std::string Episode::toString() const{ return this->seriesName;}//returns Series name
     Watchable* Episode::getNextWatchable(Session&) const{
         //if(nextEpisodeId!= nullptr)
         return nullptr; //&this.nextEpisodeId;//to implement
     }
-     std::string Episode::toString() const {return "";}
+//     std::string Episode::toString() const {return "";}
     //getters
     const string& Episode:: getseriesName(){
         return seriesName ;

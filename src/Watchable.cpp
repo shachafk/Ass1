@@ -22,6 +22,6 @@ void clean(){};
 
 //getters
 
-long Watchable::getId() {return this->id;}
-int Watchable::getLength(){ return this->length;}
+ long Watchable::getId() const {return this->id;}
+int Watchable::getLength() const { return this->length;}
 const std::vector<std::string> & Watchable::getTag(){return this->tags;}

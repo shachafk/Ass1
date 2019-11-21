@@ -18,6 +18,14 @@ void Session::start(){ //this method should initialize default user with alg len
     cout<<"SPLFLIX is now on!"<<endl;
 }
 
+
+//getters
+std::vector<Watchable*> *Session::getContent(){
+    return &content;
+}
+
+
+
 void Session::loadContents (const std::string &configFilePath) {
     std::ifstream i(configFilePath);
     nlohmann::json j;
@@ -50,10 +58,6 @@ void Session::loadContents (const std::string &configFilePath) {
                   }
               }
             }
-
-
-        }
-
-
+}
 
 

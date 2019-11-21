@@ -4,6 +4,9 @@
 CMakeFiles/Ass1.dir/src/Action.cpp.o: ../include/Action.h
 CMakeFiles/Ass1.dir/src/Action.cpp.o: ../src/Action.cpp
 
+CMakeFiles/Ass1.dir/src/Episode.cpp.o: ../include/Watchable.h
+CMakeFiles/Ass1.dir/src/Episode.cpp.o: ../src/Episode.cpp
+
 CMakeFiles/Ass1.dir/src/Movie.cpp.o: ../include/Watchable.h
 CMakeFiles/Ass1.dir/src/Movie.cpp.o: ../src/Movie.cpp
 

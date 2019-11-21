@@ -83,9 +83,22 @@ CMakeFiles/Ass1.dir/src/Movie.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Ass1.dir/src/Movie.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/src/Movie.cpp -o CMakeFiles/Ass1.dir/src/Movie.cpp.s
 
+CMakeFiles/Ass1.dir/src/Episode.cpp.o: CMakeFiles/Ass1.dir/flags.make
+CMakeFiles/Ass1.dir/src/Episode.cpp.o: ../src/Episode.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Ass1.dir/src/Episode.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Ass1.dir/src/Episode.cpp.o -c /users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/src/Episode.cpp
+
+CMakeFiles/Ass1.dir/src/Episode.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Ass1.dir/src/Episode.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/src/Episode.cpp > CMakeFiles/Ass1.dir/src/Episode.cpp.i
+
+CMakeFiles/Ass1.dir/src/Episode.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Ass1.dir/src/Episode.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/src/Episode.cpp -o CMakeFiles/Ass1.dir/src/Episode.cpp.s
+
 CMakeFiles/Ass1.dir/src/Watchable.cpp.o: CMakeFiles/Ass1.dir/flags.make
 CMakeFiles/Ass1.dir/src/Watchable.cpp.o: ../src/Watchable.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Ass1.dir/src/Watchable.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Ass1.dir/src/Watchable.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Ass1.dir/src/Watchable.cpp.o -c /users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/src/Watchable.cpp
 
 CMakeFiles/Ass1.dir/src/Watchable.cpp.i: cmake_force
@@ -98,7 +111,7 @@ CMakeFiles/Ass1.dir/src/Watchable.cpp.s: cmake_force
 
 CMakeFiles/Ass1.dir/src/Action.cpp.o: CMakeFiles/Ass1.dir/flags.make
 CMakeFiles/Ass1.dir/src/Action.cpp.o: ../src/Action.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Ass1.dir/src/Action.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Ass1.dir/src/Action.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Ass1.dir/src/Action.cpp.o -c /users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/src/Action.cpp
 
 CMakeFiles/Ass1.dir/src/Action.cpp.i: cmake_force
@@ -111,7 +124,7 @@ CMakeFiles/Ass1.dir/src/Action.cpp.s: cmake_force
 
 CMakeFiles/Ass1.dir/src/Session.cpp.o: CMakeFiles/Ass1.dir/flags.make
 CMakeFiles/Ass1.dir/src/Session.cpp.o: ../src/Session.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Ass1.dir/src/Session.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Ass1.dir/src/Session.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Ass1.dir/src/Session.cpp.o -c /users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/src/Session.cpp
 
 CMakeFiles/Ass1.dir/src/Session.cpp.i: cmake_force
@@ -124,7 +137,7 @@ CMakeFiles/Ass1.dir/src/Session.cpp.s: cmake_force
 
 CMakeFiles/Ass1.dir/src/User.cpp.o: CMakeFiles/Ass1.dir/flags.make
 CMakeFiles/Ass1.dir/src/User.cpp.o: ../src/User.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Ass1.dir/src/User.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/Ass1.dir/src/User.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Ass1.dir/src/User.cpp.o -c /users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/src/User.cpp
 
 CMakeFiles/Ass1.dir/src/User.cpp.i: cmake_force
@@ -139,6 +152,7 @@ CMakeFiles/Ass1.dir/src/User.cpp.s: cmake_force
 Ass1_OBJECTS = \
 "CMakeFiles/Ass1.dir/src/main.cpp.o" \
 "CMakeFiles/Ass1.dir/src/Movie.cpp.o" \
+"CMakeFiles/Ass1.dir/src/Episode.cpp.o" \
 "CMakeFiles/Ass1.dir/src/Watchable.cpp.o" \
 "CMakeFiles/Ass1.dir/src/Action.cpp.o" \
 "CMakeFiles/Ass1.dir/src/Session.cpp.o" \
@@ -149,13 +163,14 @@ Ass1_EXTERNAL_OBJECTS =
 
 Ass1: CMakeFiles/Ass1.dir/src/main.cpp.o
 Ass1: CMakeFiles/Ass1.dir/src/Movie.cpp.o
+Ass1: CMakeFiles/Ass1.dir/src/Episode.cpp.o
 Ass1: CMakeFiles/Ass1.dir/src/Watchable.cpp.o
 Ass1: CMakeFiles/Ass1.dir/src/Action.cpp.o
 Ass1: CMakeFiles/Ass1.dir/src/Session.cpp.o
 Ass1: CMakeFiles/Ass1.dir/src/User.cpp.o
 Ass1: CMakeFiles/Ass1.dir/build.make
 Ass1: CMakeFiles/Ass1.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable Ass1"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable Ass1"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Ass1.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

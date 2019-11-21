@@ -8,10 +8,13 @@
 Movie::Movie(long id, const std::string *name, int length, const std::vector<std::string>& tags): Watchable(id, length, tags),name(*name){}
 
 Movie::Movie(const Movie &Movie): Watchable((Watchable &) Movie), name(Movie::getName()) {}
-std::string Movie::toString(bool print_full) const {return "";} //return the string name
+std::string Movie::toString() const {
+    std::string toReturn;
+    toReturn = std::to_string(getId()) + getName() + std::to_string(getLength()) ;//need to add tags;
+    return toReturn;
+}
 Movie::Watchable* Movie::getNextWatchable(Session&) const {return nullptr;}//return &this+1} //To implement
-std::string Movie::toString() const {return"";}
 
 
 //getters
-std::string Movie::getName(){return this->name;}
+std::string Movie::getName() const {return this->name;}
