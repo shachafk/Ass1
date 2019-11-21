@@ -6,7 +6,6 @@
 //Rule of 3/5 TBD
 
 
-LengthRecommenderUser(const std::string& name):name(name){};
- Watchable* getRecommendation(Session& s){
-     return
+LengthRecommenderUser::LengthRecommenderUser(const std::string& name):User(name){};
+ Watchable* LengthRecommenderUser::getRecommendation(Session& s){
  }
