@@ -13,7 +13,12 @@ using namespace std;
 Session::Session(const std::string &configFilePath):content(),actionsLog(),userMap({{ "default", activeUser }}),activeUser(){
     this->loadContents(configFilePath); //load all available contents from the json file to content vector
 }
-Session::~Session(){};
+Session::~Session(){
+    for (int i=0; i< content.size(); i++) {
+        if (content[i] != nullptr)
+            delete (content[i]);
+    }
+};
 void Session::start(){ //this method should initialize default user with alg len recommendation then wait for the user to enter an action to execute
     cout<<"SPLFLIX is now on!"<<endl;
 }
