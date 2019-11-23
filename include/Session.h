@@ -18,14 +18,14 @@ class Watchable;
 
 class Session{
     enum StringValue {changeActiveUser,
-        CreateUser,
+        createUser,
         deleteUser,
-        DuplicateUser,
-        Exit,
-        PrintActionsLog,
-        PrintContentList,
-        PrintWatchHistory,
-        Watch};
+        duplicateUser,
+        exit,
+        printActionsLog,
+        printContentList,
+        printWatchHistory,
+        watch};
 
 public:
     Session(const std::string &configFilePath);

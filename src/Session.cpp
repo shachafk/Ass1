@@ -17,15 +17,15 @@ Session::Session(const std::string &configFilePath):content(),actionsLog(),userM
     LengthRecommenderUser *l = new LengthRecommenderUser(name);
     userMap.insert(std::make_pair(name,l));
     this->loadContents(configFilePath); //load all available contents from the json file to content vector
-    s_mapStringValues.insert(std::make_pair("createuser", StringValue::CreateUser));
+    s_mapStringValues.insert(std::make_pair("createuser", StringValue::createUser));
     s_mapStringValues.insert(std::make_pair("changeactiveuser", StringValue::changeActiveUser));
     s_mapStringValues.insert(std::make_pair("deleteuser", StringValue::deleteUser));
-    s_mapStringValues.insert(std::make_pair("duplicateuser", StringValue::DuplicateUser));
-    s_mapStringValues.insert(std::make_pair("exit", StringValue::Exit));
-    s_mapStringValues.insert(std::make_pair("printactionslog", StringValue::PrintActionsLog));
-    s_mapStringValues.insert(std::make_pair("printcontentlist", StringValue::PrintContentList));
-    s_mapStringValues.insert(std::make_pair("printwatchhistory", StringValue::PrintWatchHistory));
-    s_mapStringValues.insert(std::make_pair("watch", StringValue::Watch));
+    s_mapStringValues.insert(std::make_pair("duplicateuser", StringValue::duplicateUser));
+    s_mapStringValues.insert(std::make_pair("exit", StringValue::exit));
+    s_mapStringValues.insert(std::make_pair("printactionslog", StringValue::printActionsLog));
+    s_mapStringValues.insert(std::make_pair("printcontentlist", StringValue::printContentList));
+    s_mapStringValues.insert(std::make_pair("printwatchhistory", StringValue::printWatchHistory));
+    s_mapStringValues.insert(std::make_pair("watch", StringValue::watch));
 }
 Session::~Session(){
     for (int i=0; i< content.size(); i++) { //delete all movie and episode from content vector
@@ -156,35 +156,41 @@ void Session::loadContents (const std::string &configFilePath) {
 
 void Session::route() {
     switch (s_mapStringValues[inputVector[0]]) {
-        case CreateUser: //TBD
+        case createUser: //TBD
             std::cout<< "create user state"<< endl;
             break;
-        case deleteUser:{ //TBD
-            std::cout<< "delete user state"<< endl;
+        case deleteUser: {//TBD
+            std::cout << "delete user state" << endl;
             DeleteUser *dl = new DeleteUser(); //create action from type deleteuser
             actionsLog.push_back(dl);
             dl->act(*this);
             mainLoop();
-            break;}
+            break;
+        }
         case changeActiveUser: //TBD
             std::cout<< "changeActiveUser state"<< endl;
             break;
-        case DuplicateUser: //TBD
+        case duplicateUser: //TBD
             std::cout<< "DuplicateUser state"<< endl;
             break;
-        case Exit: //TBD
+        case exit: //TBD
             std::cout<< "Exit state"<< endl;
             break;
-        case PrintActionsLog: //TBD
+        case printActionsLog:{ //TBD
             std::cout<< "PrintActionsLog state"<< endl;
+            PrintActionsLog *pal = new PrintActionsLog(); //create action from type deleteuser
+            pal->act(*this);
+            actionsLog.push_back(pal);
+            mainLoop();
             break;
-        case PrintContentList: //TBD
+        }
+        case printContentList: //TBD
             std::cout<< "PrintContentList state"<< endl;
             break;
-        case PrintWatchHistory: //TBD
+        case printWatchHistory: //TBD
             std::cout<< "PrintWatchHistory state"<< endl;
             break;
-        case Watch: //TBD
+        case watch: //TBD
             std::cout<< "Watch state"<< endl;
             break;
     }

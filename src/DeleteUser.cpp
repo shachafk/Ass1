@@ -17,7 +17,7 @@ void DeleteUser::act(Session &sess) {
         complete();
     }
     else {
-        std::string errorMsg = "user " + name + " doesn't exists";
+        std::string errorMsg = "DeleteUser Error: the user " + name + " does not exists";
         error(errorMsg);
     }
 }
