@@ -8,10 +8,17 @@
 #include <vector>
 #include <unordered_map>
 #include <string>
+#include <map>
 #include "Action.h"
 
 class User;
 class Watchable;
+
+enum StringValue { CreateUser,
+    changeActiveUser,
+    DeleteUser,
+    DuplicateUser};
+
 
 class Session{
 public:
@@ -25,14 +32,13 @@ public:
     std::vector<BaseAction*> getActionsLog();
     User* getActiveUser();
     int spaceLocator(char ch);
-    string newActionScanner(istream &in);
 private:
     std::vector<Watchable*> content;
     std::vector<BaseAction*> actionsLog;
     std::unordered_map<std::string,User*> userMap;
     User* activeUser;
-
-
-
+    std::vector<std::string> inputVector;
+    std::map<std::string, StringValue> s_mapStringValues;
+    void route();
 };
 #endif

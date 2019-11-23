@@ -22,14 +22,23 @@ Session::~Session(){
             delete (content[i]);
     }
 };
-void Session::start(){ //this method should initialize default user with alg len recommendation then wait for the user to enter an action to execute
-    cout<<"SPLFLIX is now on!"<<endl;
-    const std::string input="";
-    const std::string action="";
-    std::cin.getline(std::cin,input);
-    for(int i=0;i<input.length()||input.at(i)==' '; i++){
-        action=action+input.at(i);
-    }
+void Session::start() { //this method should initialize default user with alg len recommendation then wait for the user to enter an action to execute
+    cout << "SPLFLIX is now on!" << endl;
+    //char input [256];
+    std::string inputString;
+    std::cin >> inputString;
+    while (!inputString.empty()) {
+        if (inputString == "exit") {
+            break;
+        } else {
+            inputVector.push_back(inputString);
+            if (!std::cin.end) {
+                std::cin >> inputString;
+            }
+        }
+        route();
+
+/*
     switch(std::stoi(action)) { //checks which action requested by the user and manages suitable steps
         case "createuser":
             {
@@ -65,7 +74,9 @@ void Session::start(){ //this method should initialize default user with alg len
             }
             break;
     }
+    */
 
+    }
 }
 
 
@@ -120,4 +131,16 @@ void Session::loadContents (const std::string &configFilePath) {
 
 }
 
+
+void Session::route() {
+    switch (s_mapStringValues[inputVector[0]]) {
+        case CreateUser: //TBD
+            std::cout<< "create user state"<< endl;
+            break;
+        case DeleteUser: //TBD
+            std::cout<< "delete user state"<< endl;
+            break;
+
+    }
+}
 
