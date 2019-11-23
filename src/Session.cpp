@@ -2,7 +2,7 @@
 // Created by shachafk@wincs.cs.bgu.ac.il on 19/11/2019.
 //
 using namespace std;
-#include <curses.h>
+#include <iostream>
 #include <fstream>
 #include "../include/Session.h"
 #include "../include/json.hpp"
@@ -24,6 +24,47 @@ Session::~Session(){
 };
 void Session::start(){ //this method should initialize default user with alg len recommendation then wait for the user to enter an action to execute
     cout<<"SPLFLIX is now on!"<<endl;
+    const std::string input="";
+    const std::string action="";
+    std::cin.getline(std::cin,input);
+    for(int i=0;i<input.length()||input.at(i)==' '; i++){
+        action=action+input.at(i);
+    }
+    switch(std::stoi(action)) { //checks which action requested by the user and manages suitable steps
+        case "createuser":
+            {
+                std::string name = "";
+                std::string type = "";
+                name = input.substr(11);//cuts action from input string
+                name = name.substr(0, name.length() - 3);//cuts type from input string
+                type = input.substr(input.length() - 4);//TBD make sure it is the right use of substring
+                if (userMap.count(name) > 0)//checks if username already exist in userMap
+                    //create user func changes action status to ERROR
+                    const std::string &name = name;
+                switch (std::stoi(type)) {
+                    case "len":
+                            LengthRecommenderUser *u = new LengthRecommenderUser(
+                                    name); //TBD where to delete that heap memory
+                            userMap.insert(std::make_pair(name, u)); //TBD add createuser func
+                        break;
+                    case "rer":
+
+                            RerunRecommenderUser *r = new RerunRecommenderUser(
+                                    name);//TBD where to delete that heap memory
+                            userMap.insert(std::make_pair(name, r));//TBD add to createuser func
+                        break;
+                    case "gen":
+                            GenreRecommenderUser *g = new GenreRecommenderUser(
+                                    name);//TBD where to delete that heap memory
+                            userMap.insert(std::make_pair(name, g));//TBD add to createuser func
+                        
+                        break;
+                    deafult: //create user changes action status to ERROR
+                }
+
+            }
+            break;
+    }
 
 }
 
@@ -42,40 +83,7 @@ User* Session::getActiveUser(){
     return activeUser;
 }
 
-int Session::spaceLocator(char ch) // returns true if char is a space
-{
-    if(ch==' ')
-        return 1;
-    else return 0;
-}
 
-std::string Session::newActionScanner(std::istream &in){ // converts input stream to a string.
-    printf("ENTER new action: ");
-    clrscr();//waits for the user to form new action
-    scanf("%[^\n]");
-    std::string s(std::istreambuf_iterator<char>(cin), {});
-    return s;
-}
-void Session::userCreate(std::string s) { //checks if action is "createuser" create new user and insert to user map
-    std::string name = "";
-    std::string type = "";
-    name = s.substr(11, s.length() - 3);//TBD make sure it is the right use of substring
-    type = s.substr(s.length() - 3);
-    const std::string &name_=name;
-    if (type=="len"){ // TBD to add other users types
-        LengthRecommenderUser *u=new LengthRecommenderUser(name_);
-        userMap.insert(std::make_pair(name,u));
-    }
-    else if (type=="rer"){
-        RerunRecommenderUser *r=new RerunRecommenderUser(name_);
-        userMap.insert(std::make_pair(name,r));
-    }
-    else if (type=="gen"){
-        GenreRecommenderUser *g=new GenreRecommenderUser(name_);
-        userMap.insert(std::make_pair(name,g));
-    }
-    else cout<<"invalid recommendtiontype"<<endl;
-}
 void Session::loadContents (const std::string &configFilePath) {
     std::ifstream i(configFilePath);
     nlohmann::json j;
