@@ -22,6 +22,7 @@ void DeleteUser::act(Session &sess) {
     }
 }
  std::string DeleteUser::toString() const{
-    return ""; //TBD to implement;
+    std::string status = getEnumStringFromInt(this->getStatus());
+    return "DeleteUser " + status;
 }
 

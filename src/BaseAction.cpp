@@ -22,9 +22,11 @@ void BaseAction::error(const std::string& errorMsg) {
 };
 std::string BaseAction::getErrorMsg() const { return errorMsg;};
 
-std::string BaseAction::getEnumStringFromInt(int i){ //this metgot return the string that fit i number.
+std::string BaseAction::getEnumStringFromInt(int i) const { //this methot return the string that fit i number.
     return castEnumArray[i];
 }
 
-
+std::string BaseAction::getError(){
+    return getErrorMsg();
+}
 

@@ -10,17 +10,23 @@
 
 void PrintActionsLog::act(Session &sess) {
     std::vector<BaseAction*> all = sess.getActionsLog();
-    for (auto i=all.size() ; i>=0;i--){
-        if (all[i] != nullptr) {
-            std::string stype = typeid(all[i]).name();
-            std::string status = all[i]->getEnumStringFromInt(all[i]->getStatus());
-            std::string toPrint = stype + " " + status + " ";  //need to add errorMsg
-            std::cout << toPrint << std::endl;
+
+        for (auto it = all.rend(); it!= all.rbegin();it++){
+        if (*it != nullptr) {
+            const std::string actionandstatus = (*it)->toString(); //SIGSEGV (Segmentation fault) error - TBD
+            if ((*it)->getStatus() !=2){ // completed or pending
+                std::cout << actionandstatus << std::endl;
+            }
+            else {
+                std::string error = (*it)->getError();
+                std::cout << error << std::endl;
+            }
         }
     }
     return;
 }
 std::string PrintActionsLog::toString() const{
-    return ""; //TBD
+    std::string status = getEnumStringFromInt(this->getStatus());
+    return "PrintActionsLog " + status;
 }
 
