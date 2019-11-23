@@ -4,6 +4,7 @@
 using namespace std;
 #include <iostream>
 #include <fstream>
+#include <sstream>
 #include "../include/Session.h"
 #include "../include/json.hpp"
 #include "../include/Watchable.h"
@@ -15,6 +16,15 @@ Session::Session(const std::string &configFilePath):content(),actionsLog(),userM
     LengthRecommenderUser *l = new LengthRecommenderUser(name);
     userMap.insert(std::make_pair(name,l));
     this->loadContents(configFilePath); //load all available contents from the json file to content vector
+    s_mapStringValues.insert(std::make_pair("createuser", StringValue::CreateUser));
+    s_mapStringValues.insert(std::make_pair("changeactiveuser", StringValue::changeActiveUser));
+    s_mapStringValues.insert(std::make_pair("deleteuser", StringValue::DeleteUser));
+    s_mapStringValues.insert(std::make_pair("duplicateuser", StringValue::DuplicateUser));
+    s_mapStringValues.insert(std::make_pair("exit", StringValue::Exit));
+    s_mapStringValues.insert(std::make_pair("printactionslog", StringValue::PrintActionsLog));
+    s_mapStringValues.insert(std::make_pair("printcontentlist", StringValue::PrintContentList));
+    s_mapStringValues.insert(std::make_pair("printwatchhistory", StringValue::PrintWatchHistory));
+    s_mapStringValues.insert(std::make_pair("watch", StringValue::Watch));
 }
 Session::~Session(){
     for (int i=0; i< content.size(); i++) {
@@ -24,19 +34,19 @@ Session::~Session(){
 };
 void Session::start() { //this method should initialize default user with alg len recommendation then wait for the user to enter an action to execute
     cout << "SPLFLIX is now on!" << endl;
-    //char input [256];
-    std::string inputString;
-    std::cin >> inputString;
-    while (!inputString.empty()) {
-        if (inputString == "exit") {
-            break;
-        } else {
-            inputVector.push_back(inputString);
-            if (!std::cin.end) {
-                std::cin >> inputString;
-            }
-        }
-        route();
+        mainLoop();
+}
+
+void Session::mainLoop(){
+    std::string input;
+    getline(cin,input);
+    istringstream iss(input);
+    string word;
+    while(iss >> word) {
+        inputVector.push_back(word);
+    }
+    route();
+}
 
 /*
     switch(std::stoi(action)) { //checks which action requested by the user and manages suitable steps
@@ -76,8 +86,8 @@ void Session::start() { //this method should initialize default user with alg le
     }
     */
 
-    }
-}
+
+
 
 
 //getters
@@ -140,7 +150,27 @@ void Session::route() {
         case DeleteUser: //TBD
             std::cout<< "delete user state"<< endl;
             break;
-
+        case changeActiveUser: //TBD
+            std::cout<< "changeActiveUser state"<< endl;
+            break;
+        case DuplicateUser: //TBD
+            std::cout<< "DuplicateUser state"<< endl;
+            break;
+        case Exit: //TBD
+            std::cout<< "Exit state"<< endl;
+            break;
+        case PrintActionsLog: //TBD
+            std::cout<< "PrintActionsLog state"<< endl;
+            break;
+        case PrintContentList: //TBD
+            std::cout<< "PrintContentList state"<< endl;
+            break;
+        case PrintWatchHistory: //TBD
+            std::cout<< "PrintWatchHistory state"<< endl;
+            break;
+        case Watch: //TBD
+            std::cout<< "Watch state"<< endl;
+            break;
     }
 }
 

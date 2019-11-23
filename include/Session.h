@@ -14,10 +14,15 @@
 class User;
 class Watchable;
 
-enum StringValue { CreateUser,
-    changeActiveUser,
+enum StringValue {changeActiveUser,
+    CreateUser,
     DeleteUser,
-    DuplicateUser};
+    DuplicateUser,
+    Exit,
+    PrintActionsLog,
+    PrintContentList,
+    PrintWatchHistory,
+    Watch};
 
 
 class Session{
@@ -40,5 +45,7 @@ private:
     std::vector<std::string> inputVector;
     std::map<std::string, StringValue> s_mapStringValues;
     void route();
+
+    void mainLoop();
 };
 #endif
