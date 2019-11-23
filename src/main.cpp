@@ -13,9 +13,10 @@ int main(int argc, char** argv){
     Movie("movie")*/
 //    Episode e(2, "Brooklyn",24, 02, 03 , nullptr);
 //    Movie m(1,"test",3, nullptr);
+    std::string s="action name typ";
 
 
-    if(argc!=2)
+   if(argc!=2)
     {
         cout << "usage splflix input_file" << endl;
         return 0;
