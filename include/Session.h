@@ -14,18 +14,19 @@
 class User;
 class Watchable;
 
-enum StringValue {changeActiveUser,
-    CreateUser,
-    DeleteUser,
-    DuplicateUser,
-    Exit,
-    PrintActionsLog,
-    PrintContentList,
-    PrintWatchHistory,
-    Watch};
 
 
 class Session{
+    enum StringValue {changeActiveUser,
+        CreateUser,
+        deleteUser,
+        DuplicateUser,
+        Exit,
+        PrintActionsLog,
+        PrintContentList,
+        PrintWatchHistory,
+        Watch};
+
 public:
     Session(const std::string &configFilePath);
     ~Session();
@@ -37,6 +38,8 @@ public:
     std::vector<BaseAction*> getActionsLog();
     User* getActiveUser();
     int spaceLocator(char ch);
+    std::vector <std::string>* getInputVector();
+
 private:
     std::vector<Watchable*> content;
     std::vector<BaseAction*> actionsLog;
@@ -47,5 +50,6 @@ private:
     void route();
 
     void mainLoop();
+
 };
 #endif

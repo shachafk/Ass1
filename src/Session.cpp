@@ -9,6 +9,7 @@ using namespace std;
 #include "../include/json.hpp"
 #include "../include/Watchable.h"
 #include "../include/User.h"
+#include "../include/Action.h"
 //Rule of 3/5 TBD
 //Session constructor
 Session::Session(const std::string &configFilePath):content(),actionsLog(),userMap(),activeUser(){
@@ -18,7 +19,7 @@ Session::Session(const std::string &configFilePath):content(),actionsLog(),userM
     this->loadContents(configFilePath); //load all available contents from the json file to content vector
     s_mapStringValues.insert(std::make_pair("createuser", StringValue::CreateUser));
     s_mapStringValues.insert(std::make_pair("changeactiveuser", StringValue::changeActiveUser));
-    s_mapStringValues.insert(std::make_pair("deleteuser", StringValue::DeleteUser));
+    s_mapStringValues.insert(std::make_pair("deleteuser", StringValue::deleteUser));
     s_mapStringValues.insert(std::make_pair("duplicateuser", StringValue::DuplicateUser));
     s_mapStringValues.insert(std::make_pair("exit", StringValue::Exit));
     s_mapStringValues.insert(std::make_pair("printactionslog", StringValue::PrintActionsLog));
@@ -27,9 +28,16 @@ Session::Session(const std::string &configFilePath):content(),actionsLog(),userM
     s_mapStringValues.insert(std::make_pair("watch", StringValue::Watch));
 }
 Session::~Session(){
-    for (int i=0; i< content.size(); i++) {
+    for (int i=0; i< content.size(); i++) { //delete all movie and episode from content vector
         if (content[i] != nullptr)
             delete (content[i]);
+    }
+    for (int i=0; i< actionsLog.size();i++){ //delete all logs from actionlog
+        if (actionsLog[i] != nullptr)
+            delete (actionsLog[i]);
+    }
+    for (auto it = userMap.begin();it!=userMap.end();it++ ){ //delete all users from usermap
+        delete(it->second);
     }
 };
 void Session::start() { //this method should initialize default user with alg len recommendation then wait for the user to enter an action to execute
@@ -38,6 +46,7 @@ void Session::start() { //this method should initialize default user with alg le
 }
 
 void Session::mainLoop(){
+    inputVector.clear(); //clear the vector so new input will be inserted
     std::string input;
     getline(cin,input);
     istringstream iss(input);
@@ -103,6 +112,9 @@ std::vector<BaseAction*> Session::getActionsLog(){
 User* Session::getActiveUser(){
     return activeUser;
 }
+    std::vector<std::string>* Session::getInputVector(){
+    return &inputVector;
+}
 
 
 void Session::loadContents (const std::string &configFilePath) {
@@ -147,9 +159,13 @@ void Session::route() {
         case CreateUser: //TBD
             std::cout<< "create user state"<< endl;
             break;
-        case DeleteUser: //TBD
+        case deleteUser:{ //TBD
             std::cout<< "delete user state"<< endl;
-            break;
+            DeleteUser *dl = new DeleteUser(); //create action from type deleteuser
+            actionsLog.push_back(dl);
+            dl->act(*this);
+            mainLoop();
+            break;}
         case changeActiveUser: //TBD
             std::cout<< "changeActiveUser state"<< endl;
             break;

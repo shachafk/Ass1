@@ -12,8 +12,10 @@ ActionStatus BaseAction::getStatus() const { return  status; }
 void BaseAction::complete(){status=ActionStatus::COMPLETED;}
 void BaseAction::error(const std::string& errorMsg) {
     status=ActionStatus::ERROR;
-    // need to add the errorMsg TBD
+    this->errorMsg = errorMsg;
 };
 std::string BaseAction::getErrorMsg() const { return errorMsg;};
+
+
 
 
