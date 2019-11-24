@@ -64,47 +64,6 @@ void Session::mainLoop(){
     route();
 }
 
-/*
-    switch(std::stoi(action)) { //checks which action requested by the user and manages suitable steps
-        case "createuser":
-            {
-                std::string name = "";
-                std::string type = "";
-                name = input.substr(11);//cuts action from input string
-                name = name.substr(0, name.length() - 3);//cuts type from input string
-                type = input.substr(input.length() - 4);//TBD make sure it is the right use of substring
-                if (userMap.count(name) > 0)//checks if username already exist in userMap
-                    //create user func changes action status to ERROR
-                    const std::string &name = name;
-                switch (std::stoi(type)) {
-                    case "len":
-                            LengthRecommenderUser *u = new LengthRecommenderUser(
-                                    name); //TBD where to delete that heap memory
-                            userMap.insert(std::make_pair(name, u)); //TBD add createuser func
-                        break;
-                    case "rer":
-
-                            RerunRecommenderUser *r = new RerunRecommenderUser(
-                                    name);//TBD where to delete that heap memory
-                            userMap.insert(std::make_pair(name, r));//TBD add to createuser func
-                        break;
-                    case "gen":
-                            GenreRecommenderUser *g = new GenreRecommenderUser(
-                                    name);//TBD where to delete that heap memory
-                            userMap.insert(std::make_pair(name, g));//TBD add to createuser func
-                        
-                        break;
-                    deafult: //create user changes action status to ERROR
-                }
-
-            }
-            break;
-    }
-    */
-
-
-
-
 
 //getters
 std::vector<Watchable*> Session::getContent(){
@@ -167,12 +126,17 @@ void Session::route() {
             std::cout << "Invalid action"<< endl;
             mainLoop();
             break;
-        case createUser: //TBD
-            std::cout<< "create user state"<< endl;
+        case createUser: { //TBD
+            std::cout << "create user state" << endl;
+            CreateUser *c = new CreateUser(); //creates action from type createuser
+            actionsLog.push_back(c); //save record of the action
+            c->act(*this);
+            mainLoop();
             break;
+        }
         case deleteUser: {//TBD
             std::cout << "delete user state" << endl;
-            DeleteUser *dl = new DeleteUser(); //create action from type deleteuser
+            DeleteUser *dl = new DeleteUser(); //creates action from type deleteuser
             actionsLog.push_back(dl);
             dl->act(*this);
             mainLoop();
