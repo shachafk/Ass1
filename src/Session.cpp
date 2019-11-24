@@ -123,7 +123,7 @@ void Session::loadContents (const std::string &configFilePath) {
 void Session::route() {
     switch (s_mapStringValues[inputVector[0]]) {
         default : //if no other case match
-            std::cout << "Invalid action"<< endl;
+            std::cout << "Invalid action" << endl;
             mainLoop();
             break;
         case createUser: { //TBD
@@ -151,13 +151,13 @@ void Session::route() {
             break;
         }
         case duplicateUser: //TBD
-            std::cout<< "DuplicateUser state"<< endl;
+            std::cout << "DuplicateUser state" << endl;
             break;
         case exit: //TBD
-            std::cout<< "Exit state"<< endl;
+            std::cout << "Exit state" << endl;
             break;
-        case printActionsLog:{ //TBD
-            std::cout<< "PrintActionsLog state"<< endl;
+        case printActionsLog: { //TBD
+            std::cout << "PrintActionsLog state" << endl;
             PrintActionsLog *pal = new PrintActionsLog(); //create action from type PrintActionsLog
             pal->act(*this);
             actionsLog.push_back(pal);
@@ -172,13 +172,20 @@ void Session::route() {
             mainLoop();
             break;
         }
-        case printWatchHistory: //TBD
-            std::cout<< "PrintWatchHistory state"<< endl;
+        case printWatchHistory: { //TBD
+            std::cout << "PrintWatchHistory state" << endl;
+            PrintWatchHistory *pwh = new PrintWatchHistory();
+            pwh->act(*this);
+            actionsLog.push_back(pwh);
+            mainLoop();
             break;
-        case watch: //TBD
-            std::cout<< "Watch state"<< endl;
+        }
+        case watch: {//TBD
+            std::cout << "Watch state" << endl;
             break;
+        }
 
     }
 }
+
 

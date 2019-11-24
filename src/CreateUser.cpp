@@ -6,7 +6,7 @@
 
 //
 // Created by shachafk@wincs.cs.bgu.ac.il on 21/11/2019.
-//TBD error+complete
+
 
 void CreateUser::act(Session& sess){ //should decide weather user is valid and change status accordinly
     std::vector <std::string> *input=sess.getInputVector();
