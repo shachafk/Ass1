@@ -69,8 +69,8 @@ void Session::mainLoop(){
 std::vector<Watchable*> Session::getContent(){
     return content;
 }
-std::unordered_map<std::string,User*> Session::getUsersMap(){
-    return userMap;
+std::unordered_map<std::string,User*>* Session::getUsersMap(){
+    return &userMap;
 }
 std::vector<BaseAction*> Session::getActionsLog(){
     return actionsLog;

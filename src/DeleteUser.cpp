@@ -9,11 +9,11 @@
 
 void DeleteUser::act(Session &sess) {
     std::string name = sess.getInputVector()->at(1);
-    std::unordered_map<std::string,User*> map= sess.getUsersMap();
-    if (map[name]){ //name exists in usermap
-        User* user = map[name];
+    std::unordered_map<std::string,User*> *map= sess.getUsersMap();
+    if (map->count(name) >0){ //name exists in usermap
+        User* user = map->at(name);
         delete(user);
-        map.erase(name);
+        map->erase(name);
         complete();
     }
     else {
