@@ -34,12 +34,13 @@ public:
     void start();
     void loadContents (const std::string &configFilePath);
     //getters
-    std::vector<Watchable*> *getContent();
+    std::vector<Watchable*> getContent();
     std::unordered_map<std::string,User*> getUsersMap();
     std::vector<BaseAction*> getActionsLog();
     User* getActiveUser();
     int spaceLocator(char ch);
     std::vector <std::string>* getInputVector();
+    void setActiveUser(User* user);
 
 private:
     std::vector<Watchable*> content;

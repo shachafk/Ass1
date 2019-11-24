@@ -10,14 +10,26 @@ using namespace std;
         // next episode id - to implement
 
     }
-    std::string Episode::toString() const{ return this->seriesName;}//returns Series name
+    std::string Episode::toString() const{
+        std::vector<std::string> tag = getTag(); //prepare the tag string
+        std::string tagString = "[";
+        for (int i=0;i<tag.size();i++){
+            tagString = tagString + tag.at(i) + ",";
+        }
+        tagString = tagString + "]";
+
+        std::string toReturn;
+        toReturn = std::to_string(getId()) + getseriesName() + std::to_string(getLength()) + tagString;
+        return toReturn;
+    }
+
     Watchable* Episode::getNextWatchable(Session&) const{
         //if(nextEpisodeId!= nullptr)
         return nullptr; //&this.nextEpisodeId;//to implement
     }
 //     std::string Episode::toString() const {return "";}
     //getters
-    const string& Episode:: getseriesName(){
+    std::string Episode::getseriesName() const {
         return seriesName ;
     }
     int Episode:: getSeason(){

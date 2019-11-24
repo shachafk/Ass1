@@ -16,6 +16,7 @@ Session::Session(const std::string &configFilePath):content(),actionsLog(),userM
     const std::string &name = "default";
     LengthRecommenderUser *l = new LengthRecommenderUser(name);
     userMap.insert(std::make_pair(name,l));
+    setActiveUser(l);
     this->loadContents(configFilePath); //load all available contents from the json file to content vector
     s_mapStringValues.insert(std::make_pair("defaultcase", StringValue::defaultcase));
     s_mapStringValues.insert(std::make_pair("createuser", StringValue::createUser));
@@ -45,6 +46,11 @@ void Session::start() { //this method should initialize default user with alg le
     cout << "SPLFLIX is now on!" << endl;
         mainLoop();
 }
+
+void Session::setActiveUser(User* user){
+    activeUser= user;
+}
+
 
 void Session::mainLoop(){
     inputVector.clear(); //clear the vector so new input will be inserted
@@ -101,8 +107,8 @@ void Session::mainLoop(){
 
 
 //getters
-std::vector<Watchable*> *Session::getContent(){
-    return &content;
+std::vector<Watchable*> Session::getContent(){
+    return content;
 }
 std::unordered_map<std::string,User*> Session::getUsersMap(){
     return userMap;
@@ -172,9 +178,14 @@ void Session::route() {
             mainLoop();
             break;
         }
-        case changeActiveUser: //TBD
-            std::cout<< "changeActiveUser state"<< endl;
+        case changeActiveUser: { //TBD
+            std::cout << "changeActiveUser state" << endl;
+            ChangeActiveUser *cau = new ChangeActiveUser(); //create action from type ChangeActiveUser
+            actionsLog.push_back(cau);
+            cau->act(*this);
+            mainLoop();
             break;
+        }
         case duplicateUser: //TBD
             std::cout<< "DuplicateUser state"<< endl;
             break;
@@ -183,15 +194,20 @@ void Session::route() {
             break;
         case printActionsLog:{ //TBD
             std::cout<< "PrintActionsLog state"<< endl;
-            PrintActionsLog *pal = new PrintActionsLog(); //create action from type deleteuser
+            PrintActionsLog *pal = new PrintActionsLog(); //create action from type PrintActionsLog
             pal->act(*this);
             actionsLog.push_back(pal);
             mainLoop();
             break;
         }
-        case printContentList: //TBD
-            std::cout<< "PrintContentList state"<< endl;
+        case printContentList: { //TBD
+            std::cout << "PrintContentList state" << endl;
+            PrintContentList *pcl = new PrintContentList(); //create action from type PrintContentList
+            pcl->act(*this);
+            actionsLog.push_back(pcl);
+            mainLoop();
             break;
+        }
         case printWatchHistory: //TBD
             std::cout<< "PrintWatchHistory state"<< endl;
             break;

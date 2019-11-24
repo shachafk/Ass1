@@ -8,14 +8,7 @@
 
 
 void DeleteUser::act(Session &sess) {
-    std::vector<std::string>* input = sess.getInputVector();
-    std::string name;
-    for (int i=1;i<input->size();i++) {
-        if (i>1){
-            name = name + " ";
-        }
-        name = name + sess.getInputVector()->at(i);
-    }
+    std::string name = sess.getInputVector()->at(1);
     std::unordered_map<std::string,User*> map= sess.getUsersMap();
     if (map[name]){ //name exists in usermap
         User* user = map[name];

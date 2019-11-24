@@ -20,9 +20,10 @@ public:
     virtual Watchable* getNextWatchable(Session&) const = 0;
     long getId() const;
     int  getLength() const ;
-    const std::vector<std::string> & getTag();
+    const std::vector<std::string> & getTag() const;
     void copy(Watchable &Watchable);
     void clean();
+    std::string print();
 
 private:
     long id;
@@ -51,13 +52,14 @@ public:
     Episode(long id, const std::string *seriesName, int length, int season, int episode , const std::vector<std::string>& tags);
     virtual std::string toString() const;
     virtual Watchable* getNextWatchable(Session&) const;
+    std::string getseriesName() const;
 private:
     std::string seriesName;
     int season;
     int episode;
     long nextEpisodeId;
 
-    const std::string &getseriesName();
+  //  const std::string &getseriesName();
 
 
     int getSeason();
