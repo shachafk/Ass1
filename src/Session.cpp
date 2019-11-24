@@ -2,35 +2,113 @@
 // Created by shachafk@wincs.cs.bgu.ac.il on 19/11/2019.
 //
 using namespace std;
-#include <curses.h>
+#include <iostream>
 #include <fstream>
+#include <sstream>
 #include "../include/Session.h"
 #include "../include/json.hpp"
 #include "../include/Watchable.h"
 #include "../include/User.h"
+#include "../include/Action.h"
 //Rule of 3/5 TBD
 //Session constructor
 Session::Session(const std::string &configFilePath):content(),actionsLog(),userMap(),activeUser(){
     const std::string &name = "default";
     LengthRecommenderUser *l = new LengthRecommenderUser(name);
     userMap.insert(std::make_pair(name,l));
+    setActiveUser(l);
     this->loadContents(configFilePath); //load all available contents from the json file to content vector
+    s_mapStringValues.insert(std::make_pair("defaultcase", StringValue::defaultcase));
+    s_mapStringValues.insert(std::make_pair("createuser", StringValue::createUser));
+    s_mapStringValues.insert(std::make_pair("changeactiveuser", StringValue::changeActiveUser));
+    s_mapStringValues.insert(std::make_pair("deleteuser", StringValue::deleteUser));
+    s_mapStringValues.insert(std::make_pair("duplicateuser", StringValue::duplicateUser));
+    s_mapStringValues.insert(std::make_pair("exit", StringValue::exit));
+    s_mapStringValues.insert(std::make_pair("printactionslog", StringValue::printActionsLog));
+    s_mapStringValues.insert(std::make_pair("printcontentlist", StringValue::printContentList));
+    s_mapStringValues.insert(std::make_pair("printwatchhistory", StringValue::printWatchHistory));
+    s_mapStringValues.insert(std::make_pair("watch", StringValue::watch));
 }
 Session::~Session(){
-    for (int i=0; i< content.size(); i++) {
+    for (int i=0; i< content.size(); i++) { //delete all movie and episode from content vector
         if (content[i] != nullptr)
             delete (content[i]);
     }
+    for (int i=0; i< actionsLog.size();i++){ //delete all logs from actionlog
+        if (actionsLog[i] != nullptr)
+            delete (actionsLog[i]);
+    }
+    for (auto it = userMap.begin();it!=userMap.end();it++ ){ //delete all users from usermap
+        delete(it->second);
+    }
 };
-void Session::start(){ //this method should initialize default user with alg len recommendation then wait for the user to enter an action to execute
-    cout<<"SPLFLIX is now on!"<<endl;
+void Session::start() { //this method should initialize default user with alg len recommendation then wait for the user to enter an action to execute
+    cout << "SPLFLIX is now on!" << endl;
+        mainLoop();
+}
 
+void Session::setActiveUser(User* user){
+    activeUser= user;
 }
 
 
+void Session::mainLoop(){
+    inputVector.clear(); //clear the vector so new input will be inserted
+    std::string input;
+    getline(cin,input);
+    istringstream iss(input);
+    string word;
+    while(iss >> word) {
+        inputVector.push_back(word);
+    }
+    route();
+}
+
+/*
+    switch(std::stoi(action)) { //checks which action requested by the user and manages suitable steps
+        case "createuser":
+            {
+                std::string name = "";
+                std::string type = "";
+                name = input.substr(11);//cuts action from input string
+                name = name.substr(0, name.length() - 3);//cuts type from input string
+                type = input.substr(input.length() - 4);//TBD make sure it is the right use of substring
+                if (userMap.count(name) > 0)//checks if username already exist in userMap
+                    //create user func changes action status to ERROR
+                    const std::string &name = name;
+                switch (std::stoi(type)) {
+                    case "len":
+                            LengthRecommenderUser *u = new LengthRecommenderUser(
+                                    name); //TBD where to delete that heap memory
+                            userMap.insert(std::make_pair(name, u)); //TBD add createuser func
+                        break;
+                    case "rer":
+
+                            RerunRecommenderUser *r = new RerunRecommenderUser(
+                                    name);//TBD where to delete that heap memory
+                            userMap.insert(std::make_pair(name, r));//TBD add to createuser func
+                        break;
+                    case "gen":
+                            GenreRecommenderUser *g = new GenreRecommenderUser(
+                                    name);//TBD where to delete that heap memory
+                            userMap.insert(std::make_pair(name, g));//TBD add to createuser func
+                        
+                        break;
+                    deafult: //create user changes action status to ERROR
+                }
+
+            }
+            break;
+    }
+    */
+
+
+
+
+
 //getters
-std::vector<Watchable*> *Session::getContent(){
-    return &content;
+std::vector<Watchable*> Session::getContent(){
+    return content;
 }
 std::unordered_map<std::string,User*> Session::getUsersMap(){
     return userMap;
@@ -41,41 +119,11 @@ std::vector<BaseAction*> Session::getActionsLog(){
 User* Session::getActiveUser(){
     return activeUser;
 }
-
-int Session::spaceLocator(char ch) // returns true if char is a space
-{
-    if(ch==' ')
-        return 1;
-    else return 0;
+    std::vector<std::string>* Session::getInputVector(){
+    return &inputVector;
 }
 
-std::string Session::newActionScanner(std::istream &in){ // converts input stream to a string.
-    printf("ENTER new action: ");
-    clrscr();//waits for the user to form new action
-    scanf("%[^\n]");
-    std::string s(std::istreambuf_iterator<char>(cin), {});
-    return s;
-}
-void Session::userCreate(std::string s) { //checks if action is "createuser" create new user and insert to user map
-    std::string name = "";
-    std::string type = "";
-    name = s.substr(11, s.length() - 3);//TBD make sure it is the right use of substring
-    type = s.substr(s.length() - 3);
-    const std::string &name_=name;
-    if (type=="len"){ // TBD to add other users types
-        LengthRecommenderUser *u=new LengthRecommenderUser(name_);
-        userMap.insert(std::make_pair(name,u));
-    }
-    else if (type=="rer"){
-        RerunRecommenderUser *r=new RerunRecommenderUser(name_);
-        userMap.insert(std::make_pair(name,r));
-    }
-    else if (type=="gen"){
-        GenreRecommenderUser *g=new GenreRecommenderUser(name_);
-        userMap.insert(std::make_pair(name,g));
-    }
-    else cout<<"invalid recommendtiontype"<<endl;
-}
+
 void Session::loadContents (const std::string &configFilePath) {
     std::ifstream i(configFilePath);
     nlohmann::json j;
@@ -112,4 +160,61 @@ void Session::loadContents (const std::string &configFilePath) {
 
 }
 
+
+void Session::route() {
+    switch (s_mapStringValues[inputVector[0]]) {
+        default : //if no other case match
+            std::cout << "Invalid action"<< endl;
+            mainLoop();
+            break;
+        case createUser: //TBD
+            std::cout<< "create user state"<< endl;
+            break;
+        case deleteUser: {//TBD
+            std::cout << "delete user state" << endl;
+            DeleteUser *dl = new DeleteUser(); //create action from type deleteuser
+            actionsLog.push_back(dl);
+            dl->act(*this);
+            mainLoop();
+            break;
+        }
+        case changeActiveUser: { //TBD
+            std::cout << "changeActiveUser state" << endl;
+            ChangeActiveUser *cau = new ChangeActiveUser(); //create action from type ChangeActiveUser
+            actionsLog.push_back(cau);
+            cau->act(*this);
+            mainLoop();
+            break;
+        }
+        case duplicateUser: //TBD
+            std::cout<< "DuplicateUser state"<< endl;
+            break;
+        case exit: //TBD
+            std::cout<< "Exit state"<< endl;
+            break;
+        case printActionsLog:{ //TBD
+            std::cout<< "PrintActionsLog state"<< endl;
+            PrintActionsLog *pal = new PrintActionsLog(); //create action from type PrintActionsLog
+            pal->act(*this);
+            actionsLog.push_back(pal);
+            mainLoop();
+            break;
+        }
+        case printContentList: { //TBD
+            std::cout << "PrintContentList state" << endl;
+            PrintContentList *pcl = new PrintContentList(); //create action from type PrintContentList
+            pcl->act(*this);
+            actionsLog.push_back(pcl);
+            mainLoop();
+            break;
+        }
+        case printWatchHistory: //TBD
+            std::cout<< "PrintWatchHistory state"<< endl;
+            break;
+        case watch: //TBD
+            std::cout<< "Watch state"<< endl;
+            break;
+
+    }
+}
 

@@ -5,6 +5,6 @@
 
 //Rule of 3/5 TBD
 
-GenreRecommenderUser::GenreRecommenderUser(const std::string& name):User(name){};
- Watchable* getRecommendation(Session& s);
+//GenreRecommenderUser::GenreRecommenderUser(const std::string& name):User(name){};
+ //Watchable* getRecommendation(Session& s);
 

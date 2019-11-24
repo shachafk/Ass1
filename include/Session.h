@@ -8,31 +8,50 @@
 #include <vector>
 #include <unordered_map>
 #include <string>
+#include <map>
 #include "Action.h"
 
 class User;
 class Watchable;
 
+
+
 class Session{
+    enum StringValue {defaultcase,
+        changeActiveUser,
+        createUser,
+        deleteUser,
+        duplicateUser,
+        exit,
+        printActionsLog,
+        printContentList,
+        printWatchHistory,
+        watch};
+
 public:
     Session(const std::string &configFilePath);
     ~Session();
     void start();
     void loadContents (const std::string &configFilePath);
     //getters
-    std::vector<Watchable*> *getContent();
+    std::vector<Watchable*> getContent();
     std::unordered_map<std::string,User*> getUsersMap();
     std::vector<BaseAction*> getActionsLog();
     User* getActiveUser();
     int spaceLocator(char ch);
-    string newActionScanner(istream &in);
+    std::vector <std::string>* getInputVector();
+    void setActiveUser(User* user);
+
 private:
     std::vector<Watchable*> content;
     std::vector<BaseAction*> actionsLog;
     std::unordered_map<std::string,User*> userMap;
     User* activeUser;
+    std::vector<std::string> inputVector;
+    std::map<std::string, StringValue> s_mapStringValues;
+    void route();
 
-
+    void mainLoop();
 
 };
 #endif

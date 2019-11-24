@@ -21,13 +21,18 @@ public:
     ActionStatus getStatus() const;
     virtual void act(Session& sess)=0;
     virtual std::string toString() const=0;
+    std::string getEnumStringFromInt(int i) const;
+    std::string getError();
 protected:
     void complete();
     void error(const std::string& errorMsg);
     std::string getErrorMsg() const;
+
 private:
     std::string errorMsg;
     ActionStatus status;
+    std::string castEnumArray[3];
+
 };
 
 class CreateUser  : public BaseAction {
