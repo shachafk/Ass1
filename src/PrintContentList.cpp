@@ -11,14 +11,12 @@
 
 void PrintContentList::act(Session &sess) {
     std::vector<Watchable *> content = sess.getContent();
- //   Watchable* m1;
-  //  for (int i = 0; i < 4; i++) {
-  //      m1 = content.at(i);
-   //     std::string toPrint=  m1.print();
-   //     std::cout << toPrint << std::endl;
 
+    for (int i = 0; i < content.size(); i++) {
+        std::cout << content[i]->toString() << std::endl;
+    }
+    complete();
 }
-
 
 
 std::string PrintContentList::toString() const{

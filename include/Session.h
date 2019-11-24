@@ -41,6 +41,7 @@ public:
     int spaceLocator(char ch);
     std::vector <std::string>* getInputVector();
     void setActiveUser(User* user);
+    std::vector<Watchable *> myHistory();
 
 private:
     std::vector<Watchable*> content;
@@ -52,6 +53,7 @@ private:
     void route();
 
     void mainLoop();
+
 
 };
 #endif

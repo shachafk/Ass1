@@ -62,9 +62,9 @@ private:
   //  const std::string &getseriesName();
 
 
-    int getSeason();
+    int getSeason() const;
 
-    int getEpisode();
+    int getEpisode() const;
 };
 
 #endif
