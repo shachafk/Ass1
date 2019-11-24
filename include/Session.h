@@ -27,7 +27,6 @@ class Session{
         printContentList,
         printWatchHistory,
         watch};
-    enum RecommendationType{len,rer,gen};
 
 public:
     Session(const std::string &configFilePath);

@@ -11,8 +11,14 @@ BaseAction::BaseAction():status(ActionStatus::PENDING),errorMsg() {
     castEnumArray[0] = "PENDING";
     castEnumArray[1] = "COMPLETED";
     castEnumArray[2] = "Error";
+    u_mapStringValues.insert(std::make_pair("Default", RecommendationType::Default));
+    u_mapStringValues.insert(std::make_pair("len", RecommendationType::len));
+    u_mapStringValues.insert(std::make_pair("gen", RecommendationType::gen));
+    u_mapStringValues.insert(std::make_pair("rer", RecommendationType::rer));
+
 }
 ActionStatus BaseAction::getStatus() const { return  status; }
+
 void BaseAction::complete(){status=ActionStatus::COMPLETED;}
 void BaseAction::error(const std::string& errorMsg) {
     status=ActionStatus::ERROR;
@@ -21,6 +27,7 @@ void BaseAction::error(const std::string& errorMsg) {
     std::cout<< toPrint << std::endl;
 };
 std::string BaseAction::getErrorMsg() const { return errorMsg;};
+std::map<std::string, RecommendationType> BaseAction::getEnumMap() {return u_mapStringValues;}
 
 std::string BaseAction::getEnumStringFromInt(int i) const { //this methot return the string that fit i number.
     return castEnumArray[i];

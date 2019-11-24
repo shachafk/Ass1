@@ -120,13 +120,14 @@ void Session::route() {
             std::cout << "Invalid action"<< endl;
             mainLoop();
             break;
-        case createUser: //TBD
-            std::cout<< "create user state"<< endl;
-            CreateUser *c=new CreateUser; //creates action from type createuser
+        case createUser: { //TBD
+            std::cout << "create user state" << endl;
+            CreateUser *c = new CreateUser(); //creates action from type createuser
             actionsLog.push_back(c); //save record of the action
             c->act(*this);
             mainLoop();
             break;
+        }
         case deleteUser: {//TBD
             std::cout << "delete user state" << endl;
             DeleteUser *dl = new DeleteUser(); //creates action from type deleteuser

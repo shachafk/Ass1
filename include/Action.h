@@ -4,7 +4,8 @@
 
 #ifndef ACTION_H_
 #define ACTION_H_
-
+#include <map>
+#include <string>
 #include <string>
 #include <iostream>
 
@@ -13,6 +14,7 @@ class Session;
 enum ActionStatus{
     PENDING, COMPLETED, ERROR
 };
+enum RecommendationType{Default,len,gen,rer};
 
 
 class BaseAction{
@@ -27,11 +29,15 @@ protected:
     void complete();
     void error(const std::string& errorMsg);
     std::string getErrorMsg() const;
+    std::map<std::string, RecommendationType> getEnumMap();
+
 
 private:
     std::string errorMsg;
     ActionStatus status;
     std::string castEnumArray[3];
+    std::map<std::string, RecommendationType> u_mapStringValues;
+
 
 };
 

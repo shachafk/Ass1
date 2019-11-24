@@ -7,5 +7,6 @@
 
 
 LengthRecommenderUser::LengthRecommenderUser(const std::string& name):User(name){};
- Watchable* LengthRecommenderUser::getRecommendation(Session& s){
+ Watchable* LengthRecommenderUser::LengthRecommenderUser::getRecommendation(Session& s){
+     return nullptr;
  }

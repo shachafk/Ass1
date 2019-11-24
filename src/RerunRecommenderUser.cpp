@@ -5,5 +5,5 @@
 //Rule of 3/5 TBD
 
 
-//RerunRecommenderUser::RerunRecommenderUser(const std::string& name):User(name){};
-//Watchable* getRecommendation(Session& s);
+RerunRecommenderUser::RerunRecommenderUser(const std::string& name):User(name){};
+Watchable* RerunRecommenderUser::getRecommendation(Session& s){return nullptr;}
