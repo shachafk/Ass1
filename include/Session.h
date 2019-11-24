@@ -17,7 +17,8 @@ class Watchable;
 
 
 class Session{
-    enum StringValue {changeActiveUser,
+    enum StringValue {defaultcase,
+        changeActiveUser,
         createUser,
         deleteUser,
         duplicateUser,

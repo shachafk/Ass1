@@ -10,19 +10,20 @@
 
 void PrintActionsLog::act(Session &sess) {
     std::vector<BaseAction*> all = sess.getActionsLog();
-
-        for (auto it = all.rend(); it!= all.rbegin();it++){
-        if (*it != nullptr) {
-            const std::string actionandstatus = (*it)->toString(); //SIGSEGV (Segmentation fault) error - TBD
-            if ((*it)->getStatus() !=2){ // completed or pending
-                std::cout << actionandstatus << std::endl;
+            int i= all.size()-1;
+            while (i>=0) {
+                if (all[i] != nullptr) {
+                    const std::string actionandstatus = (all[i])->toString(); //SIGSEGV (Segmentation fault) error - TBD
+                    if ((all[i])->getStatus() != 2) { // completed or pending
+                        std::cout << actionandstatus << std::endl;
+                    } else {
+                        std::string error = (all[i])->getError();
+                        std::cout << error << std::endl;
+                    }
+                }
+                i--;
             }
-            else {
-                std::string error = (*it)->getError();
-                std::cout << error << std::endl;
-            }
-        }
-    }
+    this->complete();
     return;
 }
 std::string PrintActionsLog::toString() const{

@@ -17,6 +17,7 @@ Session::Session(const std::string &configFilePath):content(),actionsLog(),userM
     LengthRecommenderUser *l = new LengthRecommenderUser(name);
     userMap.insert(std::make_pair(name,l));
     this->loadContents(configFilePath); //load all available contents from the json file to content vector
+    s_mapStringValues.insert(std::make_pair("defaultcase", StringValue::defaultcase));
     s_mapStringValues.insert(std::make_pair("createuser", StringValue::createUser));
     s_mapStringValues.insert(std::make_pair("changeactiveuser", StringValue::changeActiveUser));
     s_mapStringValues.insert(std::make_pair("deleteuser", StringValue::deleteUser));
@@ -156,6 +157,10 @@ void Session::loadContents (const std::string &configFilePath) {
 
 void Session::route() {
     switch (s_mapStringValues[inputVector[0]]) {
+        default : //if no other case match
+            std::cout << "Invalid action"<< endl;
+            mainLoop();
+            break;
         case createUser: //TBD
             std::cout<< "create user state"<< endl;
             break;
@@ -193,6 +198,7 @@ void Session::route() {
         case watch: //TBD
             std::cout<< "Watch state"<< endl;
             break;
+
     }
 }
 
