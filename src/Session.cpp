@@ -69,8 +69,8 @@ void Session::mainLoop(){
 std::vector<Watchable*> Session::getContent(){
     return content;
 }
-std::unordered_map<std::string,User*> Session::getUsersMap(){
-    return userMap;
+std::unordered_map<std::string,User*>* Session::getUsersMap(){
+    return &userMap;
 }
 std::vector<BaseAction*> Session::getActionsLog(){
     return actionsLog;
@@ -126,7 +126,7 @@ void Session::loadContents (const std::string &configFilePath) {
 void Session::route() {
     switch (s_mapStringValues[inputVector[0]]) {
         default : //if no other case match
-            std::cout << "Invalid action"<< endl;
+            std::cout << "Invalid action" << endl;
             mainLoop();
             break;
         case createUser: { //TBD
@@ -154,8 +154,9 @@ void Session::route() {
             break;
         }
         case duplicateUser: //TBD
-            std::cout<< "DuplicateUser state"<< endl;
+            std::cout << "DuplicateUser state" << endl;
             break;
+
         case exit: { //TBD
             std::cout << "Exit state" << endl;
             Exit *ex = new Exit(); //create action from type Exit
@@ -179,6 +180,7 @@ void Session::route() {
             mainLoop();
             break;
         }
+
         case printWatchHistory: {
             std::cout<< "PrintWatchHistory state"<< endl;
             PrintWatchHistory *pwh = new PrintWatchHistory(); //create action from type printWatchHistory
@@ -187,6 +189,7 @@ void Session::route() {
             mainLoop();
             break;
         }
+
         case watch: { //TBD
             std::cout << "Watch state" << endl;
             Watch *w = new Watch(); //create action from type Watch
@@ -198,4 +201,5 @@ void Session::route() {
 
     }
 }
+
 

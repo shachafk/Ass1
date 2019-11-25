@@ -11,9 +11,9 @@
 void ChangeActiveUser::act(Session &sess) {
     std::vector<std::string>* input = sess.getInputVector();
     std::string name = input->at(1);
-    std::unordered_map<std::string,User*> map= sess.getUsersMap();
-    if (map[name]) { //name exists in usermap
-        sess.setActiveUser(map[name]);
+    std::unordered_map<std::string,User*> *map= sess.getUsersMap();
+    if (map->count(name) >0) { //name exists in usermap
+        sess.setActiveUser(map->at(name));
         complete();
     }
     else {
