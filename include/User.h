@@ -20,6 +20,7 @@ public:
     virtual Watchable* getRecommendation(Session& s) = 0;
     std::string getName() const;
     std::vector<Watchable*> get_history() const;
+    void addToHistory(Watchable* toAdd);
 
 protected:
     std::vector<Watchable*> history;

@@ -8,6 +8,7 @@
 #include <string>
 #include <string>
 #include <iostream>
+#include "Watchable.h"
 
 class Session;
 
@@ -83,6 +84,7 @@ class Watch : public BaseAction {
 public:
     virtual void act(Session& sess);
     virtual std::string toString() const;
+    void play(Watchable* watchable,Session& sess);
 };
 
 

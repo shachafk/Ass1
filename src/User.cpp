@@ -14,4 +14,7 @@ std::string User::getName() const{
 std::vector<Watchable*> User::get_history() const{return history;}
 
 
+void User::addToHistory(Watchable* toAdd){
+    history.push_back(toAdd);
+}
 

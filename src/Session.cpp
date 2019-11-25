@@ -122,6 +122,11 @@ void Session::loadContents (const std::string &configFilePath) {
 
 }
 
+void Session::runAction(BaseAction* action){
+    action->act(*this);
+    actionsLog.push_back(action); //save record of the action
+    mainLoop();
+}
 
 void Session::route() {
     switch (s_mapStringValues[inputVector[0]]) {
@@ -131,26 +136,17 @@ void Session::route() {
             break;
         case createUser: { //TBD
             std::cout << "create user state" << endl;
-            CreateUser *c = new CreateUser(); //creates action from type createuser
-            actionsLog.push_back(c); //save record of the action
-            c->act(*this);
-            mainLoop();
+            runAction(new CreateUser());
             break;
         }
         case deleteUser: {//TBD
             std::cout << "delete user state" << endl;
-            DeleteUser *dl = new DeleteUser(); //creates action from type deleteuser
-            actionsLog.push_back(dl);
-            dl->act(*this);
-            mainLoop();
+            runAction(new DeleteUser());
             break;
         }
         case changeActiveUser: { //TBD
             std::cout << "changeActiveUser state" << endl;
-            ChangeActiveUser *cau = new ChangeActiveUser(); //create action from type ChangeActiveUser
-            actionsLog.push_back(cau);
-            cau->act(*this);
-            mainLoop();
+            runAction(new ChangeActiveUser());
             break;
         }
         case duplicateUser: //TBD
@@ -158,44 +154,32 @@ void Session::route() {
             break;
 
         case exit: { //TBD
-            std::cout << "Exit state" << endl;
-            Exit *ex = new Exit(); //create action from type Exit
+            std::cout << "Bye Bye see you later" << endl;
+            Exit* ex = new Exit();
             ex->act(*this);
-            actionsLog.push_back(ex);
+            actionsLog.push_back(ex); //save record of the action
             break;
         }
         case printActionsLog:{ //TBD
             std::cout<< "PrintActionsLog state"<< endl;
-            PrintActionsLog *pal = new PrintActionsLog(); //create action from type PrintActionsLog
-            pal->act(*this);
-            actionsLog.push_back(pal);
-            mainLoop();
+            runAction(new PrintActionsLog());
             break;
         }
         case printContentList: { //TBD
             std::cout << "PrintContentList state" << endl;
-            PrintContentList *pcl = new PrintContentList(); //create action from type PrintContentList
-            pcl->act(*this);
-            actionsLog.push_back(pcl);
-            mainLoop();
+            runAction(new PrintContentList());
             break;
         }
 
         case printWatchHistory: {
             std::cout<< "PrintWatchHistory state"<< endl;
-            PrintWatchHistory *pwh = new PrintWatchHistory(); //create action from type printWatchHistory
-            pwh->act(*this);
-            actionsLog.push_back(pwh);
-            mainLoop();
+            runAction(new PrintWatchHistory());
             break;
         }
 
         case watch: { //TBD
             std::cout << "Watch state" << endl;
-            Watch *w = new Watch(); //create action from type Watch
-            w->act(*this);
-            actionsLog.push_back(w);
-            mainLoop();
+            runAction(new Watch());
             break;
         }
 

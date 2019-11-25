@@ -8,7 +8,7 @@ using namespace std;
 
     Episode::Episode(long id, const std::string *seriesName, int length, int season, int episode , const std::vector<std::string>& tags) :Watchable(id,length,tags),seriesName(*seriesName),season(season),episode(episode){
         // next episode id - to implement
-
+        setType(2);
     }
     std::string Episode::toString() const{
         std::vector<std::string> tag = getTag(); //prepare the tag string

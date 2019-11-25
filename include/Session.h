@@ -42,6 +42,10 @@ public:
     std::vector <std::string>* getInputVector();
     void setActiveUser(User* user);
     std::vector<Watchable *> myHistory();
+    void runAction(BaseAction* action);
+
+
+
 
 private:
     std::vector<Watchable*> content;

@@ -7,6 +7,15 @@
 
 
 LengthRecommenderUser::LengthRecommenderUser(const std::string& name):User(name){};
- Watchable* LengthRecommenderUser::LengthRecommenderUser::getRecommendation(Session& s){
+ Watchable* LengthRecommenderUser::LengthRecommenderUser::getRecommendation(Session& s) {
+ //    std::vector<Watchable*> his = get_history();
+  //   Watchable* last = his[his.size()-1];
+   //  if (( last->getType() == 1) { //Movie
+    // }
+
+  //   if (lastContent->getType() ==2){ //Episode
+  //   }
+
+
      return nullptr;
  }

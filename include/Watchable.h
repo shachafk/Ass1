@@ -24,11 +24,15 @@ public:
     void copy(Watchable &Watchable);
     void clean();
     std::string print();
+    int getType();
+    void setType (int i);
+
 
 private:
     long id;
     int length;
     std::vector<std::string> tags;
+    int type; //Movie=1, Episode =2
 
 };
 
