@@ -14,6 +14,8 @@ Movie::Movie(long id, const std::string *name, int length, const std::vector<std
 }
 
 Movie::Movie(const Movie &Movie): Watchable((Watchable &) Movie), name(Movie::getName()) {}
+
+
 std::string Movie::toString() const {
     std::vector<std::string> tag = getTag();
     std::string tagString = "[";

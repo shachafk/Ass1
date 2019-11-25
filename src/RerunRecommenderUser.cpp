@@ -13,6 +13,7 @@ RerunRecommenderUser::RerunRecommenderUser(const std::string& name):User(name){ 
 User* RerunRecommenderUser::clone(std::string name_) {
     RerunRecommenderUser *other=new RerunRecommenderUser(name_);
     other->copyHistory(get_history());
+    other->copyAvailable(getAvailable());
     return other;
 }
 Watchable* RerunRecommenderUser::getRecommendation(Session& s) {

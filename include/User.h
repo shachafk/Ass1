@@ -30,6 +30,7 @@ public:
             history.push_back(hist.at(i));
         }
     }
+    void copyAvailable(std::map<long, Watchable*>* toCopy);
 
     void loadAvailable(Session& s);
     std::map<long, Watchable*>* getAvailable();

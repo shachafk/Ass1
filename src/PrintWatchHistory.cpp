@@ -9,7 +9,7 @@
 #include "../include/Watchable.h"
 
 void PrintWatchHistory::act(Session &sess) {
-    std::vector<Watchable *> myhistory = sess.myHistory();
+    std::vector<Watchable *> myhistory = sess.getActiveUser()->get_history();
 
     for (int i = 0; i < myhistory.size(); i++) {
         std::cout << myhistory[i]->toString() << std::endl;

@@ -31,4 +31,9 @@ std::map<long, Watchable*>* User::getAvailable(){
 }
 
 
-
+void User::copyAvailable(std::map<long, Watchable*>* toCopy) {
+    std::map<long, Watchable *>::iterator it;
+    for (it = toCopy->begin(); it != toCopy->end(); it++) {
+        available.insert((*it));
+    }
+}
