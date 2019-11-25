@@ -17,6 +17,7 @@ LengthRecommenderUser::LengthRecommenderUser(const std::string& name):User(name)
 User* LengthRecommenderUser::clone(std::string name_) {
     LengthRecommenderUser *other=new LengthRecommenderUser(name_);
     other->copyHistory(get_history());
+    other->copyAvailable(getAvailable());
     return other;
 }
 
@@ -34,7 +35,7 @@ User* LengthRecommenderUser::clone(std::string name_) {
 
  Watchable* LengthRecommenderUser::LengthRecommenderUser::getRecommendation(Session& s) {
      Watchable* toReturn = nullptr;
-     int average = findAveragelength(); // get the averege length from history
+     int average = findAveragelength(); // get the average length from history
      std::map<long, Watchable*>::iterator it;
      int diff = average; 
      for (it = getAvailable()->begin(); it != getAvailable()->end(); it++){ //go over all content in available and check who as the smallest diff from average

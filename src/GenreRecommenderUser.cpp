@@ -9,6 +9,7 @@ GenreRecommenderUser::GenreRecommenderUser(const std::string& name):User(name){}
 User* GenreRecommenderUser::clone(std::string name_) {
     GenreRecommenderUser *other=new GenreRecommenderUser(name_);
     other->copyHistory(get_history());
+    other->copyAvailable(getAvailable());
     return other;
 }
  Watchable* GenreRecommenderUser::getRecommendation(Session& s){return nullptr;}

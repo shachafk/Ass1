@@ -42,12 +42,12 @@ void Watch::play(Watchable* watchable,Session& sess){
         std::istringstream iss(answer);
         std::string word;
         iss >> word;
-        if (word == "Y"){
+        if (word == "Y" or word == "y"){
             // need to create new action watch and to watch recommended
             sess.getInputVector()->at(1) = std::to_string(WatchNext->getId());
             sess.runAction(new Watch());
         }
-        else if (word == "N") {
+        else if (word == "N" or word == "n") {
 
         }
         else {
