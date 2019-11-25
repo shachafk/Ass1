@@ -37,6 +37,7 @@ public:
     LengthRecommenderUser(const std::string& name);
     virtual Watchable* getRecommendation(Session& s);
     Watchable* findLenRecomendation();
+    Watchable* findRerRecomendation();
 private:
 };
 
@@ -45,6 +46,9 @@ public:
     RerunRecommenderUser(const std::string& name);
     virtual Watchable* getRecommendation(Session& s);
 private:
+    int Lastid;
+
+    Watchable *findRerRecomendation();
 };
 
 class GenreRecommenderUser : public User {

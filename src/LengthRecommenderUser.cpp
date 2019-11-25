@@ -22,7 +22,7 @@ LengthRecommenderUser::LengthRecommenderUser(const std::string& name):User(name)
      else if (last->getType() ==2) {//Episode
          Episode *curr = (Episode *) last;
          if (curr->getNextEpisodeId() != 0) {
-             return s.getContent()[curr->getNextEpisodeId()]; //if there is next episode reccomend on it
+             return s.getContent()[curr->getNextEpisodeId()]; //if there is next episode recommend on it
          } else {
 
              return findLenRecomendation(); //by len recommendation
@@ -36,6 +36,16 @@ LengthRecommenderUser::LengthRecommenderUser(const std::string& name):User(name)
  }
 
 Watchable* LengthRecommenderUser::findLenRecomendation(){
+     //calculates avereage length of history
+    std::vector<Watchable *> hist = get_history();
+    int sum=0;
+    for(int i=1;i<hist.size();i++){
+        sum=sum+hist.at(i)->getLength();
+    }
+    int averege=sum/hist.size()-1;
 
- }
+
+}
+
+
 
