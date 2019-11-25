@@ -44,6 +44,7 @@ public:
     std::vector<Watchable *> myHistory();
     void runAction(BaseAction* action);
     void loadMapStringValues();
+    void setActionInLog(BaseAction* act);
 
 
 private:

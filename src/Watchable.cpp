@@ -12,7 +12,7 @@ Watchable::Watchable(Watchable& Watchable) {copy(Watchable);}
 Watchable::~Watchable(){ // destructor
 
 }
-Watchable* Watchable::getNextWatchable(Session&) const {return nullptr;}
+
 void Watchable::copy (Watchable& Watchable){
     id = Watchable.getId();
     length = Watchable.getLength();
@@ -28,7 +28,7 @@ std::string Watchable::print(){toString();};
 long Watchable::getId() const {return this->id;}
 int Watchable::getLength() const { return this->length;}
 const std::vector<std::string> & Watchable::getTag() const {return this->tags;}
- int Watchable::getType(){ return type;}
+int Watchable::getType(){ return type;}
 
 
 

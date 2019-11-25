@@ -4,13 +4,15 @@
 #include "../include/User.h"
 #include "../include/Watchable.h"
 #include "../include/Session.h"
+#include <stdlib.h>
 
 
 
 //Rule of 3/5 TBD
 
 
-LengthRecommenderUser::LengthRecommenderUser(const std::string& name):User(name){};
+LengthRecommenderUser::LengthRecommenderUser(const std::string& name):User(name){
+};
 
 User* LengthRecommenderUser::clone(std::string name_) {
     LengthRecommenderUser *other=new LengthRecommenderUser(name_);
@@ -18,38 +20,33 @@ User* LengthRecommenderUser::clone(std::string name_) {
     return other;
 }
 
+
+    int LengthRecommenderUser::findAveragelength(){
+    //calculates average length of history
+    std::vector<Watchable *> hist = get_history();
+    int sum=0;
+    for(int i=0;i<hist.size();i++){
+        sum=sum+hist.at(i)->getLength();
+    }
+    return sum/hist.size();
+}
+
+
  Watchable* LengthRecommenderUser::LengthRecommenderUser::getRecommendation(Session& s) {
-     std::vector<Watchable*> hist = get_history();
-     Watchable* last = hist[hist.size()-1];
-     if ( last->getType() == 1) {//Movie
-         return findLenRecomendation(); //by len recommendation
-     }
-
-     else if (last->getType() ==2) {//Episode
-         Episode *curr = (Episode *) last;
-         if (curr->getNextEpisodeId() != 0) {
-             return s.getContent()[curr->getNextEpisodeId()]; //if there is next episode recommend on it
-         } else {
-
-             return findLenRecomendation(); //by len recommendation
+     Watchable* toReturn = nullptr;
+     int average = findAveragelength(); // get the averege length from history
+     std::map<long, Watchable*>::iterator it;
+     int diff = average; 
+     for (it = getAvailable()->begin(); it != getAvailable()->end(); it++){ //go over all content in available and check who as the smallest diff from average
+         int temp = abs((*it).second->getLength() - average);
+         if ( temp < diff){
+             diff = temp;
+             toReturn = (*it).second;
          }
      }
 
-
-     return nullptr;
+     return toReturn;
  }
-
-Watchable* LengthRecommenderUser::findLenRecomendation(){
-     //calculates avereage length of history
-    std::vector<Watchable *> hist = get_history();
-    int sum=0;
-    for(int i=1;i<hist.size();i++){
-        sum=sum+hist.at(i)->getLength();
-    }
-    int averege=sum/hist.size()-1;
-
-
-}
 
 
 

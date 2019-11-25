@@ -16,39 +16,22 @@ User* RerunRecommenderUser::clone(std::string name_) {
     return other;
 }
 Watchable* RerunRecommenderUser::getRecommendation(Session& s) {
-    std::vector<Watchable *> hist = get_history();
-    Watchable *last = hist[hist.size() - 1];
-    if (last->getType() == 1) {//Movie
-        return findRerRecomendation(); //by rerun recommendation
-    } else if (last->getType() == 2) {//Episode
-        Episode *curr = (Episode *) last;
-        if (curr->getNextEpisodeId() != 0) {
-            return s.getContent()[curr->getNextEpisodeId()]; //if there is next episode recommend on it
-        } else {
-
-            return findRerRecomendation();
-            {
-                //by rerun recommendation
-            }
-        }
-
-        return nullptr;
-    }
-}
-Watchable* RerunRecommenderUser::findRerRecomendation() {
     std::vector<Watchable *> hist = get_history();//get user's history vector
     if (hist.size()==0){ //in case no history
         return nullptr;
     }
     else{
-        if(Lastid=-1){ //first time using algo
-        Lastid=Lastid+1;
-        return hist.at(0);
+
+        if(Lastid==-1){
+            Lastid=0;
+            return hist.at(0);
         }
         else{
-        Lastid=Lastid+1;
-        return hist.at((Lastid) % hist.size());
+            long newId = (Lastid+1) % hist.size();
+            Lastid = newId;
+            return hist.at(newId);
         }
     }
-}
+
+    }
 

@@ -28,18 +28,21 @@ void CreateUser::act(Session& sess){ //should decide weather user is valid and c
             case len: {
                 LengthRecommenderUser *u = new LengthRecommenderUser(name); //TBD where to delete that heap memory
                 sess.getUsersMap()->insert(std::make_pair(name, u));
+                u->loadAvailable(sess);
                 complete();
                 break;
             }
             case rer: {
                 RerunRecommenderUser *r = new RerunRecommenderUser(name);//TBD where to delete that heap memory
                 sess.getUsersMap()->insert(std::make_pair(name, r));
+                r->loadAvailable(sess);
                 complete();
                 break;
             }
             case gen:{
                 GenreRecommenderUser * g = new GenreRecommenderUser(name);//TBD where to delete that heap memory
                 sess.getUsersMap()->insert(std::make_pair(name, g));
+                g->loadAvailable(sess);
                 complete();
                 break;
                 }

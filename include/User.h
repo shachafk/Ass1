@@ -9,6 +9,8 @@
 #include <string>
 #include <unordered_set>
 #include <unordered_map>
+#include <map>
+
 class Watchable;
 class Session;
 
@@ -29,12 +31,15 @@ public:
         }
     }
 
+    void loadAvailable(Session& s);
+    std::map<long, Watchable*>* getAvailable();
+
+
 protected:
     std::vector<Watchable*> history;
 private:
      std::string name;
-
-
+     std::map<long, Watchable*> available;
 
 };
 
@@ -43,20 +48,22 @@ class LengthRecommenderUser : public User {
 public:
     LengthRecommenderUser(const std::string& name);
     virtual Watchable* getRecommendation(Session& s);
-    Watchable* findLenRecomendation();
+
     virtual User* clone(std::string name_);
+
 private:
+    int findAveragelength();
 };
 
 class RerunRecommenderUser : public User {
 public:
     RerunRecommenderUser(const std::string& name);
     virtual Watchable* getRecommendation(Session& s);
-    Watchable *findRerRecomendation();
+
     virtual User* clone(std::string name_);
+
 private:
     int Lastid;
-
 
 };
 
