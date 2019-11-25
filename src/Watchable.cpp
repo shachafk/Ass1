@@ -28,7 +28,7 @@ std::string Watchable::print(){toString();};
 long Watchable::getId() const {return this->id;}
 int Watchable::getLength() const { return this->length;}
 const std::vector<std::string> & Watchable::getTag() const {return this->tags;}
- int Watchable::getType(){ return type;}
+int Watchable::getType(){ return type;}
 
 
 

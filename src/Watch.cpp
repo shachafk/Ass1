@@ -33,6 +33,7 @@ void Watch::play(Watchable* watchable,Session& sess){
     std::cout<< "Watching " + watchable->toString() << std::endl;
     complete();
     sess.getActiveUser()->addToHistory(watchable); // add the watchable to user history
+    sess.getActiveUser()->getAvailable()->erase(watchable->getId());
     Watchable* WatchNext = watchable->getNextWatchable(sess);
     if (WatchNext != nullptr) {
         std::cout << "We recommend watching  " + WatchNext->toString() + ",continue watching? [Y/N]" << std::endl;

@@ -18,3 +18,9 @@ void User::addToHistory(Watchable* toAdd){
     history.push_back(toAdd);
 }
 
+std::map<long, Watchable*>* User::getAvailable(){
+    return &available;
+}
+
+
+

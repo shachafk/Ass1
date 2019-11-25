@@ -14,11 +14,12 @@ using namespace std;
 //Session constructor
 
 Session::Session(const std::string &configFilePath):content(),actionsLog(),userMap(),activeUser() {
+    this->loadContents(configFilePath); //load all available contents from the json file to content vector
     const std::string &name = "default";
     LengthRecommenderUser *l = new LengthRecommenderUser(name);
+    l->loadAvailable(*this);
     userMap.insert(std::make_pair(name, l));
     setActiveUser(l);
-    this->loadContents(configFilePath); //load all available contents from the json file to content vector
     loadMapStringValues();
 }
 
@@ -26,13 +27,13 @@ Session::Session(const std::string &configFilePath):content(),actionsLog(),userM
     void Session::loadMapStringValues(){
         s_mapStringValues.insert(std::make_pair("defaultcase", StringValue::defaultcase));
         s_mapStringValues.insert(std::make_pair("createuser", StringValue::createUser));
-        s_mapStringValues.insert(std::make_pair("changeactiveuser", StringValue::changeActiveUser));
+        s_mapStringValues.insert(std::make_pair("changeuser", StringValue::changeActiveUser));
         s_mapStringValues.insert(std::make_pair("deleteuser", StringValue::deleteUser));
-        s_mapStringValues.insert(std::make_pair("duplicateuser", StringValue::duplicateUser));
+        s_mapStringValues.insert(std::make_pair("dupuser", StringValue::duplicateUser));
         s_mapStringValues.insert(std::make_pair("exit", StringValue::exit));
-        s_mapStringValues.insert(std::make_pair("printactionslog", StringValue::printActionsLog));
-        s_mapStringValues.insert(std::make_pair("printcontentlist", StringValue::printContentList));
-        s_mapStringValues.insert(std::make_pair("printwatchhistory", StringValue::printWatchHistory));
+        s_mapStringValues.insert(std::make_pair("log", StringValue::printActionsLog));
+        s_mapStringValues.insert(std::make_pair("content", StringValue::printContentList));
+        s_mapStringValues.insert(std::make_pair("watchhist", StringValue::printWatchHistory));
         s_mapStringValues.insert(std::make_pair("watch", StringValue::watch));
     }
 
