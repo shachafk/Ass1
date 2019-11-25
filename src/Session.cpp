@@ -178,6 +178,7 @@ void Session::route() {
         }
         case duplicateUser: //TBD
             std::cout << "DuplicateUser state" << endl;
+            runAction(new DuplicateUser());
             break;
 
         case exit: { //TBD

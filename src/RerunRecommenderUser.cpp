@@ -10,12 +10,18 @@
 
 
 RerunRecommenderUser::RerunRecommenderUser(const std::string& name):User(name){ Lastid =-1;};
+User* RerunRecommenderUser::clone(std::string name_) {
+    RerunRecommenderUser *other=new RerunRecommenderUser(name_);
+    other->copyHistory(get_history());
+    return other;
+}
 Watchable* RerunRecommenderUser::getRecommendation(Session& s) {
     std::vector<Watchable *> hist = get_history();//get user's history vector
-    if (hist.size()==0){ //
+    if (hist.size()==0){ //in case no history
         return nullptr;
     }
     else{
+
         if(Lastid==-1){
             Lastid=0;
             return hist.at(0);

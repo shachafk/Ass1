@@ -23,8 +23,17 @@ public:
     std::string getName() const;
     std::vector<Watchable*> get_history() const;
     void addToHistory(Watchable* toAdd);
+    virtual User* clone(std::string name_) = 0;
+    std::string getName(){return name;}
+    void copyHistory(std::vector<Watchable *> hist) {
+        for (int i = 0; i < hist.size(); i++) {
+            history.push_back(hist.at(i));
+        }
+    }
+
     void loadAvailable(Session& s);
     std::map<long, Watchable*>* getAvailable();
+
 
 protected:
     std::vector<Watchable*> history;
@@ -39,6 +48,9 @@ class LengthRecommenderUser : public User {
 public:
     LengthRecommenderUser(const std::string& name);
     virtual Watchable* getRecommendation(Session& s);
+
+    virtual User* clone(std::string name_);
+
 private:
     int findAveragelength();
 };
@@ -48,16 +60,18 @@ public:
     RerunRecommenderUser(const std::string& name);
     virtual Watchable* getRecommendation(Session& s);
 
+    virtual User* clone(std::string name_);
+
 private:
     int Lastid;
 
-    Watchable *findRerRecomendation();
 };
 
 class GenreRecommenderUser : public User {
 public:
     GenreRecommenderUser(const std::string& name);
     virtual Watchable* getRecommendation(Session& s);
+    virtual User* clone(std::string name_);
 private:
 };
 
