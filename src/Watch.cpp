@@ -14,7 +14,10 @@ void Watch::act(Session& sess) {
     try {
          id = std::stoi(input->at(1));
     }
-    catch (const std::exception& e){} //if number is too big to cast
+    catch (const std::exception& e){
+        error("Watch Error: content ID is not valid"); //if number is too big to cast
+        return;
+    }
 
     if ( id > 0 and id < sess.getContent().size()){ //check if the content exists
         play(sess.getContent().at(id),sess);
