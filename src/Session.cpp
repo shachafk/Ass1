@@ -28,7 +28,7 @@ Session::Session(const std::string &configFilePath):content(),actionsLog(),userM
         s_mapStringValues.insert(std::make_pair("createuser", StringValue::createUser));
         s_mapStringValues.insert(std::make_pair("changeactiveuser", StringValue::changeActiveUser));
         s_mapStringValues.insert(std::make_pair("deleteuser", StringValue::deleteUser));
-        s_mapStringValues.insert(std::make_pair("duplicateuser", StringValue::duplicateUser));
+        s_mapStringValues.insert(std::make_pair("dupuser", StringValue::duplicateUser));
         s_mapStringValues.insert(std::make_pair("exit", StringValue::exit));
         s_mapStringValues.insert(std::make_pair("printactionslog", StringValue::printActionsLog));
         s_mapStringValues.insert(std::make_pair("printcontentlist", StringValue::printContentList));
@@ -170,6 +170,7 @@ void Session::route() {
         }
         case duplicateUser: //TBD
             std::cout << "DuplicateUser state" << endl;
+            runAction(new DuplicateUser());
             break;
 
         case exit: { //TBD

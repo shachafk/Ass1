@@ -12,6 +12,12 @@
 
 LengthRecommenderUser::LengthRecommenderUser(const std::string& name):User(name){};
 
+User* LengthRecommenderUser::clone(std::string name_) {
+    LengthRecommenderUser *other=new LengthRecommenderUser(name_);
+    other->copyHistory(get_history());
+    return other;
+}
+
  Watchable* LengthRecommenderUser::LengthRecommenderUser::getRecommendation(Session& s) {
      std::vector<Watchable*> hist = get_history();
      Watchable* last = hist[hist.size()-1];
@@ -28,8 +34,6 @@ LengthRecommenderUser::LengthRecommenderUser(const std::string& name):User(name)
              return findLenRecomendation(); //by len recommendation
          }
      }
-
-
 
 
      return nullptr;

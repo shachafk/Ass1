@@ -34,19 +34,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /users/studs/bsc/2020/shachafk/Clion/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /users/studs/bsc/2020/amitmich/Clion/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /users/studs/bsc/2020/shachafk/Clion/bin/cmake/linux/bin/cmake -E remove -f
+RM = /users/studs/bsc/2020/amitmich/Clion/bin/cmake/linux/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1
+CMAKE_SOURCE_DIR = /users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/cmake-build-debug
+CMAKE_BINARY_DIR = /users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/Ass1.dir/depend.make
@@ -59,94 +59,250 @@ include CMakeFiles/Ass1.dir/flags.make
 
 CMakeFiles/Ass1.dir/src/main.cpp.o: CMakeFiles/Ass1.dir/flags.make
 CMakeFiles/Ass1.dir/src/main.cpp.o: ../src/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Ass1.dir/src/main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Ass1.dir/src/main.cpp.o -c /users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/src/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Ass1.dir/src/main.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Ass1.dir/src/main.cpp.o -c /users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/src/main.cpp
 
 CMakeFiles/Ass1.dir/src/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Ass1.dir/src/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/src/main.cpp > CMakeFiles/Ass1.dir/src/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/src/main.cpp > CMakeFiles/Ass1.dir/src/main.cpp.i
 
 CMakeFiles/Ass1.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Ass1.dir/src/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/src/main.cpp -o CMakeFiles/Ass1.dir/src/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/src/main.cpp -o CMakeFiles/Ass1.dir/src/main.cpp.s
 
 CMakeFiles/Ass1.dir/src/Movie.cpp.o: CMakeFiles/Ass1.dir/flags.make
 CMakeFiles/Ass1.dir/src/Movie.cpp.o: ../src/Movie.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Ass1.dir/src/Movie.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Ass1.dir/src/Movie.cpp.o -c /users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/src/Movie.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Ass1.dir/src/Movie.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Ass1.dir/src/Movie.cpp.o -c /users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/src/Movie.cpp
 
 CMakeFiles/Ass1.dir/src/Movie.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Ass1.dir/src/Movie.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/src/Movie.cpp > CMakeFiles/Ass1.dir/src/Movie.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/src/Movie.cpp > CMakeFiles/Ass1.dir/src/Movie.cpp.i
 
 CMakeFiles/Ass1.dir/src/Movie.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Ass1.dir/src/Movie.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/src/Movie.cpp -o CMakeFiles/Ass1.dir/src/Movie.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/src/Movie.cpp -o CMakeFiles/Ass1.dir/src/Movie.cpp.s
 
 CMakeFiles/Ass1.dir/src/Episode.cpp.o: CMakeFiles/Ass1.dir/flags.make
 CMakeFiles/Ass1.dir/src/Episode.cpp.o: ../src/Episode.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Ass1.dir/src/Episode.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Ass1.dir/src/Episode.cpp.o -c /users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/src/Episode.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Ass1.dir/src/Episode.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Ass1.dir/src/Episode.cpp.o -c /users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/src/Episode.cpp
 
 CMakeFiles/Ass1.dir/src/Episode.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Ass1.dir/src/Episode.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/src/Episode.cpp > CMakeFiles/Ass1.dir/src/Episode.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/src/Episode.cpp > CMakeFiles/Ass1.dir/src/Episode.cpp.i
 
 CMakeFiles/Ass1.dir/src/Episode.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Ass1.dir/src/Episode.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/src/Episode.cpp -o CMakeFiles/Ass1.dir/src/Episode.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/src/Episode.cpp -o CMakeFiles/Ass1.dir/src/Episode.cpp.s
 
 CMakeFiles/Ass1.dir/src/Watchable.cpp.o: CMakeFiles/Ass1.dir/flags.make
 CMakeFiles/Ass1.dir/src/Watchable.cpp.o: ../src/Watchable.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Ass1.dir/src/Watchable.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Ass1.dir/src/Watchable.cpp.o -c /users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/src/Watchable.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Ass1.dir/src/Watchable.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Ass1.dir/src/Watchable.cpp.o -c /users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/src/Watchable.cpp
 
 CMakeFiles/Ass1.dir/src/Watchable.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Ass1.dir/src/Watchable.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/src/Watchable.cpp > CMakeFiles/Ass1.dir/src/Watchable.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/src/Watchable.cpp > CMakeFiles/Ass1.dir/src/Watchable.cpp.i
 
 CMakeFiles/Ass1.dir/src/Watchable.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Ass1.dir/src/Watchable.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/src/Watchable.cpp -o CMakeFiles/Ass1.dir/src/Watchable.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/src/Watchable.cpp -o CMakeFiles/Ass1.dir/src/Watchable.cpp.s
 
-CMakeFiles/Ass1.dir/src/Action.cpp.o: CMakeFiles/Ass1.dir/flags.make
-CMakeFiles/Ass1.dir/src/Action.cpp.o: ../src/Action.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Ass1.dir/src/Action.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Ass1.dir/src/Action.cpp.o -c /users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/src/Action.cpp
+CMakeFiles/Ass1.dir/src/LengthRecommenderUser.cpp.o: CMakeFiles/Ass1.dir/flags.make
+CMakeFiles/Ass1.dir/src/LengthRecommenderUser.cpp.o: ../src/LengthRecommenderUser.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Ass1.dir/src/LengthRecommenderUser.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Ass1.dir/src/LengthRecommenderUser.cpp.o -c /users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/src/LengthRecommenderUser.cpp
 
-CMakeFiles/Ass1.dir/src/Action.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Ass1.dir/src/Action.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/src/Action.cpp > CMakeFiles/Ass1.dir/src/Action.cpp.i
+CMakeFiles/Ass1.dir/src/LengthRecommenderUser.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Ass1.dir/src/LengthRecommenderUser.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/src/LengthRecommenderUser.cpp > CMakeFiles/Ass1.dir/src/LengthRecommenderUser.cpp.i
 
-CMakeFiles/Ass1.dir/src/Action.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Ass1.dir/src/Action.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/src/Action.cpp -o CMakeFiles/Ass1.dir/src/Action.cpp.s
+CMakeFiles/Ass1.dir/src/LengthRecommenderUser.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Ass1.dir/src/LengthRecommenderUser.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/src/LengthRecommenderUser.cpp -o CMakeFiles/Ass1.dir/src/LengthRecommenderUser.cpp.s
 
 CMakeFiles/Ass1.dir/src/Session.cpp.o: CMakeFiles/Ass1.dir/flags.make
 CMakeFiles/Ass1.dir/src/Session.cpp.o: ../src/Session.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Ass1.dir/src/Session.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Ass1.dir/src/Session.cpp.o -c /users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/src/Session.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Ass1.dir/src/Session.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Ass1.dir/src/Session.cpp.o -c /users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/src/Session.cpp
 
 CMakeFiles/Ass1.dir/src/Session.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Ass1.dir/src/Session.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/src/Session.cpp > CMakeFiles/Ass1.dir/src/Session.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/src/Session.cpp > CMakeFiles/Ass1.dir/src/Session.cpp.i
 
 CMakeFiles/Ass1.dir/src/Session.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Ass1.dir/src/Session.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/src/Session.cpp -o CMakeFiles/Ass1.dir/src/Session.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/src/Session.cpp -o CMakeFiles/Ass1.dir/src/Session.cpp.s
 
 CMakeFiles/Ass1.dir/src/User.cpp.o: CMakeFiles/Ass1.dir/flags.make
 CMakeFiles/Ass1.dir/src/User.cpp.o: ../src/User.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/Ass1.dir/src/User.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Ass1.dir/src/User.cpp.o -c /users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/src/User.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/Ass1.dir/src/User.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Ass1.dir/src/User.cpp.o -c /users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/src/User.cpp
 
 CMakeFiles/Ass1.dir/src/User.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Ass1.dir/src/User.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/src/User.cpp > CMakeFiles/Ass1.dir/src/User.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/src/User.cpp > CMakeFiles/Ass1.dir/src/User.cpp.i
 
 CMakeFiles/Ass1.dir/src/User.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Ass1.dir/src/User.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/src/User.cpp -o CMakeFiles/Ass1.dir/src/User.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/src/User.cpp -o CMakeFiles/Ass1.dir/src/User.cpp.s
+
+CMakeFiles/Ass1.dir/src/BaseAction.cpp.o: CMakeFiles/Ass1.dir/flags.make
+CMakeFiles/Ass1.dir/src/BaseAction.cpp.o: ../src/BaseAction.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/Ass1.dir/src/BaseAction.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Ass1.dir/src/BaseAction.cpp.o -c /users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/src/BaseAction.cpp
+
+CMakeFiles/Ass1.dir/src/BaseAction.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Ass1.dir/src/BaseAction.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/src/BaseAction.cpp > CMakeFiles/Ass1.dir/src/BaseAction.cpp.i
+
+CMakeFiles/Ass1.dir/src/BaseAction.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Ass1.dir/src/BaseAction.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/src/BaseAction.cpp -o CMakeFiles/Ass1.dir/src/BaseAction.cpp.s
+
+CMakeFiles/Ass1.dir/src/CreateUser.cpp.o: CMakeFiles/Ass1.dir/flags.make
+CMakeFiles/Ass1.dir/src/CreateUser.cpp.o: ../src/CreateUser.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/Ass1.dir/src/CreateUser.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Ass1.dir/src/CreateUser.cpp.o -c /users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/src/CreateUser.cpp
+
+CMakeFiles/Ass1.dir/src/CreateUser.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Ass1.dir/src/CreateUser.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/src/CreateUser.cpp > CMakeFiles/Ass1.dir/src/CreateUser.cpp.i
+
+CMakeFiles/Ass1.dir/src/CreateUser.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Ass1.dir/src/CreateUser.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/src/CreateUser.cpp -o CMakeFiles/Ass1.dir/src/CreateUser.cpp.s
+
+CMakeFiles/Ass1.dir/src/ChangeActiveUser.cpp.o: CMakeFiles/Ass1.dir/flags.make
+CMakeFiles/Ass1.dir/src/ChangeActiveUser.cpp.o: ../src/ChangeActiveUser.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/Ass1.dir/src/ChangeActiveUser.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Ass1.dir/src/ChangeActiveUser.cpp.o -c /users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/src/ChangeActiveUser.cpp
+
+CMakeFiles/Ass1.dir/src/ChangeActiveUser.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Ass1.dir/src/ChangeActiveUser.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/src/ChangeActiveUser.cpp > CMakeFiles/Ass1.dir/src/ChangeActiveUser.cpp.i
+
+CMakeFiles/Ass1.dir/src/ChangeActiveUser.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Ass1.dir/src/ChangeActiveUser.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/src/ChangeActiveUser.cpp -o CMakeFiles/Ass1.dir/src/ChangeActiveUser.cpp.s
+
+CMakeFiles/Ass1.dir/src/DeleteUser.cpp.o: CMakeFiles/Ass1.dir/flags.make
+CMakeFiles/Ass1.dir/src/DeleteUser.cpp.o: ../src/DeleteUser.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/Ass1.dir/src/DeleteUser.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Ass1.dir/src/DeleteUser.cpp.o -c /users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/src/DeleteUser.cpp
+
+CMakeFiles/Ass1.dir/src/DeleteUser.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Ass1.dir/src/DeleteUser.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/src/DeleteUser.cpp > CMakeFiles/Ass1.dir/src/DeleteUser.cpp.i
+
+CMakeFiles/Ass1.dir/src/DeleteUser.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Ass1.dir/src/DeleteUser.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/src/DeleteUser.cpp -o CMakeFiles/Ass1.dir/src/DeleteUser.cpp.s
+
+CMakeFiles/Ass1.dir/src/DuplicateUser.cpp.o: CMakeFiles/Ass1.dir/flags.make
+CMakeFiles/Ass1.dir/src/DuplicateUser.cpp.o: ../src/DuplicateUser.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/Ass1.dir/src/DuplicateUser.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Ass1.dir/src/DuplicateUser.cpp.o -c /users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/src/DuplicateUser.cpp
+
+CMakeFiles/Ass1.dir/src/DuplicateUser.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Ass1.dir/src/DuplicateUser.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/src/DuplicateUser.cpp > CMakeFiles/Ass1.dir/src/DuplicateUser.cpp.i
+
+CMakeFiles/Ass1.dir/src/DuplicateUser.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Ass1.dir/src/DuplicateUser.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/src/DuplicateUser.cpp -o CMakeFiles/Ass1.dir/src/DuplicateUser.cpp.s
+
+CMakeFiles/Ass1.dir/src/PrintContentList.cpp.o: CMakeFiles/Ass1.dir/flags.make
+CMakeFiles/Ass1.dir/src/PrintContentList.cpp.o: ../src/PrintContentList.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/Ass1.dir/src/PrintContentList.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Ass1.dir/src/PrintContentList.cpp.o -c /users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/src/PrintContentList.cpp
+
+CMakeFiles/Ass1.dir/src/PrintContentList.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Ass1.dir/src/PrintContentList.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/src/PrintContentList.cpp > CMakeFiles/Ass1.dir/src/PrintContentList.cpp.i
+
+CMakeFiles/Ass1.dir/src/PrintContentList.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Ass1.dir/src/PrintContentList.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/src/PrintContentList.cpp -o CMakeFiles/Ass1.dir/src/PrintContentList.cpp.s
+
+CMakeFiles/Ass1.dir/src/PrintWatchHistory.cpp.o: CMakeFiles/Ass1.dir/flags.make
+CMakeFiles/Ass1.dir/src/PrintWatchHistory.cpp.o: ../src/PrintWatchHistory.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/Ass1.dir/src/PrintWatchHistory.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Ass1.dir/src/PrintWatchHistory.cpp.o -c /users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/src/PrintWatchHistory.cpp
+
+CMakeFiles/Ass1.dir/src/PrintWatchHistory.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Ass1.dir/src/PrintWatchHistory.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/src/PrintWatchHistory.cpp > CMakeFiles/Ass1.dir/src/PrintWatchHistory.cpp.i
+
+CMakeFiles/Ass1.dir/src/PrintWatchHistory.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Ass1.dir/src/PrintWatchHistory.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/src/PrintWatchHistory.cpp -o CMakeFiles/Ass1.dir/src/PrintWatchHistory.cpp.s
+
+CMakeFiles/Ass1.dir/src/Watch.cpp.o: CMakeFiles/Ass1.dir/flags.make
+CMakeFiles/Ass1.dir/src/Watch.cpp.o: ../src/Watch.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/Ass1.dir/src/Watch.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Ass1.dir/src/Watch.cpp.o -c /users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/src/Watch.cpp
+
+CMakeFiles/Ass1.dir/src/Watch.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Ass1.dir/src/Watch.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/src/Watch.cpp > CMakeFiles/Ass1.dir/src/Watch.cpp.i
+
+CMakeFiles/Ass1.dir/src/Watch.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Ass1.dir/src/Watch.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/src/Watch.cpp -o CMakeFiles/Ass1.dir/src/Watch.cpp.s
+
+CMakeFiles/Ass1.dir/src/PrintActionsLog.cpp.o: CMakeFiles/Ass1.dir/flags.make
+CMakeFiles/Ass1.dir/src/PrintActionsLog.cpp.o: ../src/PrintActionsLog.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/Ass1.dir/src/PrintActionsLog.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Ass1.dir/src/PrintActionsLog.cpp.o -c /users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/src/PrintActionsLog.cpp
+
+CMakeFiles/Ass1.dir/src/PrintActionsLog.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Ass1.dir/src/PrintActionsLog.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/src/PrintActionsLog.cpp > CMakeFiles/Ass1.dir/src/PrintActionsLog.cpp.i
+
+CMakeFiles/Ass1.dir/src/PrintActionsLog.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Ass1.dir/src/PrintActionsLog.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/src/PrintActionsLog.cpp -o CMakeFiles/Ass1.dir/src/PrintActionsLog.cpp.s
+
+CMakeFiles/Ass1.dir/src/Exit.cpp.o: CMakeFiles/Ass1.dir/flags.make
+CMakeFiles/Ass1.dir/src/Exit.cpp.o: ../src/Exit.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/Ass1.dir/src/Exit.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Ass1.dir/src/Exit.cpp.o -c /users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/src/Exit.cpp
+
+CMakeFiles/Ass1.dir/src/Exit.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Ass1.dir/src/Exit.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/src/Exit.cpp > CMakeFiles/Ass1.dir/src/Exit.cpp.i
+
+CMakeFiles/Ass1.dir/src/Exit.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Ass1.dir/src/Exit.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/src/Exit.cpp -o CMakeFiles/Ass1.dir/src/Exit.cpp.s
+
+CMakeFiles/Ass1.dir/src/RerunRecommenderUser.cpp.o: CMakeFiles/Ass1.dir/flags.make
+CMakeFiles/Ass1.dir/src/RerunRecommenderUser.cpp.o: ../src/RerunRecommenderUser.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/Ass1.dir/src/RerunRecommenderUser.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Ass1.dir/src/RerunRecommenderUser.cpp.o -c /users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/src/RerunRecommenderUser.cpp
+
+CMakeFiles/Ass1.dir/src/RerunRecommenderUser.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Ass1.dir/src/RerunRecommenderUser.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/src/RerunRecommenderUser.cpp > CMakeFiles/Ass1.dir/src/RerunRecommenderUser.cpp.i
+
+CMakeFiles/Ass1.dir/src/RerunRecommenderUser.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Ass1.dir/src/RerunRecommenderUser.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/src/RerunRecommenderUser.cpp -o CMakeFiles/Ass1.dir/src/RerunRecommenderUser.cpp.s
+
+CMakeFiles/Ass1.dir/src/GenreRecommenderUser.cpp.o: CMakeFiles/Ass1.dir/flags.make
+CMakeFiles/Ass1.dir/src/GenreRecommenderUser.cpp.o: ../src/GenreRecommenderUser.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/Ass1.dir/src/GenreRecommenderUser.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Ass1.dir/src/GenreRecommenderUser.cpp.o -c /users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/src/GenreRecommenderUser.cpp
+
+CMakeFiles/Ass1.dir/src/GenreRecommenderUser.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Ass1.dir/src/GenreRecommenderUser.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/src/GenreRecommenderUser.cpp > CMakeFiles/Ass1.dir/src/GenreRecommenderUser.cpp.i
+
+CMakeFiles/Ass1.dir/src/GenreRecommenderUser.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Ass1.dir/src/GenreRecommenderUser.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/src/GenreRecommenderUser.cpp -o CMakeFiles/Ass1.dir/src/GenreRecommenderUser.cpp.s
 
 # Object files for target Ass1
 Ass1_OBJECTS = \
@@ -154,9 +310,21 @@ Ass1_OBJECTS = \
 "CMakeFiles/Ass1.dir/src/Movie.cpp.o" \
 "CMakeFiles/Ass1.dir/src/Episode.cpp.o" \
 "CMakeFiles/Ass1.dir/src/Watchable.cpp.o" \
-"CMakeFiles/Ass1.dir/src/Action.cpp.o" \
+"CMakeFiles/Ass1.dir/src/LengthRecommenderUser.cpp.o" \
 "CMakeFiles/Ass1.dir/src/Session.cpp.o" \
-"CMakeFiles/Ass1.dir/src/User.cpp.o"
+"CMakeFiles/Ass1.dir/src/User.cpp.o" \
+"CMakeFiles/Ass1.dir/src/BaseAction.cpp.o" \
+"CMakeFiles/Ass1.dir/src/CreateUser.cpp.o" \
+"CMakeFiles/Ass1.dir/src/ChangeActiveUser.cpp.o" \
+"CMakeFiles/Ass1.dir/src/DeleteUser.cpp.o" \
+"CMakeFiles/Ass1.dir/src/DuplicateUser.cpp.o" \
+"CMakeFiles/Ass1.dir/src/PrintContentList.cpp.o" \
+"CMakeFiles/Ass1.dir/src/PrintWatchHistory.cpp.o" \
+"CMakeFiles/Ass1.dir/src/Watch.cpp.o" \
+"CMakeFiles/Ass1.dir/src/PrintActionsLog.cpp.o" \
+"CMakeFiles/Ass1.dir/src/Exit.cpp.o" \
+"CMakeFiles/Ass1.dir/src/RerunRecommenderUser.cpp.o" \
+"CMakeFiles/Ass1.dir/src/GenreRecommenderUser.cpp.o"
 
 # External object files for target Ass1
 Ass1_EXTERNAL_OBJECTS =
@@ -165,12 +333,24 @@ Ass1: CMakeFiles/Ass1.dir/src/main.cpp.o
 Ass1: CMakeFiles/Ass1.dir/src/Movie.cpp.o
 Ass1: CMakeFiles/Ass1.dir/src/Episode.cpp.o
 Ass1: CMakeFiles/Ass1.dir/src/Watchable.cpp.o
-Ass1: CMakeFiles/Ass1.dir/src/Action.cpp.o
+Ass1: CMakeFiles/Ass1.dir/src/LengthRecommenderUser.cpp.o
 Ass1: CMakeFiles/Ass1.dir/src/Session.cpp.o
 Ass1: CMakeFiles/Ass1.dir/src/User.cpp.o
+Ass1: CMakeFiles/Ass1.dir/src/BaseAction.cpp.o
+Ass1: CMakeFiles/Ass1.dir/src/CreateUser.cpp.o
+Ass1: CMakeFiles/Ass1.dir/src/ChangeActiveUser.cpp.o
+Ass1: CMakeFiles/Ass1.dir/src/DeleteUser.cpp.o
+Ass1: CMakeFiles/Ass1.dir/src/DuplicateUser.cpp.o
+Ass1: CMakeFiles/Ass1.dir/src/PrintContentList.cpp.o
+Ass1: CMakeFiles/Ass1.dir/src/PrintWatchHistory.cpp.o
+Ass1: CMakeFiles/Ass1.dir/src/Watch.cpp.o
+Ass1: CMakeFiles/Ass1.dir/src/PrintActionsLog.cpp.o
+Ass1: CMakeFiles/Ass1.dir/src/Exit.cpp.o
+Ass1: CMakeFiles/Ass1.dir/src/RerunRecommenderUser.cpp.o
+Ass1: CMakeFiles/Ass1.dir/src/GenreRecommenderUser.cpp.o
 Ass1: CMakeFiles/Ass1.dir/build.make
 Ass1: CMakeFiles/Ass1.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable Ass1"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Linking CXX executable Ass1"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Ass1.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -183,6 +363,6 @@ CMakeFiles/Ass1.dir/clean:
 .PHONY : CMakeFiles/Ass1.dir/clean
 
 CMakeFiles/Ass1.dir/depend:
-	cd /users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1 /users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1 /users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/cmake-build-debug /users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/cmake-build-debug /users/studs/bsc/2020/shachafk/CLionProjects/Ass1_new1/cmake-build-debug/CMakeFiles/Ass1.dir/DependInfo.cmake --color=$(COLOR)
+	cd /users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1 /users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1 /users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/cmake-build-debug /users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/cmake-build-debug /users/studs/bsc/2020/amitmich/CLionProjects/Ass1_new1/cmake-build-debug/CMakeFiles/Ass1.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/Ass1.dir/depend
 
