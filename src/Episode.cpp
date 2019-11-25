@@ -1,5 +1,8 @@
 // Created by amitmich@wincs.cs.bgu.ac.il on 19/11/2019.
 #include "../include/Watchable.h"
+#include "../include/Session.h"
+#include "../include/User.h"
+
 using namespace std;
 
 
@@ -8,7 +11,7 @@ using namespace std;
 
     Episode::Episode(long id, const std::string *seriesName, int length, int season, int episode , const std::vector<std::string>& tags) :Watchable(id,length,tags),seriesName(*seriesName),season(season),episode(episode){
         // next episode id - to implement
-
+        setType(2);
     }
     std::string Episode::toString() const{
         std::vector<std::string> tag = getTag(); //prepare the tag string
@@ -41,9 +44,13 @@ using namespace std;
         return toReturn;
     }
 
-    Watchable* Episode::getNextWatchable(Session&) const{
-        //if(nextEpisodeId!= nullptr)
-        return nullptr; //&this.nextEpisodeId;//to implement
+    Watchable* Episode::getNextWatchable(Session& s) const{
+
+            if (getNextEpisodeId() != 0) {
+                return s.getContent()[getNextEpisodeId()]; //if there is next episode recommend on it
+            } else {
+                return s.getActiveUser()->getRecommendation(s); //by  recommendation
+            }
     }
 //     std::string Episode::toString() const {return "";}
     //getters
@@ -57,6 +64,17 @@ using namespace std;
     int Episode:: getEpisode() const{
         return this->episode ;
     }
+
+long Episode::getNextEpisodeId() const {
+        return nextEpisodeId;
+    }
+
+
+//setters
+    void Episode::setNextId(long i){
+        nextEpisodeId = i;
+    }
+
 
 
 

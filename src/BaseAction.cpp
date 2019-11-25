@@ -29,7 +29,7 @@ void BaseAction::error(const std::string& errorMsg) {
 std::string BaseAction::getErrorMsg() const { return errorMsg;};
 std::map<std::string, RecommendationType> BaseAction::getEnumMap() {return u_mapStringValues;}
 
-std::string BaseAction::getEnumStringFromInt(int i) const { //this methot return the string that fit i number.
+std::string BaseAction::getEnumStringFromInt(int i) const { //this method return the string that fit i number.
     return castEnumArray[i];
 }
 

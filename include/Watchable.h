@@ -17,18 +17,22 @@ public:
     Watchable(Watchable& Watchable);
     virtual ~Watchable();
     virtual std::string toString() const = 0;
-    virtual Watchable* getNextWatchable(Session&) const = 0;
+    virtual Watchable* getNextWatchable(Session& s) const = 0;
     long getId() const;
     int  getLength() const ;
     const std::vector<std::string> & getTag() const;
     void copy(Watchable &Watchable);
     void clean();
     std::string print();
+    virtual int getType();
+    void setType (int i);
+
 
 private:
     long id;
     int length;
     std::vector<std::string> tags;
+    int type; //Movie=1, Episode =2
 
 };
 
@@ -37,7 +41,7 @@ public:
     Movie(long id, const std::string *name, int length, const std::vector<std::string>& tags);
     Movie(const Movie &Movie);
     virtual std::string toString() const;
-    virtual Watchable* getNextWatchable(Session&) const;
+    virtual Watchable* getNextWatchable(Session& s) const;
     virtual std::string getName() const;
 private:
     std::string name;
@@ -51,8 +55,12 @@ class Episode: public Watchable{
 public:
     Episode(long id, const std::string *seriesName, int length, int season, int episode , const std::vector<std::string>& tags);
     virtual std::string toString() const;
-    virtual Watchable* getNextWatchable(Session&) const;
+    virtual Watchable* getNextWatchable(Session& s) const;
     std::string getseriesName() const;
+    int getSeason() const;
+    int getEpisode() const;
+    void setNextId(long i);
+    long getNextEpisodeId() const;
 private:
     std::string seriesName;
     int season;
@@ -62,9 +70,6 @@ private:
   //  const std::string &getseriesName();
 
 
-    int getSeason() const;
-
-    int getEpisode() const;
 };
 
 #endif
