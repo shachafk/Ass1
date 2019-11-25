@@ -32,9 +32,6 @@ private:
      std::string name;
      std::map<long, Watchable*> available;
 
-
-
-
 };
 
 
@@ -43,6 +40,7 @@ public:
     LengthRecommenderUser(const std::string& name);
     virtual Watchable* getRecommendation(Session& s);
 private:
+    int findAveragelength();
 };
 
 class RerunRecommenderUser : public User {
