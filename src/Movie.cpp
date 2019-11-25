@@ -3,6 +3,8 @@
 //
 //
 #include "../include/Watchable.h"
+#include "../include/Session.h"
+#include "../include/User.h"
 
 //Rule of 3/5 TBD
 
@@ -26,7 +28,9 @@ std::string Movie::toString() const {
     toReturn = std::to_string(getId()) + ". " +  getName() + " " + std::to_string(getLength())+ " minutes " + tagString;
     return toReturn;
 }
-Movie::Watchable* Movie::getNextWatchable(Session&) const {return nullptr;}//return &this+1} //To implement
+Movie::Watchable* Movie::getNextWatchable(Session& s)  const {
+    return s.getActiveUser()->getRecommendation(s); //return by recommendation
+}
 
 
 //getters

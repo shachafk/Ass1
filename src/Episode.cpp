@@ -1,5 +1,8 @@
 // Created by amitmich@wincs.cs.bgu.ac.il on 19/11/2019.
 #include "../include/Watchable.h"
+#include "../include/Session.h"
+#include "../include/User.h"
+
 using namespace std;
 
 
@@ -41,9 +44,13 @@ using namespace std;
         return toReturn;
     }
 
-    Watchable* Episode::getNextWatchable(Session&) const{
-        //if(nextEpisodeId!= nullptr)
-        return nullptr; //&this.nextEpisodeId;//to implement
+    Watchable* Episode::getNextWatchable(Session& s) const{
+
+            if (getNextEpisodeId() != 0) {
+                return s.getContent()[getNextEpisodeId()]; //if there is next episode recommend on it
+            } else {
+                return s.getActiveUser()->getRecommendation(s); //by  recommendation
+            }
     }
 //     std::string Episode::toString() const {return "";}
     //getters

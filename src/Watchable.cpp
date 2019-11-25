@@ -12,7 +12,7 @@ Watchable::Watchable(Watchable& Watchable) {copy(Watchable);}
 Watchable::~Watchable(){ // destructor
 
 }
-Watchable* Watchable::getNextWatchable(Session&) const {return nullptr;}
+
 void Watchable::copy (Watchable& Watchable){
     id = Watchable.getId();
     length = Watchable.getLength();

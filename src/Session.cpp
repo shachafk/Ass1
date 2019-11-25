@@ -69,6 +69,7 @@ void Session::mainLoop(){
     while(iss >> word) {
         inputVector.push_back(word);
     }
+    iss.clear();
     route();
 }
 
@@ -92,6 +93,10 @@ User* Session::getActiveUser(){
 std::vector<Watchable*> Session::myHistory(){
     return activeUser->get_history();
 }
+void Session::setActionInLog(BaseAction* act){
+    actionsLog.push_back(act);
+}
+
 
 
 void Session::loadContents (const std::string &configFilePath) {
@@ -142,12 +147,14 @@ void Session::loadContents (const std::string &configFilePath) {
 }
 
 void Session::runAction(BaseAction* action){
-    action->act(*this);
     actionsLog.push_back(action); //save record of the action
+    action->act(*this);
     mainLoop();
 }
 
 void Session::route() {
+    if (inputVector.size()==0)
+       inputVector.push_back("default");
     switch (s_mapStringValues[inputVector[0]]) {
         default : //if no other case match
             std::cout << "Invalid action" << endl;
@@ -181,7 +188,10 @@ void Session::route() {
         }
         case printActionsLog:{ //TBD
             std::cout<< "PrintActionsLog state"<< endl;
-            runAction(new PrintActionsLog());
+            PrintActionsLog* pal = new PrintActionsLog();
+            pal->act(*this);
+            actionsLog.push_back(pal); //save record of the action
+            mainLoop();
             break;
         }
         case printContentList: { //TBD
