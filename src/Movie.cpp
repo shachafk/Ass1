@@ -14,11 +14,14 @@ std::string Movie::toString() const {
     std::vector<std::string> tag = getTag();
     std::string tagString = "[";
     for (int i=0;i<tag.size();i++){
-        tagString = tagString + tag.at(i) + ",";
+        if (i>0){
+            tagString = tagString + ",";
+        }
+        tagString = tagString + tag.at(i);
     }
     tagString = tagString + "]";
     std::string toReturn;
-    toReturn = std::to_string(getId()) + getName() + std::to_string(getLength()) + tagString;
+    toReturn = std::to_string(getId()) + ". " +  getName() + " " + std::to_string(getLength())+ " minutes " + tagString;
     return toReturn;
 }
 Movie::Watchable* Movie::getNextWatchable(Session&) const {return nullptr;}//return &this+1} //To implement

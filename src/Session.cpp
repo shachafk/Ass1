@@ -81,6 +81,9 @@ User* Session::getActiveUser(){
     std::vector<std::string>* Session::getInputVector(){
     return &inputVector;
 }
+std::vector<Watchable*> Session::myHistory(){
+    return activeUser->get_history();
+}
 
 
 void Session::loadContents (const std::string &configFilePath) {
@@ -153,11 +156,16 @@ void Session::route() {
         case duplicateUser: //TBD
             std::cout << "DuplicateUser state" << endl;
             break;
-        case exit: //TBD
+
+        case exit: { //TBD
             std::cout << "Exit state" << endl;
+            Exit *ex = new Exit(); //create action from type Exit
+            ex->act(*this);
+            actionsLog.push_back(ex);
             break;
-        case printActionsLog: { //TBD
-            std::cout << "PrintActionsLog state" << endl;
+        }
+        case printActionsLog:{ //TBD
+            std::cout<< "PrintActionsLog state"<< endl;
             PrintActionsLog *pal = new PrintActionsLog(); //create action from type PrintActionsLog
             pal->act(*this);
             actionsLog.push_back(pal);
@@ -172,16 +180,22 @@ void Session::route() {
             mainLoop();
             break;
         }
-        case printWatchHistory: { //TBD
-            std::cout << "PrintWatchHistory state" << endl;
-            PrintWatchHistory *pwh = new PrintWatchHistory();
+
+        case printWatchHistory: {
+            std::cout<< "PrintWatchHistory state"<< endl;
+            PrintWatchHistory *pwh = new PrintWatchHistory(); //create action from type printWatchHistory
             pwh->act(*this);
             actionsLog.push_back(pwh);
             mainLoop();
             break;
         }
-        case watch: {//TBD
+
+        case watch: { //TBD
             std::cout << "Watch state" << endl;
+            Watch *w = new Watch(); //create action from type Watch
+            w->act(*this);
+            actionsLog.push_back(w);
+            mainLoop();
             break;
         }
 

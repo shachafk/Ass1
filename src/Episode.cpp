@@ -14,12 +14,30 @@ using namespace std;
         std::vector<std::string> tag = getTag(); //prepare the tag string
         std::string tagString = "[";
         for (int i=0;i<tag.size();i++){
-            tagString = tagString + tag.at(i) + ",";
+            if (i>0){
+                tagString = tagString + ",";
+            }
+            tagString = tagString + tag.at(i);
         }
         tagString = tagString + "]";
-
         std::string toReturn;
-        toReturn = std::to_string(getId()) + getseriesName() + std::to_string(getLength()) + tagString;
+        std::string SE; //season
+        if (getSeason()<10){
+            SE = "0" + std::to_string(getSeason());
+        }
+        else {
+            SE = std::to_string(getSeason());
+        }
+        std::string EP; //episode
+        if (getEpisode()<10){
+            EP = "0" + std::to_string(getEpisode());
+        }
+        else {
+            EP = std::to_string(getEpisode());
+        }
+        toReturn = std::to_string(getId()) + ". " +  getseriesName() + " S" + SE + "E" + EP + " " +
+                std::to_string(getLength())+ " minutes " + tagString;
+
         return toReturn;
     }
 
@@ -32,12 +50,12 @@ using namespace std;
     std::string Episode::getseriesName() const {
         return seriesName ;
     }
-    int Episode:: getSeason(){
-        return season ;
+    int Episode:: getSeason() const{
+        return this->season ;
     }
 
-    int Episode:: getEpisode(){
-        return episode ;
+    int Episode:: getEpisode() const{
+        return this->episode ;
     }
 
 
