@@ -12,23 +12,31 @@ using namespace std;
 #include "../include/Action.h"
 //Rule of 3/5 TBD
 //Session constructor
-Session::Session(const std::string &configFilePath):content(),actionsLog(),userMap(),activeUser(){
+
+Session::Session(const std::string &configFilePath):content(),actionsLog(),userMap(),activeUser() {
     const std::string &name = "default";
     LengthRecommenderUser *l = new LengthRecommenderUser(name);
-    userMap.insert(std::make_pair(name,l));
+    userMap.insert(std::make_pair(name, l));
     setActiveUser(l);
     this->loadContents(configFilePath); //load all available contents from the json file to content vector
-    s_mapStringValues.insert(std::make_pair("defaultcase", StringValue::defaultcase));
-    s_mapStringValues.insert(std::make_pair("createuser", StringValue::createUser));
-    s_mapStringValues.insert(std::make_pair("changeactiveuser", StringValue::changeActiveUser));
-    s_mapStringValues.insert(std::make_pair("deleteuser", StringValue::deleteUser));
-    s_mapStringValues.insert(std::make_pair("duplicateuser", StringValue::duplicateUser));
-    s_mapStringValues.insert(std::make_pair("exit", StringValue::exit));
-    s_mapStringValues.insert(std::make_pair("printactionslog", StringValue::printActionsLog));
-    s_mapStringValues.insert(std::make_pair("printcontentlist", StringValue::printContentList));
-    s_mapStringValues.insert(std::make_pair("printwatchhistory", StringValue::printWatchHistory));
-    s_mapStringValues.insert(std::make_pair("watch", StringValue::watch));
+    loadMapStringValues();
 }
+
+
+    void Session::loadMapStringValues(){
+        s_mapStringValues.insert(std::make_pair("defaultcase", StringValue::defaultcase));
+        s_mapStringValues.insert(std::make_pair("createuser", StringValue::createUser));
+        s_mapStringValues.insert(std::make_pair("changeactiveuser", StringValue::changeActiveUser));
+        s_mapStringValues.insert(std::make_pair("deleteuser", StringValue::deleteUser));
+        s_mapStringValues.insert(std::make_pair("duplicateuser", StringValue::duplicateUser));
+        s_mapStringValues.insert(std::make_pair("exit", StringValue::exit));
+        s_mapStringValues.insert(std::make_pair("printactionslog", StringValue::printActionsLog));
+        s_mapStringValues.insert(std::make_pair("printcontentlist", StringValue::printContentList));
+        s_mapStringValues.insert(std::make_pair("printwatchhistory", StringValue::printWatchHistory));
+        s_mapStringValues.insert(std::make_pair("watch", StringValue::watch));
+    }
+
+
 Session::~Session(){
     for (int i=0; i< content.size(); i++) { //delete all movie and episode from content vector
         if (content[i] != nullptr)
@@ -90,7 +98,8 @@ void Session::loadContents (const std::string &configFilePath) {
     std::ifstream i(configFilePath);
     nlohmann::json j;
     i >> j;
-    long id_ = 0;
+    long id_ = 1;
+    content.push_back(nullptr); // place 0 will be empty
     // go over all movies and insert each movie to content vector
             for (int i = 0; i < j["movies"].size(); i++,id_++) {
                 long id = id_;
@@ -108,12 +117,22 @@ void Session::loadContents (const std::string &configFilePath) {
                const std::vector<int> numOfEpisodes = j["tv_series"][i]["seasons"];
 
               for ( int i1=0;i1< numOfEpisodes.size();i1++){ //for each seasons create all episodes
-                  for (int i2=1; i2<= numOfEpisodes[i1]; i2++,id_++) {
+                  for (int i2=1; i2<= numOfEpisodes[i1]; i2++,id_++) { //i1 se , i2 ep
                       long id = id_;
                       int season = i1+1;
                       int episode = i2;
                       int test =0;
                       Episode *e1 = new Episode(id,&seriesName,len,season,episode,tags);
+
+                      if (i2 < numOfEpisodes[i1]){
+                          e1->setNextId(id+1); //there is next ep in the same se
+                      }
+                      else if (i2== numOfEpisodes[i1] and i1 < numOfEpisodes.size()-1){
+                          e1->setNextId(id+1); //This is the last ep on the se but there is a new se
+                      }
+                      else {
+                          e1->setNextId(0);
+                      }
                       content.push_back(e1);
                   }
               }

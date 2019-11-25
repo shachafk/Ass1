@@ -24,7 +24,7 @@ public:
     void copy(Watchable &Watchable);
     void clean();
     std::string print();
-    int getType();
+    virtual int getType();
     void setType (int i);
 
 
@@ -57,6 +57,10 @@ public:
     virtual std::string toString() const;
     virtual Watchable* getNextWatchable(Session&) const;
     std::string getseriesName() const;
+    int getSeason() const;
+    int getEpisode() const;
+    void setNextId(long i);
+    long getNextEpisodeId() const;
 private:
     std::string seriesName;
     int season;
@@ -66,9 +70,6 @@ private:
   //  const std::string &getseriesName();
 
 
-    int getSeason() const;
-
-    int getEpisode() const;
 };
 
 #endif

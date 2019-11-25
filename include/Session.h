@@ -43,8 +43,7 @@ public:
     void setActiveUser(User* user);
     std::vector<Watchable *> myHistory();
     void runAction(BaseAction* action);
-
-
+    void loadMapStringValues();
 
 
 private:

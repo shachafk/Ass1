@@ -58,6 +58,17 @@ using namespace std;
         return this->episode ;
     }
 
+long Episode::getNextEpisodeId() const {
+        return nextEpisodeId;
+    }
+
+
+//setters
+    void Episode::setNextId(long i){
+        nextEpisodeId = i;
+    }
+
+
 
 
 
