@@ -53,12 +53,12 @@ Session::Session(const Session &other) { //copy constructor
     for (int i=0;(unsigned)i<other.inputVector.size();i++){ //copy inputVector vector
         inputVector.push_back(other.inputVector.at(i));
     }
-    activeUser = other.activeUser->clone(); // copy activeuser
+    std::string temp = other.activeUser->getName();
 
     for ( auto it = other.userMap.begin(); it != other.userMap.end() ;it++){ //copy userMap
         userMap.insert(std::make_pair((*it).first,(*it).second->clone()));
     }
-
+    activeUser = userMap[temp];
 }
 
     void Session::copy(const Session& s) {
@@ -73,10 +73,11 @@ Session::Session(const Session &other) { //copy constructor
     for (int i=0;(unsigned)i<s.inputVector.size();i++){ //copy inputVector vector
     inputVector.push_back(s.inputVector.at(i));
     }
-    activeUser = s.activeUser->clone(); // copy activeuser
+    std::string temp = s.activeUser->getName();
     for ( auto it = s.userMap.begin(); it != s.userMap.end() ;it++){ //copy userMap
     userMap.insert(std::make_pair((*it).first,(*it).second->clone()));
     }
+    activeUser = userMap[temp];
     s_mapStringValues = s.s_mapStringValues;
 }
 
@@ -94,9 +95,12 @@ void Session::clean(){
     for (auto it = userMap.begin();it!=userMap.end();it++ ){ //delete all users from usermap
         delete(it->second);
     }
+
     inputVector.clear();
-    activeUser= nullptr;
+    activeUser = nullptr;
     s_mapStringValues.clear();
+
+
 }
 
     void Session::loadMapStringValues(){
