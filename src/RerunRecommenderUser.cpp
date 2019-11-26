@@ -14,6 +14,7 @@ User* RerunRecommenderUser::clone(std::string name_) {
     RerunRecommenderUser *other=new RerunRecommenderUser(name_);
     other->copyHistory(get_history());
     other->copyAvailable(getAvailable());
+    other->copyTags(*getSorted());
     return other;
 }
 Watchable* RerunRecommenderUser::getRecommendation(Session& s) {

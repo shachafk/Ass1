@@ -25,22 +25,19 @@ public:
     void addToHistory(Watchable* toAdd);
     virtual User* clone(std::string name_) = 0;
     std::string getName(){return name;}
-    void copyHistory(std::vector<Watchable *> hist) {
-        for (int i = 0; i < hist.size(); i++) {
-            history.push_back(hist.at(i));
-        }
-    }
+    void copyHistory(std::vector<Watchable *> hist);
+    void copyTags(std::map<std::string, int> toCopy);
     void copyAvailable(std::map<long, Watchable*>* toCopy);
-
     void loadAvailable(Session& s);
     std::map<long, Watchable*>* getAvailable();
-
+    std::map<std::string, int>* getSorted();
 
 protected:
     std::vector<Watchable*> history;
 private:
      std::string name;
      std::map<long, Watchable*> available;
+     std::map<std::string, int> sortedTags;
 
 };
 
@@ -73,6 +70,8 @@ public:
     GenreRecommenderUser(const std::string& name);
     virtual Watchable* getRecommendation(Session& s);
     virtual User* clone(std::string name_);
+    Watchable* findBestContent(std::string max,Session& s);
+
 private:
 };
 

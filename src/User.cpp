@@ -2,16 +2,23 @@
 // Created by shachafk@wincs.cs.bgu.ac.il on 19/11/2019.
 #include "../include/User.h"
 #include "../include/Session.h"
+#include <map>
+#include <vector>
 
 //Rule of 3/5 TBD
 
 
-User::User(const std::string &name):name(name),history() {}
+User::User(const std::string &name):name(name),history(),sortedTags() {}
 
-void User::loadAvailable(Session& s){ //load all content from content vector to map
+void User::loadAvailable(Session& s) { //load all content from content vector to map
     // Available map will hold all content that were never watched by the user
-    for (int i=1; i < s.getContent().size(); i++){
-        available.insert(std::make_pair(s.getContent().at(i)->getId(),s.getContent().at(i)));
+    for (int i = 1; i < s.getContent().size(); i++) {
+        available.insert(std::make_pair(s.getContent().at(i)->getId(), s.getContent().at(i)));
+        std::vector <std::string> tags=s.getContent().at(i)->getTag();//get tags vector from curr content
+        std::vector <std::string>::iterator it;
+        for (it=tags.begin(); it!=tags.end(); it++) { //add all tags to map
+            sortedTags.insert(std::make_pair((*it), 0));
+        }
     }
 }
 
@@ -29,7 +36,22 @@ void User::addToHistory(Watchable* toAdd){
 std::map<long, Watchable*>* User::getAvailable(){
     return &available;
 }
+std::map<std::string, int>* User::getSorted(){
+    return &sortedTags;
+}
 
+void User::copyHistory(std::vector<Watchable *> hist) {
+    for (int i = 0; i < hist.size(); i++) {
+        history.push_back(hist.at(i));
+    }
+}
+
+void User::copyTags(std::map<std::string, int> toCopy){
+    std::map<std::string,int>::iterator it;
+    for(it=toCopy.begin();it!=toCopy.end();it++){
+        sortedTags.insert((*it));
+    }
+}
 
 void User::copyAvailable(std::map<long, Watchable*>* toCopy) {
     std::map<long, Watchable *>::iterator it;
