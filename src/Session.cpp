@@ -23,6 +23,81 @@ Session::Session(const std::string &configFilePath):content(),actionsLog(),userM
     loadMapStringValues();
 }
 
+// Rule of 5
+
+Session &Session::operator=(const Session& s) { //copy assignment
+    //check for self assignment
+    if (this==&s){
+        return *this;
+    }
+    else {
+        clean();
+        this->copy(s); // ?? TBD
+        return *this; // ??
+    }
+}
+
+Session::~Session(){ //destructor
+  clean();
+};
+
+Session::Session(const Session &other) { //copy constructor
+    loadMapStringValues();
+    content.push_back(nullptr); //place 0
+    for (int i=1;(unsigned)i<other.content.size();i++){ //copy content vector
+        content.push_back(other.content.at(i)->clone());
+    }
+    for (int i=0;(unsigned)i<other.actionsLog.size();i++){ //copy actionsLog vector
+        actionsLog.push_back(other.actionsLog.at(i)->clone());
+    }
+    for (int i=0;(unsigned)i<other.inputVector.size();i++){ //copy inputVector vector
+        inputVector.push_back(other.inputVector.at(i));
+    }
+    activeUser = other.activeUser->clone(); // copy activeuser
+
+    for ( auto it = other.userMap.begin(); it != other.userMap.end() ;it++){ //copy userMap
+        userMap.insert(std::make_pair((*it).first,(*it).second->clone()));
+    }
+
+}
+
+    void Session::copy(const Session& s) {
+    content.push_back(nullptr);
+    for (int i=1;(unsigned)i<s.content.size();i++){ //copy content vector
+        content.push_back(s.content.at(i)->clone());
+    }
+
+    for (int i=0;(unsigned)i<s.actionsLog.size();i++){ //copy actionsLog vector
+        actionsLog.push_back(s.actionsLog.at(i)->clone());
+    }
+    for (int i=0;(unsigned)i<s.inputVector.size();i++){ //copy inputVector vector
+    inputVector.push_back(s.inputVector.at(i));
+    }
+    activeUser = s.activeUser->clone(); // copy activeuser
+    for ( auto it = s.userMap.begin(); it != s.userMap.end() ;it++){ //copy userMap
+    userMap.insert(std::make_pair((*it).first,(*it).second->clone()));
+    }
+    s_mapStringValues = s.s_mapStringValues;
+}
+
+
+
+void Session::clean(){
+    for (int i=0; (unsigned)i< content.size(); i++) { //delete all movie and episode from content vector
+        if (content[i] != nullptr)
+            delete (content[i]);
+    }
+    for (int i=0;(unsigned) i< actionsLog.size();i++){ //delete all logs from actionlog
+        if (actionsLog[i] != nullptr)
+            delete (actionsLog[i]);
+    }
+    for (auto it = userMap.begin();it!=userMap.end();it++ ){ //delete all users from usermap
+        delete(it->second);
+    }
+    inputVector.clear();
+    activeUser= nullptr;
+    s_mapStringValues.clear();
+}
 
     void Session::loadMapStringValues(){
         s_mapStringValues.insert(std::make_pair("defaultcase", StringValue::defaultcase));
@@ -38,19 +113,6 @@ Session::Session(const std::string &configFilePath):content(),actionsLog(),userM
     }
 
 
-Session::~Session(){
-    for (int i=0; i< content.size(); i++) { //delete all movie and episode from content vector
-        if (content[i] != nullptr)
-            delete (content[i]);
-    }
-    for (int i=0; i< actionsLog.size();i++){ //delete all logs from actionlog
-        if (actionsLog[i] != nullptr)
-            delete (actionsLog[i]);
-    }
-    for (auto it = userMap.begin();it!=userMap.end();it++ ){ //delete all users from usermap
-        delete(it->second);
-    }
-};
 void Session::start() { //this method should initialize default user with alg len recommendation then wait for the user to enter an action to execute
     cout << "SPLFLIX is now on!" << endl;
         mainLoop();
@@ -82,6 +144,7 @@ std::vector<Watchable*> Session::getContent(){
 std::unordered_map<std::string,User*>* Session::getUsersMap(){
     return &userMap;
 }
+
 std::vector<BaseAction*> Session::getActionsLog(){
     return actionsLog;
 }
@@ -107,33 +170,32 @@ void Session::loadContents (const std::string &configFilePath) {
     long id_ = 1;
     content.push_back(nullptr); // place 0 will be empty
     // go over all movies and insert each movie to content vector
-            for (int i = 0; i < j["movies"].size(); i++,id_++) {
+            for (int i = 0; (unsigned)i < j["movies"].size(); i++,id_++) {
                 long id = id_;
                 const string name = j["movies"][i]["name"];
                 int len = j["movies"][i]["length"];
                 const std::vector<std::string> tags = j["movies"][i]["tags"];
-                Movie *m1 = new Movie(id, &name, len, tags);
+                Movie *m1 = new Movie(id, name, len, tags);
                 content.push_back(m1);
             }
     // go over all tv series and insert all episodes to content vector
-            for (int i = 0; i < j["tv_series"].size(); i++) {
+            for (int i = 0; (unsigned)i < j["tv_series"].size(); i++) {
                int len = j["tv_series"][i]["episode_length"];
                const std::vector<std::string> tags = j["tv_series"][i]["tags"];
                const string seriesName  = j["tv_series"][i]["name"];
                const std::vector<int> numOfEpisodes = j["tv_series"][i]["seasons"];
 
-              for ( int i1=0;i1< numOfEpisodes.size();i1++){ //for each seasons create all episodes
+              for ( int i1=0;(unsigned)i1< numOfEpisodes.size();i1++){ //for each seasons create all episodes
                   for (int i2=1; i2<= numOfEpisodes[i1]; i2++,id_++) { //i1 se , i2 ep
                       long id = id_;
                       int season = i1+1;
                       int episode = i2;
-                      int test =0;
-                      Episode *e1 = new Episode(id,&seriesName,len,season,episode,tags);
+                      Episode *e1 = new Episode(id,seriesName,len,season,episode,tags);
 
                       if (i2 < numOfEpisodes[i1]){
                           e1->setNextId(id+1); //there is next ep in the same se
                       }
-                      else if (i2== numOfEpisodes[i1] and i1 < numOfEpisodes.size()-1){
+                      else if (i2== numOfEpisodes[i1] and (unsigned) i1 < numOfEpisodes.size()-1){
                           e1->setNextId(id+1); //This is the last ep on the se but there is a new se
                       }
                       else {
@@ -145,6 +207,11 @@ void Session::loadContents (const std::string &configFilePath) {
             }
 
 
+}
+
+void Session::watchAgain(BaseAction* action){
+    actionsLog.push_back(action); //save record of the action
+    action->act(*this);
 }
 
 void Session::runAction(BaseAction* action){
@@ -184,9 +251,9 @@ void Session::route() {
         case exit: { //TBD
             std::cout << "Bye Bye see you later" << endl;
             Exit* ex = new Exit();
-            ex->act(*this);
             actionsLog.push_back(ex); //save record of the action
-            break;
+            ex->act(*this);
+            return;
         }
         case printActionsLog:{ //TBD
             std::cout<< "PrintActionsLog state"<< endl;

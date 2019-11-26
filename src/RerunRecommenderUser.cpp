@@ -16,6 +16,13 @@ User* RerunRecommenderUser::clone(std::string name_) {
     other->copyAvailable(getAvailable());
     other->copyTags(*getSorted());
     return other;
+RerunRecommenderUser::RerunRecommenderUser(const RerunRecommenderUser& other):User(other) { //copyconstructor
+    Lastid = other.Lastid;
+}
+
+
+User* RerunRecommenderUser::clone() const{
+    return new RerunRecommenderUser(*this);
 }
 Watchable* RerunRecommenderUser::getRecommendation(Session& s) {
     std::vector<Watchable *> hist = get_history();//get user's history vector

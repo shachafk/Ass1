@@ -7,7 +7,10 @@
 //Rule of 3/5 TBD
 
 
-BaseAction::BaseAction():status(ActionStatus::PENDING),errorMsg() {
+BaseAction::~BaseAction()= default; //destructor
+
+
+BaseAction::BaseAction():errorMsg(),status(ActionStatus::PENDING) {
     castEnumArray[0] = "PENDING";
     castEnumArray[1] = "COMPLETED";
     castEnumArray[2] = "Error";
@@ -17,6 +20,20 @@ BaseAction::BaseAction():status(ActionStatus::PENDING),errorMsg() {
     u_mapStringValues.insert(std::make_pair("rer", RecommendationType::rer));
 
 }
+
+BaseAction::BaseAction(const BaseAction& other){ //copy constructor
+    errorMsg = other.errorMsg;
+    status = other.status;
+    castEnumArray[0] = "PENDING";
+    castEnumArray[1] = "COMPLETED";
+    castEnumArray[2] = "Error";
+    u_mapStringValues.insert(std::make_pair("Default", RecommendationType::Default));
+    u_mapStringValues.insert(std::make_pair("len", RecommendationType::len));
+    u_mapStringValues.insert(std::make_pair("gen", RecommendationType::gen));
+    u_mapStringValues.insert(std::make_pair("rer", RecommendationType::rer));
+}
+
+
 ActionStatus BaseAction::getStatus() const { return  status; }
 
 void BaseAction::complete(){status=ActionStatus::COMPLETED;}

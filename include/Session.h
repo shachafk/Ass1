@@ -14,8 +14,6 @@
 class User;
 class Watchable;
 
-
-
 class Session{
     enum StringValue {defaultcase,
         changeActiveUser,
@@ -30,6 +28,10 @@ class Session{
 
 public:
     Session(const std::string &configFilePath);
+    Session(const Session &other); //copy constructor
+    Session &operator=(const Session& s); //copy assignment
+    void clean();
+    void copy(const Session& s) ;
     ~Session();
     void start();
     void loadContents (const std::string &configFilePath);
@@ -38,14 +40,16 @@ public:
     std::unordered_map<std::string,User*>* getUsersMap();
     std::vector<BaseAction*> getActionsLog();
     User* getActiveUser();
-    int spaceLocator(char ch);
     std::vector <std::string>* getInputVector();
+    //setters
+    void setActionInLog(BaseAction* act);
     void setActiveUser(User* user);
+    //
+    int spaceLocator(char ch);
     std::vector<Watchable *> myHistory();
     void runAction(BaseAction* action);
     void loadMapStringValues();
-    void setActionInLog(BaseAction* act);
-
+    void watchAgain(BaseAction *action);
 
 private:
     std::vector<Watchable*> content;
@@ -57,6 +61,7 @@ private:
     void route();
 
     void mainLoop();
+
 
 
 };

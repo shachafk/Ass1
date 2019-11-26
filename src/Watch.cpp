@@ -20,7 +20,7 @@ void Watch::act(Session& sess) {
         return;
     }
 
-    if ( id > 0 and id < sess.getContent().size()){ //check if the content exists
+    if ( id > 0 and (unsigned) id < sess.getContent().size()){ //check if the content exists
         play(sess.getContent().at(id),sess);
     }
     else {
@@ -54,10 +54,10 @@ void Watch::play(Watchable* watchable,Session& sess){
         if (word == "Y" or word == "y"){
             // need to create new action watch and to watch recommended
             sess.getInputVector()->at(1) = std::to_string(WatchNext->getId());
-            sess.runAction(new Watch());
+            sess.watchAgain(new Watch());
         }
         else if (word == "N" or word == "n") {
-
+            return;
         }
         else {
             std::cout <<"Invalid input"<< std::endl;
@@ -67,3 +67,4 @@ void Watch::play(Watchable* watchable,Session& sess){
 }
 
 
+BaseAction* Watch::clone() const{ return new Watch(*this);}

@@ -12,7 +12,7 @@
 void PrintContentList::act(Session &sess) {
     std::vector<Watchable *> content = sess.getContent();
 
-    for (int i = 1; i < content.size(); i++) {
+    for (int i = 1; (unsigned) i < content.size(); i++) {
         std::cout << content[i]->toString() << std::endl;
     }
     complete();
@@ -23,3 +23,5 @@ std::string PrintContentList::toString() const{
     std::string status = getEnumStringFromInt(this->getStatus());
     return "PrintContentList " + status;
 }
+
+BaseAction* PrintContentList::clone() const{ return new PrintContentList(*this);}
