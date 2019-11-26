@@ -10,6 +10,12 @@
 
 
 RerunRecommenderUser::RerunRecommenderUser(const std::string& name):User(name){ Lastid =-1;};
+User* RerunRecommenderUser::clone(std::string name_) {
+    RerunRecommenderUser *other=new RerunRecommenderUser(name_);
+    other->copyHistory(get_history());
+    other->copyAvailable(getAvailable());
+    other->copyTags(*getSorted());
+    return other;
 RerunRecommenderUser::RerunRecommenderUser(const RerunRecommenderUser& other):User(other) { //copyconstructor
     Lastid = other.Lastid;
 }
