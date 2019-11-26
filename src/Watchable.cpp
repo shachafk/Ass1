@@ -7,11 +7,11 @@
 
 //Rule of 3/5 TBD
 
-Watchable::Watchable(long id, int length, const std::vector<std::string>& tags):id(id),length(length),tags(tags){} //id should be the location in the content vector
+Watchable::Watchable(long id, int length, const std::vector<std::string>& tags):id(id),length(length),tags(tags),type(0){} //id should be the location in the content vector
 Watchable::Watchable(Watchable& Watchable) {copy(Watchable);}
-Watchable::~Watchable(){ // destructor
+Watchable::~Watchable() = default; // destructor
 
-}
+
 
 void Watchable::copy (Watchable& Watchable){
     id = Watchable.getId();
@@ -19,7 +19,6 @@ void Watchable::copy (Watchable& Watchable){
     tags = Watchable.getTag();
 }
 void clean(){};
-std::string Watchable::print(){toString();};
 
 
 

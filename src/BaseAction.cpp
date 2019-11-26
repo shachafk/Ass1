@@ -7,7 +7,10 @@
 //Rule of 3/5 TBD
 
 
-BaseAction::BaseAction():status(ActionStatus::PENDING),errorMsg() {
+BaseAction::~BaseAction()= default; //destructor
+
+
+BaseAction::BaseAction():errorMsg(),status(ActionStatus::PENDING) {
     castEnumArray[0] = "PENDING";
     castEnumArray[1] = "COMPLETED";
     castEnumArray[2] = "Error";

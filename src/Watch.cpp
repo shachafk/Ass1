@@ -19,7 +19,7 @@ void Watch::act(Session& sess) {
         return;
     }
 
-    if ( id > 0 and id < sess.getContent().size()){ //check if the content exists
+    if ( id > 0 and (unsigned) id < sess.getContent().size()){ //check if the content exists
         play(sess.getContent().at(id),sess);
     }
     else {

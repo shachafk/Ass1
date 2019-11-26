@@ -20,7 +20,7 @@ using namespace std;
 std::string Episode::toString() const{
         std::vector<std::string> tag = getTag(); //prepare the tag string
         std::string tagString = "[";
-        for (int i=0;i<tag.size();i++){
+        for (int i=0;(unsigned)i<tag.size();i++){
             if (i>0){
                 tagString = tagString + ",";
             }

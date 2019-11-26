@@ -6,11 +6,14 @@
 //Rule of 3/5 TBD
 
 
-User::User(const std::string &name):name(name),history() {}
+User::User(const std::string &name):history(),name(name) {}
+
+User::~User() = default;
+
 
 User::User(const User& other){//copy constructor
     name = other.name;
-    for (int i=0; i< other.history.size();i++){ //copy history
+    for (int i=0; (unsigned)i< other.history.size();i++){ //copy history
         history.push_back(other.history.at(i)->clone());
     }
     for (auto it = other.available.begin(); it != other.available.end(); it ++){ //copy available
@@ -20,12 +23,11 @@ User::User(const User& other){//copy constructor
 
 void User::loadAvailable(Session& s){ //load all content from content vector to map
     // Available map will hold all content that were never watched by the user
-    for (int i=1; i < s.getContent().size(); i++){
+    for (int i=1; (unsigned)i < s.getContent().size(); i++){
         available.insert(std::make_pair(s.getContent().at(i)->getId(),s.getContent().at(i)));
     }
 }
 
-Watchable* User::getRecommendation(Session& s) {};
 std::string User::getName() const{
     return name;
 }

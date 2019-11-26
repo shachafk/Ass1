@@ -24,7 +24,6 @@ public:
     void copy(Watchable &Watchable);
     void clean();
     virtual Watchable* clone() = 0;
-    std::string print();
     virtual int getType();
     void setType (int i);
 

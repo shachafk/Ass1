@@ -23,6 +23,7 @@ public:
     BaseAction();
     BaseAction(const BaseAction& other);
     virtual BaseAction* clone() const =0;
+    virtual ~BaseAction();
     ActionStatus getStatus() const;
     virtual void act(Session& sess)=0;
     virtual std::string toString() const=0;

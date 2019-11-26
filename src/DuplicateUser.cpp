@@ -21,7 +21,7 @@ void DuplicateUser::act(Session & sess) {
             std::unordered_map<std::string, User *>::const_iterator iter = sess.getUsersMap()->find(input->at(1));
             User *u = iter->second;
             std::string name = input->at(2);
-            sess.getUsersMap()->insert(std::make_pair(name, u->clone(name)));//inserts new user to map
+            sess.getUsersMap()->insert(std::make_pair(name, u->clone()));//inserts new user to map
             complete();
         }
     }
