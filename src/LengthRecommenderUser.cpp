@@ -14,11 +14,12 @@
 LengthRecommenderUser::LengthRecommenderUser(const std::string& name):User(name){
 };
 
+
 User* LengthRecommenderUser::clone(std::string name_) {
-    LengthRecommenderUser *other=new LengthRecommenderUser(name_);
-    other->copyHistory(get_history());
-    other->copyAvailable(getAvailable());
-    return other;
+   // LengthRecommenderUser *other=new LengthRecommenderUser(name_);
+   // other->copyHistory(get_history());
+   // other->copyAvailable(getAvailable());
+    return new LengthRecommenderUser(*this);
 }
 
 

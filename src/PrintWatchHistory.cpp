@@ -22,3 +22,5 @@ std::string PrintWatchHistory::toString() const{
     std::string status = getEnumStringFromInt(this->getStatus());
     return "PrintWatchHistory " + status;
 }
+
+BaseAction* PrintWatchHistory::clone() const{ return new PrintWatchHistory(*this);}

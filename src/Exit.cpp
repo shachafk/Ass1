@@ -16,3 +16,5 @@ std::string Exit::toString() const{
     std::string status = getEnumStringFromInt(this->getStatus());
     return "Exit " + status;
 }
+
+BaseAction* Exit::clone() const{ return new Exit(*this);}

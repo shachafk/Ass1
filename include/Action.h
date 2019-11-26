@@ -21,6 +21,8 @@ enum RecommendationType{Default,len,gen,rer};
 class BaseAction{
 public:
     BaseAction();
+    BaseAction(const BaseAction& other);
+    virtual BaseAction* clone() const =0;
     ActionStatus getStatus() const;
     virtual void act(Session& sess)=0;
     virtual std::string toString() const=0;
@@ -39,25 +41,28 @@ private:
     std::string castEnumArray[3];
     std::map<std::string, RecommendationType> u_mapStringValues;
 
-
 };
 
 class CreateUser  : public BaseAction {
 public:
     virtual void act(Session& sess);
     virtual std::string toString() const;
+    virtual BaseAction *clone() const;
 };
 
 class ChangeActiveUser : public BaseAction {
 public:
     virtual void act(Session& sess);
     virtual std::string toString() const;
+    virtual BaseAction *clone() const;
 };
 
 class DeleteUser : public BaseAction {
 public:
     virtual void act(Session & sess);
     virtual std::string toString() const;
+    virtual BaseAction *clone() const;
+
 };
 
 
@@ -65,18 +70,24 @@ class DuplicateUser : public BaseAction {
 public:
     virtual void act(Session & sess);
     virtual std::string toString() const;
+    virtual BaseAction *clone() const;
+
 };
 
 class PrintContentList : public BaseAction {
 public:
     virtual void act (Session& sess);
     virtual std::string toString() const;
+    virtual BaseAction *clone() const;
+
 };
 
 class PrintWatchHistory : public BaseAction {
 public:
     virtual void act (Session& sess);
     virtual std::string toString() const;
+    virtual BaseAction *clone() const;
+
 };
 
 
@@ -85,6 +96,8 @@ public:
     virtual void act(Session& sess);
     virtual std::string toString() const;
     void play(Watchable* watchable,Session& sess);
+    virtual BaseAction *clone() const;
+
 };
 
 
@@ -92,11 +105,15 @@ class PrintActionsLog : public BaseAction {
 public:
     virtual void act(Session& sess);
     virtual std::string toString() const;
+    virtual BaseAction *clone() const;
+
 };
 
 class Exit : public BaseAction { //exit command should only exit the main loop, all session data structure should remain
 public:
     virtual void act(Session& sess);
     virtual std::string toString() const;
+    virtual BaseAction *clone() const;
+
 };
 #endif

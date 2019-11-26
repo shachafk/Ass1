@@ -37,6 +37,7 @@ void Watch::play(Watchable* watchable,Session& sess){
     complete();
     sess.getActiveUser()->addToHistory(watchable); // add the watchable to user history
     sess.getActiveUser()->getAvailable()->erase(watchable->getId());
+
     Watchable* WatchNext = watchable->getNextWatchable(sess);
     if (WatchNext != nullptr) {
         std::cout << "We recommend watching  " + WatchNext->toString() + ",continue watching? [Y/N]" << std::endl;
@@ -48,10 +49,10 @@ void Watch::play(Watchable* watchable,Session& sess){
         if (word == "Y" or word == "y"){
             // need to create new action watch and to watch recommended
             sess.getInputVector()->at(1) = std::to_string(WatchNext->getId());
-            sess.runAction(new Watch());
+            sess.watchAgain(new Watch());
         }
         else if (word == "N" or word == "n") {
-
+            return;
         }
         else {
             std::cout <<"Invalid input"<< std::endl;
@@ -61,3 +62,4 @@ void Watch::play(Watchable* watchable,Session& sess){
 }
 
 
+BaseAction* Watch::clone() const{ return new Watch(*this);}

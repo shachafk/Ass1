@@ -19,6 +19,7 @@ class User{
 
 public:
     User(const std::string& name);
+    User(const User& other); //copy constructor
     virtual Watchable* getRecommendation(Session& s) = 0;
     std::string getName() const;
     std::vector<Watchable*> get_history() const;
@@ -59,6 +60,7 @@ private:
 class RerunRecommenderUser : public User {
 public:
     RerunRecommenderUser(const std::string& name);
+    RerunRecommenderUser(const RerunRecommenderUser& other); //copyconstructor
     virtual Watchable* getRecommendation(Session& s);
 
     virtual User* clone(std::string name_);

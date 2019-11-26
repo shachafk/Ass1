@@ -23,3 +23,5 @@ std::string PrintContentList::toString() const{
     std::string status = getEnumStringFromInt(this->getStatus());
     return "PrintContentList " + status;
 }
+
+BaseAction* PrintContentList::clone() const{ return new PrintContentList(*this);}

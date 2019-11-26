@@ -10,11 +10,16 @@
 
 
 RerunRecommenderUser::RerunRecommenderUser(const std::string& name):User(name){ Lastid =-1;};
+RerunRecommenderUser::RerunRecommenderUser(const RerunRecommenderUser& other):User(other) { //copyconstructor
+    Lastid = other.Lastid;
+}
+
+
 User* RerunRecommenderUser::clone(std::string name_) {
-    RerunRecommenderUser *other=new RerunRecommenderUser(name_);
-    other->copyHistory(get_history());
-    other->copyAvailable(getAvailable());
-    return other;
+   // RerunRecommenderUser *other=new RerunRecommenderUser(name_);
+   // other->copyHistory(get_history());
+   // other->copyAvailable(getAvailable());
+    return new RerunRecommenderUser(*this);
 }
 Watchable* RerunRecommenderUser::getRecommendation(Session& s) {
     std::vector<Watchable *> hist = get_history();//get user's history vector
