@@ -31,3 +31,4 @@ std::string PrintActionsLog::toString() const{
     return "PrintActionsLog " + status;
 }
 
+BaseAction* PrintActionsLog::clone() const{ return new PrintActionsLog(*this);}

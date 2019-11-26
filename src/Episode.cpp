@@ -9,14 +9,18 @@ using namespace std;
 //Rule of 3/5 TBD
 
 
-    Episode::Episode(long id, const std::string *seriesName, int length, int season, int episode , const std::vector<std::string>& tags) :Watchable(id,length,tags),seriesName(*seriesName),season(season),episode(episode){
+    Episode::Episode(long id, const std::string &seriesName, int length, int season, int episode , const std::vector<std::string>& tags) :Watchable(id,length,tags),seriesName(seriesName),season(season),episode(episode){
         // next episode id - to implement
         setType(2);
     }
-    std::string Episode::toString() const{
+
+    Watchable* Episode::clone(){ return new Episode(*this);}
+
+
+std::string Episode::toString() const{
         std::vector<std::string> tag = getTag(); //prepare the tag string
         std::string tagString = "[";
-        for (int i=0;i<tag.size();i++){
+        for (int i=0;(unsigned)i<tag.size();i++){
             if (i>0){
                 tagString = tagString + ",";
             }

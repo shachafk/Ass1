@@ -6,11 +6,10 @@
 //Rule of 3/5 TBD
 
 GenreRecommenderUser::GenreRecommenderUser(const std::string& name):User(name){};
-User* GenreRecommenderUser::clone(std::string name_) {
-    GenreRecommenderUser *other=new GenreRecommenderUser(name_);
-    other->copyHistory(get_history());
-    other->copyAvailable(getAvailable());
-    return other;
+
+User* GenreRecommenderUser::clone() const {
+
+    return new GenreRecommenderUser(*this);
 }
  Watchable* GenreRecommenderUser::getRecommendation(Session& s){return nullptr;}
 

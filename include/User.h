@@ -19,14 +19,16 @@ class User{
 
 public:
     User(const std::string& name);
+    User(const User& other); //copy constructor
+    virtual ~User();
     virtual Watchable* getRecommendation(Session& s) = 0;
     std::string getName() const;
     std::vector<Watchable*> get_history() const;
     void addToHistory(Watchable* toAdd);
-    virtual User* clone(std::string name_) = 0;
+    virtual User* clone() const = 0;
     std::string getName(){return name;}
     void copyHistory(std::vector<Watchable *> hist) {
-        for (int i = 0; i < hist.size(); i++) {
+        for (int i = 0; (unsigned)i < hist.size(); i++) {
             history.push_back(hist.at(i));
         }
     }
@@ -50,7 +52,7 @@ public:
     LengthRecommenderUser(const std::string& name);
     virtual Watchable* getRecommendation(Session& s);
 
-    virtual User* clone(std::string name_);
+    virtual User* clone() const ;
 
 private:
     int findAveragelength();
@@ -59,9 +61,10 @@ private:
 class RerunRecommenderUser : public User {
 public:
     RerunRecommenderUser(const std::string& name);
+    RerunRecommenderUser(const RerunRecommenderUser& other); //copyconstructor
     virtual Watchable* getRecommendation(Session& s);
 
-    virtual User* clone(std::string name_);
+    virtual User* clone() const;
 
 private:
     int Lastid;
@@ -72,7 +75,7 @@ class GenreRecommenderUser : public User {
 public:
     GenreRecommenderUser(const std::string& name);
     virtual Watchable* getRecommendation(Session& s);
-    virtual User* clone(std::string name_);
+    virtual User* clone() const ;
 private:
 };
 

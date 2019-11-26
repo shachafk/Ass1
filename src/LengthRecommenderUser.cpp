@@ -14,11 +14,9 @@
 LengthRecommenderUser::LengthRecommenderUser(const std::string& name):User(name){
 };
 
-User* LengthRecommenderUser::clone(std::string name_) {
-    LengthRecommenderUser *other=new LengthRecommenderUser(name_);
-    other->copyHistory(get_history());
-    other->copyAvailable(getAvailable());
-    return other;
+
+User* LengthRecommenderUser::clone() const {
+    return new LengthRecommenderUser(*this);
 }
 
 
@@ -26,7 +24,7 @@ User* LengthRecommenderUser::clone(std::string name_) {
     //calculates average length of history
     std::vector<Watchable *> hist = get_history();
     int sum=0;
-    for(int i=0;i<hist.size();i++){
+    for(int i=0;(unsigned)i<hist.size();i++){
         sum=sum+hist.at(i)->getLength();
     }
     return sum/hist.size();

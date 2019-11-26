@@ -11,7 +11,7 @@
 void PrintWatchHistory::act(Session &sess) {
     std::vector<Watchable *> myhistory = sess.getActiveUser()->get_history();
 
-    for (int i = 0; i < myhistory.size(); i++) {
+    for (int i = 0; (unsigned) i < myhistory.size(); i++) {
         std::cout << myhistory[i]->toString() << std::endl;
     }
     complete();
@@ -22,3 +22,5 @@ std::string PrintWatchHistory::toString() const{
     std::string status = getEnumStringFromInt(this->getStatus());
     return "PrintWatchHistory " + status;
 }
+
+BaseAction* PrintWatchHistory::clone() const{ return new PrintWatchHistory(*this);}
