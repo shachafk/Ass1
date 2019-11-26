@@ -38,6 +38,7 @@ User* LengthRecommenderUser::clone(std::string name_) {
 
 
  Watchable* LengthRecommenderUser::LengthRecommenderUser::getRecommendation(Session& s) {
+     s.getActiveUser();// Stam
      Watchable* toReturn = nullptr;
      int average = findAveragelength(); // get the average length from history
      std::map<long, Watchable*>::iterator it;
@@ -49,6 +50,7 @@ User* LengthRecommenderUser::clone(std::string name_) {
              toReturn = (*it).second;
          }
      }
+
 
      return toReturn;
  }

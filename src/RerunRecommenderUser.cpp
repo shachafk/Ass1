@@ -29,6 +29,7 @@ User* RerunRecommenderUser::clone() const{
 }
 Watchable* RerunRecommenderUser::getRecommendation(Session& s) {
     std::vector<Watchable *> hist = get_history();//get user's history vector
+    s.getActiveUser();// Stam
     if (hist.size()==0){ //in case no history
         return nullptr;
     }

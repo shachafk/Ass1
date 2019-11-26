@@ -39,7 +39,7 @@ void Watch::play(Watchable* watchable,Session& sess){
     sess.getActiveUser()->addToHistory(watchable); // add the watchable to user history
     sess.getActiveUser()->getAvailable()->erase(watchable->getId());
     std::vector<std::string> tags=watchable->getTag();//for each watched content get its tags
-    for(int i=0;i<tags.size();i++){
+    for(int i=0;(unsigned) i<tags.size();i++){
         (*sess.getActiveUser()->getSorted())[tags[i]]++;
     }
 
