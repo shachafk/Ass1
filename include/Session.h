@@ -30,7 +30,6 @@ public:
     Session(const std::string &configFilePath);
     Session(const Session &other); //copy constructor
     Session &operator=(const Session& s); //copy assignment
-    void clean();
     void copy(const Session& s) ;
     ~Session();
     void start();
@@ -59,6 +58,7 @@ private:
     std::vector<std::string> inputVector;
     std::map<std::string, StringValue> s_mapStringValues;
     void route();
+    void clean();
 
     void mainLoop();
 

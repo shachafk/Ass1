@@ -13,14 +13,14 @@
 
 LengthRecommenderUser::LengthRecommenderUser(const std::string& name):User(name){
 };
-
+/*
 User* LengthRecommenderUser::clone(std::string name_) {
     LengthRecommenderUser *other=new LengthRecommenderUser(name_);
     other->copyHistory(get_history());
     other->copyAvailable(getAvailable());
     other->copyTags(*getSorted());
     return other;
-
+*/
     User* LengthRecommenderUser::clone() const {
     return new LengthRecommenderUser(*this);
 }
@@ -38,6 +38,7 @@ User* LengthRecommenderUser::clone(std::string name_) {
 
 
  Watchable* LengthRecommenderUser::LengthRecommenderUser::getRecommendation(Session& s) {
+     s.getActiveUser();// Stam
      Watchable* toReturn = nullptr;
      int average = findAveragelength(); // get the average length from history
      std::map<long, Watchable*>::iterator it;
@@ -49,6 +50,7 @@ User* LengthRecommenderUser::clone(std::string name_) {
              toReturn = (*it).second;
          }
      }
+
 
      return toReturn;
  }

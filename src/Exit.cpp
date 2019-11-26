@@ -9,6 +9,7 @@
 
 
 void Exit::act(Session &sess) {
+    sess.getActiveUser();// Stam
     complete();
 }
 

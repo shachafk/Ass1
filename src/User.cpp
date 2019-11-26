@@ -8,9 +8,10 @@
 //Rule of 3/5 TBD
 
 
-User::User(const std::string &name):name(name),history(),sortedTags() {}
+User::User(const std::string &name):history(),name(name),sortedTags() {}
 
-User::~User() = default;
+User::~User()  = default;
+
 
 User::User(const User& other){//copy constructor
     name = other.name;
@@ -24,15 +25,16 @@ User::User(const User& other){//copy constructor
 
 void User::loadAvailable(Session& s) { //load all content from content vector to map
     // Available map will hold all content that were never watched by the user
-    for (int i = 1; i < s.getContent().size(); i++) {
+    for (int i = 1;  (unsigned) i < s.getContent().size(); i++) {
         available.insert(std::make_pair(s.getContent().at(i)->getId(), s.getContent().at(i)));
-        std::vector <std::string> tags=s.getContent().at(i)->getTag();//get tags vector from curr content
-        std::vector <std::string>::iterator it;
-        for (it=tags.begin(); it!=tags.end(); it++) { //add all tags to map
+        std::vector<std::string> tags = s.getContent().at(i)->getTag();//get tags vector from curr content
+        std::vector<std::string>::iterator it;
+        for (it = tags.begin(); it != tags.end(); it++) { //add all tags to map
             sortedTags.insert(std::make_pair((*it), 0));
         }
-    for (int i=1; (unsigned)i < s.getContent().size(); i++){
-        available.insert(std::make_pair(s.getContent().at(i)->getId(),s.getContent().at(i)));
+        for (int i = 1; (unsigned) i < s.getContent().size(); i++) {
+            available.insert(std::make_pair(s.getContent().at(i)->getId(), s.getContent().at(i)));
+        }
     }
 }
 
@@ -54,7 +56,7 @@ std::map<std::string, int>* User::getSorted(){
 }
 
 void User::copyHistory(std::vector<Watchable *> hist) {
-    for (int i = 0; i < hist.size(); i++) {
+    for (int i = 0; (unsigned) i < hist.size(); i++) {
         history.push_back(hist.at(i));
     }
 }
