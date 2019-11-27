@@ -48,10 +48,10 @@ void User::addToHistory(Watchable* toAdd){
     history.push_back(toAdd);
 }
 
-std::map<long, Watchable*>* User::getAvailable(){
+std::map<long, Watchable*>* User::getAvailable()  {
     return &available;
 }
-std::map<std::string, int>* User::getSorted(){
+std::map<std::string, int>* User::getSorted() {
     return &sortedTags;
 }
 

@@ -30,22 +30,24 @@ public:
     Session(const std::string &configFilePath);
     Session(const Session &other); //copy constructor
     Session &operator=(const Session& s); //copy assignment
+    Session(Session &&other);//move
+    Session& operator=(Session &&other);//move assignment
+    void cleanOther(Session &other);
     void copy(const Session& s) ;
     ~Session();
     void start();
     void loadContents (const std::string &configFilePath);
     //getters
-    std::vector<Watchable*> getContent();
-    std::unordered_map<std::string,User*>* getUsersMap();
-    std::vector<BaseAction*> getActionsLog();
-    User* getActiveUser();
-    std::vector <std::string>* getInputVector();
+    std::vector<Watchable*> getContent() const ;
+    std::unordered_map<std::string,User*>* getUsersMap()  ;
+    std::vector<BaseAction*> getActionsLog() const ;
+    User* getActiveUser() const ;
+    std::vector <std::string>* getInputVector()  ;
+    std::vector<Watchable *> myHistory() const;
     //setters
     void setActionInLog(BaseAction* act);
     void setActiveUser(User* user);
     //
-    int spaceLocator(char ch);
-    std::vector<Watchable *> myHistory();
     void runAction(BaseAction* action);
     void loadMapStringValues();
     void watchAgain(BaseAction *action);
@@ -59,7 +61,6 @@ private:
     std::map<std::string, StringValue> s_mapStringValues;
     void route();
     void clean();
-
     void mainLoop();
 
 

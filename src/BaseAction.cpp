@@ -50,7 +50,7 @@ std::string BaseAction::getEnumStringFromInt(int i) const { //this method return
     return castEnumArray[i];
 }
 
-std::string BaseAction::getError(){
+std::string BaseAction::getError() const{
     return getErrorMsg();
 }
 
