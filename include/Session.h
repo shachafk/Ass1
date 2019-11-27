@@ -30,6 +30,9 @@ public:
     Session(const std::string &configFilePath);
     Session(const Session &other); //copy constructor
     Session &operator=(const Session& s); //copy assignment
+    Session(Session &&other);//move
+    Session& operator=(Session &&other);//move assignment
+    void cleanOther(Session &other);
     void copy(const Session& s) ;
     ~Session();
     void start();
@@ -45,7 +48,6 @@ public:
     void setActionInLog(BaseAction* act);
     void setActiveUser(User* user);
     //
-    int spaceLocator(char ch);
     void runAction(BaseAction* action);
     void loadMapStringValues();
     void watchAgain(BaseAction *action);
