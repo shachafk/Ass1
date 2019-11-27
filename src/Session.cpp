@@ -32,8 +32,8 @@ Session &Session::operator=(const Session& s) { //copy assignment
     }
     else {
         clean();
-        this->copy(s); // ?? TBD
-        return *this; // ??
+        this->copy(s);
+        return *this;
     }
 }
 
@@ -59,6 +59,40 @@ Session::Session(const Session &other) { //copy constructor
         userMap.insert(std::make_pair((*it).first,(*it).second->clone()));
     }
     activeUser = userMap[temp];
+}
+
+Session::Session(Session &&other) { //move operator
+    loadMapStringValues();
+    cleanOther(other);
+}
+Session& Session::operator=(Session &&other) {//move assignment
+   if (this!=&other) { //if this is not other
+       this->clean();
+       if (activeUser) delete (activeUser);
+        cleanOther(other);
+   }
+    return *this;
+   }
+void Session::cleanOther(Session &other) {
+    loadMapStringValues();//needed?
+    content=other.content;
+    for (int i=1;(unsigned)i<other.content.size();i++){
+    other.content.at(i)= nullptr;
+    }
+    actionsLog=other.actionsLog;
+    for (int i=0;(unsigned)i<other.actionsLog.size();i++){
+    other.actionsLog.at(i)= nullptr;
+    }
+    inputVector=other.inputVector;
+    for (int i=0;(unsigned)i<other.inputVector.size();i++){
+    other.inputVector.at(i)= nullptr;
+    }
+    userMap=other.userMap;
+    for ( auto it = other.userMap.begin(); it != other.userMap.end() ;it++) {
+    (*it).second = nullptr;
+    }
+    activeUser=other.activeUser;
+    other.activeUser= nullptr;
 }
 
     void Session::copy(const Session& s) {
@@ -99,7 +133,6 @@ void Session::clean(){
     inputVector.clear();
     activeUser = nullptr;
     s_mapStringValues.clear();
-
 
 }
 
