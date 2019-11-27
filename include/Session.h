@@ -62,8 +62,7 @@ private:
     void route();
     void clean();
     void mainLoop();
-
-
+    void changeToNewPointer(User *u) const;
 
 };
 #endif

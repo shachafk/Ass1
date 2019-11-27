@@ -56,11 +56,27 @@ Session::Session(const Session &other) { //copy constructor
     std::string temp = other.activeUser->getName();
 
     for ( auto it = other.userMap.begin(); it != other.userMap.end() ;it++){ //copy userMap
-        userMap.insert(std::make_pair((*it).first,(*it).second->clone()));
+        User* temp = (*it).second->clone();
+        userMap.insert(std::make_pair((*it).first,temp));
+        changeToNewPointer(temp);
     }
+
     activeUser = userMap[temp];
 }
 
+void Session::changeToNewPointer(User* u) const {
+    for (int i=0; (unsigned) i< u->getHistory()->size(); i++){
+        Watchable* temp = u->getHistory()->at(i);
+        long id = temp->getId();
+        u->getHistory()->at(i) = content.at(id);
+    }
+    for (auto it=u->getAvailable()->begin(); it!= u->getAvailable()->end();it++){
+        Watchable* temp = (*it).second;
+        long id = temp->getId();
+        (*it).second = content.at(id);
+    }
+
+}
 Session::Session(Session &&other) { //move operator
     loadMapStringValues();
     cleanOther(other);

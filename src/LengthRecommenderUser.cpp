@@ -35,7 +35,7 @@ LengthRecommenderUser::LengthRecommenderUser(const std::string& name):User(name)
      Watchable* toReturn = nullptr;
      int average = findAveragelength(); // get the average length from history
      std::map<long, Watchable*>::iterator it;
-     int diff = average; 
+     int diff = INT8_MAX;
      for (it = getAvailable()->begin(); it != getAvailable()->end(); it++){ //go over all content in available and check who as the smallest diff from average
          int temp = abs((*it).second->getLength() - average);
          if ( temp < diff){
