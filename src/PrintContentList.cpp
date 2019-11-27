@@ -13,7 +13,7 @@ void PrintContentList::act(Session &sess) {
     std::vector<Watchable *> content = sess.getContent();
 
     for (int i = 1; (unsigned) i < content.size(); i++) {
-        std::cout << content[i]->toString() << std::endl;
+        std::cout << content[i]->printContent() << std::endl;
     }
     complete();
 }

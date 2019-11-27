@@ -13,7 +13,7 @@ using namespace std;
 //Rule of 3/5 TBD
 //Session constructor
 
-Session::Session(const std::string &configFilePath):content(),actionsLog(),userMap(),activeUser() {
+Session::Session(const std::string &configFilePath):content(),actionsLog(),userMap(),activeUser(),inputVector(),s_mapStringValues() {
     this->loadContents(configFilePath); //load all available contents from the json file to content vector
     const std::string &name = "default";
     LengthRecommenderUser *l = new LengthRecommenderUser(name);
@@ -41,7 +41,7 @@ Session::~Session(){ //destructor
   clean();
 };
 
-Session::Session(const Session &other) { //copy constructor
+Session::Session(const Session &other):content(),actionsLog(),userMap(),activeUser(),inputVector(),s_mapStringValues() { //copy constructor
     loadMapStringValues();
     content.push_back(nullptr); //place 0
     for (int i=1;(unsigned)i<other.content.size();i++){ //copy content vector
@@ -77,7 +77,7 @@ void Session::changeToNewPointer(User* u) const {
     }
 
 }
-Session::Session(Session &&other) { //move operator
+Session::Session(Session &&other):content(),actionsLog(),userMap(),activeUser(),inputVector(),s_mapStringValues() { //move operator
     loadMapStringValues();
     cleanOther(other);
 }

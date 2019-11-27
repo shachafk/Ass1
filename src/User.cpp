@@ -8,7 +8,7 @@
 //Rule of 3/5 TBD
 
 
-User::User(const std::string &name):history(),name(name),sortedTags() {}
+User::User(const std::string &name):history(),name(name),available(),sortedTags() {}
 
 User::~User() = default;
 User &User::operator=(const User& u) { //copy assignment
@@ -23,7 +23,7 @@ User &User::operator=(const User& u) { //copy assignment
 
 
 
-User::User(const User& other){//copy constructor
+User::User(const User& other):history(),name(other.name),available(),sortedTags() {//copy constructor
     name = other.name;
     for (int i=0; (unsigned)i< other.history.size();i++){ //copy history
         history.push_back(other.history.at(i));
