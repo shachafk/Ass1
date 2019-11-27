@@ -26,14 +26,15 @@ public:
     std::vector<Watchable*> get_history() const;
     void addToHistory(Watchable* toAdd);
     virtual User* clone() const = 0;
-    std::string getName(){return name;}
     void copyHistory(std::vector<Watchable *> hist);
     void copyTags(std::map<std::string, int> toCopy);
 
     void copyAvailable(std::map<long, Watchable*>* toCopy);
     void loadAvailable(Session& s);
-    std::map<long, Watchable*>* getAvailable();
-    std::map<std::string, int>* getSorted();
+    // getters
+    std::map<long, Watchable*>* getAvailable()  ;
+    std::map<std::string, int>* getSorted()  ;
+
 
 protected:
     std::vector<Watchable*> history;

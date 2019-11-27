@@ -18,14 +18,16 @@ public:
     virtual ~Watchable();
     virtual std::string toString() const = 0;
     virtual Watchable* getNextWatchable(Session& s) const = 0;
-    long getId() const;
-    int  getLength() const ;
-    const std::vector<std::string> & getTag() const;
     void copy(Watchable &Watchable);
     void clean();
     virtual Watchable* clone() = 0;
-    virtual int getType();
     void setType (int i);
+
+    //getters
+    long getId() const;
+    int  getLength() const ;
+    virtual int getType() const ;
+    const std::vector<std::string> & getTag() const;
 
 
 private:

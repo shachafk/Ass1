@@ -35,17 +35,17 @@ public:
     void start();
     void loadContents (const std::string &configFilePath);
     //getters
-    std::vector<Watchable*> getContent();
-    std::unordered_map<std::string,User*>* getUsersMap();
-    std::vector<BaseAction*> getActionsLog();
-    User* getActiveUser();
-    std::vector <std::string>* getInputVector();
+    std::vector<Watchable*> getContent() const ;
+    std::unordered_map<std::string,User*>* getUsersMap()  ;
+    std::vector<BaseAction*> getActionsLog() const ;
+    User* getActiveUser() const ;
+    std::vector <std::string>* getInputVector()  ;
+    std::vector<Watchable *> myHistory() const;
     //setters
     void setActionInLog(BaseAction* act);
     void setActiveUser(User* user);
     //
     int spaceLocator(char ch);
-    std::vector<Watchable *> myHistory();
     void runAction(BaseAction* action);
     void loadMapStringValues();
     void watchAgain(BaseAction *action);
