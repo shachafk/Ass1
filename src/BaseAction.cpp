@@ -10,7 +10,7 @@
 BaseAction::~BaseAction()= default; //destructor
 
 
-BaseAction::BaseAction():errorMsg(),status(ActionStatus::PENDING) {
+BaseAction::BaseAction():errorMsg(),status(ActionStatus::PENDING),castEnumArray(),u_mapStringValues() {
     castEnumArray[0] = "PENDING";
     castEnumArray[1] = "COMPLETED";
     castEnumArray[2] = "Error";
@@ -21,7 +21,7 @@ BaseAction::BaseAction():errorMsg(),status(ActionStatus::PENDING) {
 
 }
 
-BaseAction::BaseAction(const BaseAction& other): errorMsg(), status(){ //copy constructor
+BaseAction::BaseAction(const BaseAction& other):errorMsg(),status(ActionStatus::PENDING),castEnumArray(),u_mapStringValues(){ //copy constructor
     errorMsg = other.errorMsg;
     status = other.status;
     castEnumArray[0] = "PENDING";

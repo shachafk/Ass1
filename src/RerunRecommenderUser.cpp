@@ -9,10 +9,10 @@
 
 
 
-RerunRecommenderUser::RerunRecommenderUser(const std::string& name):User(name){ Lastid =-1;};
+RerunRecommenderUser::RerunRecommenderUser(const std::string& name):User(name),Lastid(-1){};
 
 
-RerunRecommenderUser::RerunRecommenderUser(const RerunRecommenderUser& other):User(other) { //copyconstructor
+RerunRecommenderUser::RerunRecommenderUser(const RerunRecommenderUser& other):User(other),Lastid() { //copyconstructor
     Lastid = other.Lastid;
 }
 
