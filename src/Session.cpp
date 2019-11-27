@@ -32,7 +32,7 @@ Session &Session::operator=(const Session& s) { //copy assignment
     }
     else {
         clean();
-        this->copy(s);
+        copy(s);
         return *this;
     }
 }
@@ -100,7 +100,7 @@ void Session::cleanOther(Session &other) {
     other.actionsLog.at(i)= nullptr;
     }
     inputVector=other.inputVector;
-    for (int i=0;(unsigned)i<other.inputVector.size();i++){
+    for (int i=1;(unsigned)i<other.inputVector.size();i++){
     other.inputVector.at(i)= nullptr;
     }
     userMap=other.userMap;
@@ -128,7 +128,6 @@ void Session::cleanOther(Session &other) {
     userMap.insert(std::make_pair((*it).first,(*it).second->clone()));
     }
     activeUser = userMap[temp];
-    s_mapStringValues = s.s_mapStringValues;
 }
 
 
@@ -148,7 +147,7 @@ void Session::clean(){
 
     inputVector.clear();
     activeUser = nullptr;
-    s_mapStringValues.clear();
+    //s_mapStringValues.clear();
 
 }
 

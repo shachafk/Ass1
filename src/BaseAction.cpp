@@ -21,7 +21,7 @@ BaseAction::BaseAction():errorMsg(),status(ActionStatus::PENDING) {
 
 }
 
-BaseAction::BaseAction(const BaseAction& other){ //copy constructor
+BaseAction::BaseAction(const BaseAction& other): errorMsg(), status(){ //copy constructor
     errorMsg = other.errorMsg;
     status = other.status;
     castEnumArray[0] = "PENDING";
