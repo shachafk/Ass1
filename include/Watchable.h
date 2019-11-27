@@ -22,6 +22,7 @@ public:
     void clean();
     virtual Watchable* clone() const = 0;
     void setType (int i);
+    virtual std::string printContent() = 0;
 
     //getters
     long getId() const;
@@ -46,6 +47,7 @@ public:
     virtual Watchable* getNextWatchable(Session& s) const;
     virtual std::string getName() const;
     virtual Watchable* clone() const;
+    virtual std::string printContent();
 private:
     std::string name;
 
@@ -66,6 +68,7 @@ public:
     void setNextId(long i);
     long getNextEpisodeId() const;
     virtual Watchable* clone() const;
+    virtual std::string printContent();
 private:
     std::string seriesName;
     int season;

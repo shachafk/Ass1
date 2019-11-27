@@ -19,20 +19,27 @@ Watchable* Movie::clone() const {
     return new Movie(*this);
 }
 
+ std::string Movie::printContent(){
+
+     std::vector<std::string> tag = getTag();
+     std::string tagString = "[";
+     for (int i=0;(unsigned)i<tag.size();i++){
+         if (i>0){
+             tagString = tagString + ",";
+         }
+         tagString = tagString + tag.at(i);
+     }
+     tagString = tagString + "]";
+     std::string toReturn;
+     toReturn = std::to_string(getId()) + ". " +  getName() + " " + std::to_string(getLength())+ " minutes " + tagString;
+     return toReturn;
+
+}
+
 
 std::string Movie::toString() const {
-    std::vector<std::string> tag = getTag();
-    std::string tagString = "[";
-    for (int i=0;(unsigned)i<tag.size();i++){
-        if (i>0){
-            tagString = tagString + ",";
-        }
-        tagString = tagString + tag.at(i);
-    }
-    tagString = tagString + "]";
-    std::string toReturn;
-    toReturn = std::to_string(getId()) + ". " +  getName() + " " + std::to_string(getLength())+ " minutes " + tagString;
-    return toReturn;
+
+    return name;
 }
 Movie::Watchable* Movie::getNextWatchable(Session& s)  const {
     return s.getActiveUser()->getRecommendation(s); //return by recommendation

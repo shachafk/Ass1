@@ -9,7 +9,7 @@ using namespace std;
 //Rule of 3/5 TBD
 
 
-    Episode::Episode(long id, const std::string &seriesName, int length, int season, int episode , const std::vector<std::string>& tags) :Watchable(id,length,tags),seriesName(seriesName),season(season),episode(episode){
+    Episode::Episode(long id, const std::string &seriesName, int length, int season, int episode , const std::vector<std::string>& tags) :Watchable(id,length,tags),seriesName(seriesName),season(season),episode(episode),nextEpisodeId(){
         setType(2);
     }
 
@@ -18,37 +18,62 @@ using namespace std;
 
 Watchable* Episode::clone() const { return new Episode(*this);}
 
+std::string Episode::printContent(){
+
+  std::vector<std::string> tag = getTag(); //prepare the tag string
+  std::string tagString = "[";
+  for (int i=0;(unsigned)i<tag.size();i++){
+      if (i>0){
+          tagString = tagString + ",";
+      }
+      tagString = tagString + tag.at(i);
+  }
+  tagString = tagString + "]";
+  std::string toReturn;
+  std::string SE; //season
+  if (getSeason()<10){
+      SE = "0" + std::to_string(getSeason());
+  }
+  else {
+      SE = std::to_string(getSeason());
+  }
+  std::string EP; //episode
+  if (getEpisode()<10){
+      EP = "0" + std::to_string(getEpisode());
+  }
+  else {
+      EP = std::to_string(getEpisode());
+  }
+  toReturn = std::to_string(getId()) + ". " +  getseriesName() + " S" + SE + "E" + EP + " " +
+          std::to_string(getLength())+ " minutes " + tagString;
+
+  return toReturn;
+
+
+
+    }
+
 
 std::string Episode::toString() const{
-        std::vector<std::string> tag = getTag(); //prepare the tag string
-        std::string tagString = "[";
-        for (int i=0;(unsigned)i<tag.size();i++){
-            if (i>0){
-                tagString = tagString + ",";
-            }
-            tagString = tagString + tag.at(i);
-        }
-        tagString = tagString + "]";
-        std::string toReturn;
-        std::string SE; //season
-        if (getSeason()<10){
-            SE = "0" + std::to_string(getSeason());
-        }
-        else {
-            SE = std::to_string(getSeason());
-        }
-        std::string EP; //episode
-        if (getEpisode()<10){
-            EP = "0" + std::to_string(getEpisode());
-        }
-        else {
-            EP = std::to_string(getEpisode());
-        }
-        toReturn = std::to_string(getId()) + ". " +  getseriesName() + " S" + SE + "E" + EP + " " +
-                std::to_string(getLength())+ " minutes " + tagString;
 
-        return toReturn;
+    std::string toReturn;
+    std::string SE; //season
+    if (getSeason()<10){
+        SE = "0" + std::to_string(getSeason());
     }
+    else {
+        SE = std::to_string(getSeason());
+    }
+    std::string EP; //episode
+    if (getEpisode()<10){
+        EP = "0" + std::to_string(getEpisode());
+    }
+    else {
+        EP = std::to_string(getEpisode());
+    }
+    toReturn =  getseriesName() + " S" + SE + "E" + EP;
+
+    return toReturn;    }
 
     Watchable* Episode::getNextWatchable(Session& s) const{
 

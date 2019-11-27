@@ -45,7 +45,7 @@ void Watch::play(Watchable* watchable,Session& sess){
 
     Watchable* WatchNext = watchable->getNextWatchable(sess);
     if (WatchNext != nullptr) {
-        std::cout << "We recommend watching  " + WatchNext->toString() + ",continue watching? [Y/N]" << std::endl;
+        std::cout << "We recommend watching " + WatchNext->toString() + ",continue watching? [Y/N]" << std::endl;
         std::string answer;
         getline(std::cin,answer);
         std::istringstream iss(answer);
