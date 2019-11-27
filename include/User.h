@@ -20,16 +20,14 @@ class User{
 public:
     User(const std::string& name);
     User(const User& other); //copy constructor
-    virtual ~User();
+    virtual ~User(); //destructor
+    User &operator=(const User& u); //copy assignment
     virtual Watchable* getRecommendation(Session& s) = 0;
     std::string getName() const;
     std::vector<Watchable*> get_history() const;
+    std::vector<Watchable*>* getHistory() ;
     void addToHistory(Watchable* toAdd);
     virtual User* clone() const = 0;
-    void copyHistory(std::vector<Watchable *> hist);
-    void copyTags(std::map<std::string, int> toCopy);
-
-    void copyAvailable(std::map<long, Watchable*>* toCopy);
     void loadAvailable(Session& s);
     // getters
     std::map<long, Watchable*>* getAvailable()  ;
@@ -43,6 +41,7 @@ private:
      std::map<long, Watchable*> available;
      std::map<std::string, int> sortedTags;
 
+    void copy(const User &user);
 };
 
 

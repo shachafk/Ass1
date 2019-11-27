@@ -10,11 +10,13 @@ using namespace std;
 
 
     Episode::Episode(long id, const std::string &seriesName, int length, int season, int episode , const std::vector<std::string>& tags) :Watchable(id,length,tags),seriesName(seriesName),season(season),episode(episode){
-        // next episode id - to implement
         setType(2);
     }
 
-    Watchable* Episode::clone(){ return new Episode(*this);}
+    Episode::Episode(const Episode& other):Watchable((Watchable &) other), seriesName(other.seriesName) , season(other.episode), episode(other.episode), nextEpisodeId(other.nextEpisodeId){} //copy constructor
+
+
+Watchable* Episode::clone() const { return new Episode(*this);}
 
 
 std::string Episode::toString() const{

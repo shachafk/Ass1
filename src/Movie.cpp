@@ -15,7 +15,9 @@ Movie::Movie(long id, const std::string &name, int length, const std::vector<std
 
 Movie::Movie(const Movie &Movie): Watchable((Watchable &) Movie), name(Movie.name) {}
 
-Watchable* Movie::clone(){ return new Movie(*this);}
+Watchable* Movie::clone() const {
+    return new Movie(*this);
+}
 
 
 std::string Movie::toString() const {

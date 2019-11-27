@@ -59,10 +59,8 @@ private:
     std::map<std::string, StringValue> s_mapStringValues;
     void route();
     void clean();
-
     void mainLoop();
-
-
+    void changeToNewPointer(User *u) const;
 
 };
 #endif
