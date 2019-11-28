@@ -29,28 +29,24 @@ class Session{
 public:
     Session(const std::string &configFilePath);
     Session(const Session &other); //copy constructor
-    Session &operator=(const Session& s); //copy assignment
+    Session& operator=(const Session& s); //copy assignment
     Session(Session &&other);//move
     Session& operator=(Session &&other);//move assignment
-    void cleanOther(Session &other);
+    void cleanOther(Session &other); //set all other pointers to null
     void copy(const Session& s) ;
     ~Session();
     void start();
-    void loadContents (const std::string &configFilePath);
+    void loadContents (const std::string &configFilePath);//loads watchable contents from json
     //getters
     std::vector<Watchable*> getContent() const ;
-    std::unordered_map<std::string,User*>* getUsersMap()  ;
+    std::unordered_map<std::string,User*>* getUsersMap();
     std::vector<BaseAction*> getActionsLog() const ;
     User* getActiveUser() const ;
     std::vector <std::string>* getInputVector()  ;
-    std::vector<Watchable *> myHistory() const;
-    //setters
-    void setActionInLog(BaseAction* act);
     void setActiveUser(User* user);
-    //
-    void runAction(BaseAction* action);
-    void loadMapStringValues();
-    void watchAgain(BaseAction *action);
+    void runAction(BaseAction* action);//this method calls act,update actionslog and returns to main loop.
+    void loadMapStringValues(); //this method cast action code for switch reserved word
+    void watchAgain(BaseAction *action);//this method calls the watch act again in case the user chooses yes after recommendation.
 
 private:
     std::vector<Watchable*> content;
@@ -59,10 +55,10 @@ private:
     User* activeUser;
     std::vector<std::string> inputVector;
     std::map<std::string, StringValue> s_mapStringValues;
-    void route();
+    void route();// this method refers each action commend to the right class to be activated
     void clean();
-    void mainLoop();
-    void changeToNewPointer(User *u) const;
+    void mainLoop();// when that function called we can get a new action request
+    void changeToNewPointer(User *u) const;//this method changes pointers of history to the matching content pointers by id in order to prevent
 
 };
 #endif

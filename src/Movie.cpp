@@ -6,11 +6,10 @@
 #include "../include/Session.h"
 #include "../include/User.h"
 
-//Rule of 3/5 TBD
 
 
 Movie::Movie(long id, const std::string &name, int length, const std::vector<std::string>& tags): Watchable(id, length, tags),name(name){
-    setType(1);
+
 }
 
 Movie::Movie(const Movie &Movie): Watchable((Watchable &) Movie), name(Movie.name) {}

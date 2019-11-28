@@ -13,7 +13,7 @@ void PrintActionsLog::act(Session &sess) {
             int i= all.size()-1;
             while (i>=0) {
                 if (all[i] != nullptr) {
-                    const std::string actionandstatus = (all[i])->toString(); //SIGSEGV (Segmentation fault) error - TBD
+                    const std::string actionandstatus = (all[i])->toString();
                     if ((all[i])->getStatus() != 2) { // completed or pending
                         std::cout << actionandstatus << std::endl;
                     } else {

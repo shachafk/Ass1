@@ -15,7 +15,7 @@ class Session;
 enum ActionStatus{
     PENDING, COMPLETED, ERROR
 };
-enum RecommendationType{Default,len,gen,rer};
+enum RecommendationType{Default,len,gen,rer}; //
 
 
 class BaseAction{
@@ -34,6 +34,7 @@ public:
 protected:
     void complete();
     void error(const std::string& errorMsg);
+    //getters
     std::string getErrorMsg() const;
     std::map<std::string, RecommendationType> getEnumMap();
 
@@ -41,7 +42,7 @@ protected:
 private:
     std::string errorMsg;
     ActionStatus status;
-    std::string castEnumArray[3];
+    std::string castEnumArray[3]; //cast int to the string of the status.
     std::map<std::string, RecommendationType> u_mapStringValues;
 
 };

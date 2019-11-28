@@ -6,14 +6,13 @@
 using namespace std;
 
 
-//Rule of 3/5 TBD
 
 
-    Episode::Episode(long id, const std::string &seriesName, int length, int season, int episode , const std::vector<std::string>& tags) :Watchable(id,length,tags),seriesName(seriesName),season(season),episode(episode),nextEpisodeId(){
-        setType(2);
-    }
 
-    Episode::Episode(const Episode& other):Watchable((Watchable &) other), seriesName(other.seriesName) , season(other.episode), episode(other.episode), nextEpisodeId(other.nextEpisodeId){} //copy constructor
+Episode::Episode(long id, const std::string &seriesName, int length, int season, int episode , const std::vector<std::string>& tags) :Watchable(id,length,tags),seriesName(seriesName),season(season),episode(episode),nextEpisodeId(){
+}
+
+Episode::Episode(const Episode& other):Watchable((Watchable &) other), seriesName(other.seriesName) , season(other.episode), episode(other.episode), nextEpisodeId(other.nextEpisodeId){} //copy constructor
 
 
 Watchable* Episode::clone() const { return new Episode(*this);}
@@ -44,14 +43,12 @@ std::string Episode::printContent(){
   else {
       EP = std::to_string(getEpisode());
   }
-  toReturn = std::to_string(getId()) + ". " +  getseriesName() + " S" + SE + "E" + EP + " " +
+  toReturn = std::to_string(getId()) + ". " +  getSeriesName() + " S" + SE + "E" + EP + " " +
           std::to_string(getLength())+ " minutes " + tagString;
 
   return toReturn;
 
-
-
-    }
+ }
 
 
 std::string Episode::toString() const{
@@ -71,7 +68,7 @@ std::string Episode::toString() const{
     else {
         EP = std::to_string(getEpisode());
     }
-    toReturn =  getseriesName() + " S" + SE + "E" + EP;
+    toReturn =  getSeriesName() + " S" + SE + "E" + EP;
 
     return toReturn;    }
 
@@ -83,9 +80,8 @@ std::string Episode::toString() const{
                 return s.getActiveUser()->getRecommendation(s); //by  recommendation
             }
     }
-//     std::string Episode::toString() const {return "";}
     //getters
-    std::string Episode::getseriesName() const {
+    std::string Episode::getSeriesName() const {
         return seriesName ;
     }
     int Episode:: getSeason() const{
@@ -99,7 +95,6 @@ std::string Episode::toString() const{
 long Episode::getNextEpisodeId() const {
         return nextEpisodeId;
     }
-
 
 //setters
     void Episode::setNextId(long i){

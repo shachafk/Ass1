@@ -10,7 +10,6 @@ using namespace std;
 #include "../include/Watchable.h"
 #include "../include/User.h"
 #include "../include/Action.h"
-//Rule of 3/5 TBD
 //Session constructor
 
 Session::Session(const std::string &configFilePath):content(),actionsLog(),userMap(),activeUser(),inputVector(),s_mapStringValues() {
@@ -25,7 +24,7 @@ Session::Session(const std::string &configFilePath):content(),actionsLog(),userM
 
 // Rule of 5
 
-Session &Session::operator=(const Session& s) { //copy assignment
+Session& Session::operator=(const Session& s) { //copy assignment
     //check for self assignment
     if (this==&s){
         return *this;
@@ -56,7 +55,7 @@ Session::Session(const Session &other):content(),actionsLog(),userMap(),activeUs
     std::string temp = other.activeUser->getName();
 
     for ( auto it = other.userMap.begin(); it != other.userMap.end() ;it++){ //copy userMap
-        User* temp = (*it).second->clone();
+        User* temp = (*it).second->clone();//cleanhistory?
         userMap.insert(std::make_pair((*it).first,temp));
         changeToNewPointer(temp);
     }
@@ -90,7 +89,7 @@ Session& Session::operator=(Session &&other) {//move assignment
     return *this;
    }
 void Session::cleanOther(Session &other) {
-    loadMapStringValues();//needed?
+    loadMapStringValues();
     content=other.content;
     for (int i=1;(unsigned)i<other.content.size();i++){
     other.content.at(i)= nullptr;
@@ -123,11 +122,12 @@ void Session::cleanOther(Session &other) {
     for (int i=0;(unsigned)i<s.inputVector.size();i++){ //copy inputVector vector
     inputVector.push_back(s.inputVector.at(i));
     }
-    std::string temp = s.activeUser->getName();
+    std::string tmp = s.activeUser->getName();
     for ( auto it = s.userMap.begin(); it != s.userMap.end() ;it++){ //copy userMap
-    userMap.insert(std::make_pair((*it).first,(*it).second->clone()));
+        User* temp = (*it).second->clone();
+        userMap.insert(std::make_pair((*it).first,temp));
     }
-    activeUser = userMap[temp];
+    activeUser = userMap[tmp];
 }
 
 
@@ -145,6 +145,8 @@ void Session::clean(){
         delete(it->second);
     }
 
+    this->content.clear();
+    this->userMap.clear();
     inputVector.clear();
     activeUser = nullptr;
     //s_mapStringValues.clear();
@@ -178,7 +180,7 @@ void Session::setActiveUser(User* user){
 void Session::mainLoop(){
     inputVector.clear(); //clear the vector so new input will be inserted
     std::string input;
-    getline(cin,input);
+    getline(cin,input);//scans request from user
     istringstream iss(input);
     string word;
     while(iss >> word) {
@@ -206,13 +208,6 @@ User* Session::getActiveUser() const{
     std::vector<std::string>* Session::getInputVector() {
     return &inputVector;
 }
-std::vector<Watchable*> Session::myHistory() const{
-    return activeUser->get_history();
-}
-void Session::setActionInLog(BaseAction* act){
-    actionsLog.push_back(act);
-}
-
 
 
 void Session::loadContents (const std::string &configFilePath) {
@@ -280,36 +275,36 @@ void Session::route() {
             std::cout << "Invalid action" << endl;
             mainLoop();
             break;
-        case createUser: { //TBD
+        case createUser: {
             runAction(new CreateUser());
             break;
         }
-        case deleteUser: {//TBD
+        case deleteUser: {
             runAction(new DeleteUser());
             break;
         }
-        case changeActiveUser: { //TBD
+        case changeActiveUser: {
             runAction(new ChangeActiveUser());
             break;
         }
-        case duplicateUser: //TBD
+        case duplicateUser:
             runAction(new DuplicateUser());
             break;
 
-        case exit: { //TBD
+        case exit: {
             Exit* ex = new Exit();
             actionsLog.push_back(ex); //save record of the action
             ex->act(*this);
             return;
         }
-        case printActionsLog:{ //TBD
+        case printActionsLog:{
             PrintActionsLog* pal = new PrintActionsLog();
             pal->act(*this);
             actionsLog.push_back(pal); //save record of the action
             mainLoop();
             break;
         }
-        case printContentList: { //TBD
+        case printContentList: {
             runAction(new PrintContentList());
             break;
         }
@@ -319,7 +314,7 @@ void Session::route() {
             break;
         }
 
-        case watch: { //TBD
+        case watch: {
             runAction(new Watch());
             break;
         }

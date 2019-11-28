@@ -5,8 +5,6 @@
 #include "../include/Session.h"
 
 
-//Rule of 3/5 TBD
-
 
 
 RerunRecommenderUser::RerunRecommenderUser(const std::string& name):User(name),Lastid(-1){};
@@ -22,7 +20,7 @@ User* RerunRecommenderUser::clone() const{
 }
 Watchable* RerunRecommenderUser::getRecommendation(Session& s) {
     std::vector<Watchable *> hist = get_history();//get user's history vector
-    s.getActiveUser();// Stam
+    s.getActiveUser();
     if (hist.size()==0){ //in case no history
         return nullptr;
     }

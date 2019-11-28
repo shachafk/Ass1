@@ -7,7 +7,7 @@
 #include <algorithm>
 
 
-//Rule of 3/5 TBD
+
 
 GenreRecommenderUser::GenreRecommenderUser(const std::string& name):User(name){};
 
@@ -17,7 +17,7 @@ GenreRecommenderUser::GenreRecommenderUser(const std::string& name):User(name){}
 }
  Watchable* GenreRecommenderUser::getRecommendation(Session& s){
      std::map<std::string, int>* map= s.getActiveUser()->getSorted();
-     if (map->size()==0){
+     if (map->size()==0){ //if no more tags to watch
          return nullptr;
      }
      int maxvalue=0;
@@ -30,7 +30,7 @@ GenreRecommenderUser::GenreRecommenderUser(const std::string& name):User(name){}
      return findBestContent(max,s);
 }
 
-Watchable* GenreRecommenderUser::findBestContent(std::string max,Session& s){
+Watchable* GenreRecommenderUser::findBestContent(std::string max,Session& s){//go over available and finds content with max tag
     std::map<long, Watchable*>* available=getAvailable();
     std::map<long, Watchable*>::iterator it;
     for(it=available->begin();it!=available->end();it++) {
@@ -38,8 +38,8 @@ Watchable* GenreRecommenderUser::findBestContent(std::string max,Session& s){
         if (std::count(option->getTag().begin(),option->getTag().end(),max) > 0)
             return option;
     }
-    getSorted()->erase(max);
-    return getRecommendation(s);
+    getSorted()->erase(max); //if no more availble content of that tag erase that tag
+    return getRecommendation(s);//go find next most popular tag
 }
 
 

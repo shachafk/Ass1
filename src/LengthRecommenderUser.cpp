@@ -8,7 +8,6 @@
 
 
 
-//Rule of 3/5 TBD
 
 
 LengthRecommenderUser::LengthRecommenderUser(const std::string& name):User(name){
@@ -31,7 +30,7 @@ LengthRecommenderUser::LengthRecommenderUser(const std::string& name):User(name)
 
 
  Watchable* LengthRecommenderUser::LengthRecommenderUser::getRecommendation(Session& s) {
-     s.getActiveUser();// Stam
+     s.getActiveUser();
      Watchable* toReturn = nullptr;
      int average = findAveragelength(); // get the average length from history
      std::map<long, Watchable*>::iterator it;

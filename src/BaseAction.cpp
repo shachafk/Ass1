@@ -4,7 +4,6 @@
 
 #include "../include/Action.h"
 
-//Rule of 3/5 TBD
 
 
 BaseAction::~BaseAction()= default; //destructor

@@ -23,25 +23,24 @@ public:
     virtual ~User(); //destructor
     User &operator=(const User& u); //copy assignment
     virtual Watchable* getRecommendation(Session& s) = 0;
-    std::string getName() const;
-    std::vector<Watchable*> get_history() const;
-    std::vector<Watchable*>* getHistory() ;
     void addToHistory(Watchable* toAdd);
     virtual User* clone() const = 0;
     void loadAvailable(Session& s);
     // getters
-    std::map<long, Watchable*>* getAvailable()  ;
-    std::map<std::string, int>* getSorted()  ;
+    std::string getName() const;
+    std::vector<Watchable*> get_history() const;
+    std::vector<Watchable*>* getHistory() ;
+    std::map<long, Watchable*>* getAvailable() ;
+    std::map<std::string, int>* getSorted() ;
 
 
 protected:
     std::vector<Watchable*> history;
 private:
      std::string name;
-     std::map<long, Watchable*> available;
-     std::map<std::string, int> sortedTags;
-
-    void copy(const User &user);
+     std::map<long, Watchable*> available; //containing only content yet to be watched
+     std::map<std::string, int> sortedTags; // containing all tags in content sorted by lex and number of appearances of that tag in the user's history
+     void copy(const User &user);
 };
 
 

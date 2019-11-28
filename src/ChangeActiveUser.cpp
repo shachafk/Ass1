@@ -13,7 +13,7 @@ BaseAction* ChangeActiveUser::clone() const { return new ChangeActiveUser(*this)
 
 void ChangeActiveUser::act(Session &sess) {
     std::vector<std::string> *input = sess.getInputVector();
-    if (input->size() < 2) {
+    if (input->size() < 2) {//validates input vector contains a name
         std::string errorMsg = "ChangeActiveUser Error: Invalid Input";
         error(errorMsg);//call error func who changes action status to ERROR
     } else {

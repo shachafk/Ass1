@@ -5,11 +5,9 @@
 #include <map>
 #include <vector>
 
-//Rule of 3/5 TBD
 
 
 User::User(const std::string &name):history(),name(name),available(),sortedTags() {}
-
 User::~User() = default;
 User &User::operator=(const User& u) { //copy assignment
     if (this==&u){
@@ -68,7 +66,7 @@ std::map<std::string, int>* User::getSorted() {
 }
 
 void User::copy(const User &user) {
-    history.clear();
+    history.clear(); //first clear the old stuff
     for (int i=0; (unsigned) i < user.history.size(); i++){
         history.at(i) = user.history.at(i);
     }

@@ -8,7 +8,7 @@
 
 
 void DeleteUser::act(Session &sess) {
-    if (sess.getInputVector()->size() < 2) {
+    if (sess.getInputVector()->size() < 2) { //validates input vector contains a name to delete
         std::string errorMsg = "DeleteUser Error: Invalid Input";
         error(errorMsg);//call error func who changes action status to ERROR
     } else {

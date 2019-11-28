@@ -7,21 +7,24 @@
 
 void DuplicateUser::act(Session & sess) {
     std::vector<std::string> *input = sess.getInputVector();
-    if (input->size() < 3) {
+    if (input->size() < 3) {//validates input vector contains two names
         std::string errorMsg = "DuplicateUser Error: Invalid Input";
         error(errorMsg);//call error func who changes action status to ERROR
-    } else {
+    }
+    else {
         if (sess.getUsersMap()->count(input->at(1)) == 0) {//if original user dosent exist
             std::string errorMsg = "DuplicateUser Error: This user doesn't exist";
             error(errorMsg);//call error func who changes action status to ERROR
-        } else if (sess.getUsersMap()->count(input->at(2)) > 0) {//if new username already exist
+        }
+        else if (sess.getUsersMap()->count(input->at(2)) > 0) {//if new username already exist in userMap
             std::string errorMsg = "DuplicateUser Error: new user name already exist";
             error(errorMsg);//call error func who changes action status to ERROR
-        } else {
+        }
+        else {
             std::unordered_map<std::string, User *>::const_iterator iter = sess.getUsersMap()->find(input->at(1));
-            User *u = iter->second;
+            User *u = iter->second;//gets info of the user to be duplicated
             std::string name = input->at(2);
-            sess.getUsersMap()->insert(std::make_pair(name, u->clone()));//inserts new user to map
+            sess.getUsersMap()->insert(std::make_pair(name, u->clone()));//inserts the new user to user map
             complete();
         }
     }

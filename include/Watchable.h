@@ -15,19 +15,17 @@ class Watchable{
 public:
     Watchable(long id, int length, const std::vector<std::string>& tags);
     Watchable(Watchable& Watchable); //copy constructor
-    virtual ~Watchable();
+    virtual ~Watchable(); //destructor
     virtual std::string toString() const = 0;
     virtual Watchable* getNextWatchable(Session& s) const = 0;
     void copy(Watchable &Watchable);
     void clean();
     virtual Watchable* clone() const = 0;
-    void setType (int i);
     virtual std::string printContent() = 0;
 
     //getters
     long getId() const;
     int  getLength() const ;
-    virtual int getType() const ;
     const std::vector<std::string> & getTag() const;
 
 
@@ -35,7 +33,6 @@ private:
     long id;
     int length;
     std::vector<std::string> tags;
-    int type; //Movie=1, Episode =2
 
 };
 
@@ -50,9 +47,6 @@ public:
     virtual std::string printContent();
 private:
     std::string name;
-
-    //std::string toString() const;
-
 };
 
 
@@ -62,7 +56,7 @@ public:
     Episode(const Episode& other); //copy constructor
     virtual std::string toString() const;
     virtual Watchable* getNextWatchable(Session& s) const;
-    std::string getseriesName() const;
+    std::string getSeriesName() const;
     int getSeason() const;
     int getEpisode() const;
     void setNextId(long i);
