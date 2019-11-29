@@ -32,6 +32,7 @@ public:
     // getters
     std::map<long, Watchable*>* getAvailable()  ;
     std::map<std::string, int>* getSorted()  ;
+    void setName(std::string s);
 
 
 protected:
