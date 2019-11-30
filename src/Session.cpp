@@ -137,18 +137,18 @@ void Session::clean(){
         if (content[i] != nullptr)
             delete (content[i]);
     }
+    content.clear();
     for (int i=0;(unsigned) i< actionsLog.size();i++){ //delete all logs from actionlog
         if (actionsLog[i] != nullptr)
             delete (actionsLog[i]);
     }
+    actionsLog.clear();
     for (auto it = userMap.begin();it!=userMap.end();it++ ){ //delete all users from usermap
         delete(it->second);
     }
-
+    userMap.clear();
     inputVector.clear();
     activeUser = nullptr;
-    userMap.clear();
-    content.clear();
     //s_mapStringValues.clear();
 
 }
