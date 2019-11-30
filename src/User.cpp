@@ -82,3 +82,8 @@ void User::copy(const User &user) {
     }
 }
 
+
+void User::setName(std::string s){
+    name=s;
+}
+
