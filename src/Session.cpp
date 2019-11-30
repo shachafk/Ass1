@@ -147,6 +147,8 @@ void Session::clean(){
 
     inputVector.clear();
     activeUser = nullptr;
+    userMap.clear();
+    content.clear();
     //s_mapStringValues.clear();
 
 }
